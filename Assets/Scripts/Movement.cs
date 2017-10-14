@@ -50,7 +50,7 @@ public class Movement : MonoBehaviour {
             v = Input.GetAxis("Vertical");
             inputArray[gameCtrl.step, 0] = h;
             inputArray[gameCtrl.step, 1] = v;
-            inputArray[gameCtrl.step, 2] = transform.rotation;
+            //inputArray[gameCtrl.step, 2] = transform.rotation;
             
         } else if (active == false && gameCtrl.gameState == "live")
         {
