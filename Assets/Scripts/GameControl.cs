@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour {
 
             case "end":
                 activeInst.GetComponent<Movement>().active = false;
-             
+                activeInst.GetComponent<Movement>().DestroyCamera();
                 
                 gameState = "start";
                 break;

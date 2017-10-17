@@ -16,7 +16,10 @@ public class Movement : MonoBehaviour {
     float h, v;
 
     int maxSteps;
-    float[,] inputArray = new float[1800, 4];
+    //float[,] inputArray = new float[1800, 4];
+    object[,] recordArray = new object[1800,4];
+
+
 
     // TO DO U NEED TO MAKE THE ARRAY AN ARRAY OF OBJECTS, SINCE EVERYTHING IS AN OBJECT WAOW
     // WHEN U ARE CALLING THE INFORMATION MAKE USRE U CAST THE DATA SO THAT THE THING TACN TDO ITS TING.
@@ -34,28 +37,31 @@ public class Movement : MonoBehaviour {
         {
             for (int ii = 0; ii < 4; ii++)
             {
-                inputArray[i, ii] = 0;
+                //inputArray[i, ii] = 0;
+                recordArray[i, ii] = null;
+                Debug.Log(recordArray[i, ii]);
             }
 
         }
     }
 	
+
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         if (active == true && gameCtrl.gameState == "live")
         {
             
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
-            inputArray[gameCtrl.step, 0] = h;
-            inputArray[gameCtrl.step, 1] = v;
-            inputArray[gameCtrl.step, 2] = transform.rotation;
+            recordArray[gameCtrl.step, 0] = transform.position;
+            recordArray[gameCtrl.step, 1] = transform.rotation;
+          
             
         } else if (active == false && gameCtrl.gameState == "live")
         {
-            h = inputArray[gameCtrl.step, 0];
-            v = inputArray[gameCtrl.step, 1];
+            transform.position = (Vector3)recordArray[gameCtrl.step, 0];
+            transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
 
         }
 		
@@ -78,8 +84,9 @@ public class Movement : MonoBehaviour {
 		moveDirection.x *= moveSpd;
 		moveDirection.z *= moveSpd;
 		moveDirection = transform.TransformDirection (moveDirection);
-		characterCtrlr.Move (moveDirection *  Time.deltaTime);
+		characterCtrlr.Move (moveDirection * Time.deltaTime);
 
+        // check if camera exists
 		SetCameraOffset ();
 
 
@@ -91,9 +98,10 @@ public class Movement : MonoBehaviour {
 	{	cam.transform.position = transform.position + camOffset;
 	}
 
-    void DestroyCamera()
+    public void DestroyCamera()
     {
         Transform cam = transform.GetChild(0);
-        Destroy(cam);
+        Debug.Log("Destroy Camera Called");
+        Destroy(cam.gameObject);
     }
 }
