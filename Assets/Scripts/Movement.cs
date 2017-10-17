@@ -54,16 +54,10 @@ public class Movement : MonoBehaviour {
             
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
-<<<<<<< HEAD
+
             recordArray[gameCtrl.step, 0] = transform.position;
             recordArray[gameCtrl.step, 1] = transform.rotation;
           
-=======
-            inputArray[gameCtrl.step, 0] = h;
-            inputArray[gameCtrl.step, 1] = v;
-            //inputArray[gameCtrl.step, 2] = transform.rotation;
->>>>>>> origin/master
-            
         } else if (active == false && gameCtrl.gameState == "live")
         {
             transform.position = (Vector3)recordArray[gameCtrl.step, 0];
