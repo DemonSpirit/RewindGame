@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour {
-    public int maxSteps = 1800;
+    public int maxSteps = 900;
     public int step = 0;
     public int layer = 0;
     public string gameState = "start";
-    public float[,] inputArray = new float[1800 , 4];
+    public float[,] inputArray = new float[900 , 4];
     public GameObject playerPrefab;
     public Vector3 spawnPos;
     public GameObject activeInst;

@@ -359,6 +359,9 @@ MonoBehaviour:
   cam: {fileID: 20905566886966118}
   active: 0
   gameCtrl: {fileID: 0}
+  bullet: {fileID: 1335834766640820, guid: a333270d77e569b418a7a45e0dda9623, type: 2}
+  fireRate: 0.5
+  nextFire: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -421,7 +424,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2

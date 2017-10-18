@@ -13,11 +13,14 @@ public class PlayerController : MonoBehaviour {
 	public Camera cam;
     public bool active = false;
     public GameControl gameCtrl;
+    public GameObject bullet;
     Transform camObj;
     float h, v;
+    public float fireRate = 0.5f;
+    public float nextFire = 0f;
 
     int maxSteps;
-    object[,] recordArray = new object[1800,4];
+    object[,] recordArray = new object[900,4];
 
 	// Use this for initialization
 	void Start () {
@@ -35,15 +38,6 @@ public class PlayerController : MonoBehaviour {
             recordArray[i, 1] = Quaternion.identity;
             recordArray[i, 2] = Quaternion.identity;
             recordArray[i, 3] = false;
-
-            /*
-            for (int ii = 0; ii < 4; ii++)
-            {
-                //inputArray[i, ii] = 0;
-                recordArray[i, ii] = null;
-                Debug.Log(recordArray[i, ii]);
-            }
-            */
 
         }
     }
@@ -69,9 +63,8 @@ public class PlayerController : MonoBehaviour {
             //check for fire button
             if (Input.GetButton("Fire1"))
             {
-                Debug.Log("Fire1 Pressed");
+                UseWeapon();
                 recordArray[gameCtrl.step, 3] = true;
-
             }
 
             // Check Gravity
@@ -106,6 +99,7 @@ public class PlayerController : MonoBehaviour {
             if ((bool)recordArray[gameCtrl.step,3] == true)
             {
                 Debug.Log("Playback Fire Called");
+                UseWeapon();
             }
 
         }
@@ -123,5 +117,15 @@ public class PlayerController : MonoBehaviour {
         Destroy(GetComponent<Aiming>());
         Destroy(camObj.GetComponent<AudioListener>());
         Destroy(camObj.GetComponent<Aiming>());
+    }
+
+    void UseWeapon()
+    {
+        if (Time.time >= nextFire)
+        {
+            Instantiate(bullet, camObj.position, camObj.rotation);
+            nextFire = Time.time + fireRate;
+            Debug.Log("Bullet Created");
+        }
     }
 }
