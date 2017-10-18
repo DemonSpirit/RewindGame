@@ -31,12 +31,19 @@ public class PlayerController : MonoBehaviour {
         //initialise array values.
         for (int i = 0; i < gameCtrl.maxSteps; i++)
         {
+            recordArray[i, 0] = Vector3.zero;
+            recordArray[i, 1] = Quaternion.identity;
+            recordArray[i, 2] = Quaternion.identity;
+            recordArray[i, 3] = false;
+
+            /*
             for (int ii = 0; ii < 4; ii++)
             {
                 //inputArray[i, ii] = 0;
                 recordArray[i, ii] = null;
                 Debug.Log(recordArray[i, ii]);
             }
+            */
 
         }
     }
@@ -58,6 +65,14 @@ public class PlayerController : MonoBehaviour {
             recordArray[gameCtrl.step, 2] = camObj.rotation;
             //Set Cam Dist
             SetCameraOffset();
+
+            //check for fire button
+            if (Input.GetButton("Fire1"))
+            {
+                Debug.Log("Fire1 Pressed");
+                recordArray[gameCtrl.step, 3] = true;
+
+            }
 
             // Check Gravity
             if (characterCtrlr.isGrounded == true)
@@ -86,6 +101,12 @@ public class PlayerController : MonoBehaviour {
             transform.position = (Vector3)recordArray[gameCtrl.step, 0];
             transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
             camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
+
+
+            if ((bool)recordArray[gameCtrl.step,3] == true)
+            {
+                Debug.Log("Playback Fire Called");
+            }
 
         }
 	}
