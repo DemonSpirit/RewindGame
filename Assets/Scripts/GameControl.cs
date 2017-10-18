@@ -23,7 +23,7 @@ public class GameControl : MonoBehaviour {
         {
             case "start":
                 activeInst = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
-                activeInst.GetComponent<Movement>().active = true;
+                activeInst.GetComponent<PlayerController>().active = true;
                 step = 0;
                 layer++;
                 gameState = "live";
@@ -38,8 +38,8 @@ public class GameControl : MonoBehaviour {
                 break;
 
             case "end":
-                activeInst.GetComponent<Movement>().active = false;
-                activeInst.GetComponent<Movement>().DestroyComponentsAtLayerEnd();
+                activeInst.GetComponent<PlayerController>().active = false;
+                activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                 
                 gameState = "start";
                 break;
