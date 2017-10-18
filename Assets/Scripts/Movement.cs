@@ -13,20 +13,16 @@ public class Movement : MonoBehaviour {
 	public Camera cam;
     public bool active = false;
     public GameControl gameCtrl;
+    Transform camObj;
     float h, v;
 
     int maxSteps;
-    //float[,] inputArray = new float[1800, 4];
     object[,] recordArray = new object[1800,4];
-
-
-
-    // TO DO U NEED TO MAKE THE ARRAY AN ARRAY OF OBJECTS, SINCE EVERYTHING IS AN OBJECT WAOW
-    // WHEN U ARE CALLING THE INFORMATION MAKE USRE U CAST THE DATA SO THAT THE THING TACN TDO ITS TING.
 
 	// Use this for initialization
 	void Start () {
 		characterCtrlr = GetComponent<CharacterController> ();
+        camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
         GameObject gamecontrollerObj = GameObject.Find("GameController");
@@ -51,57 +47,60 @@ public class Movement : MonoBehaviour {
 
         if (active == true && gameCtrl.gameState == "live")
         {
-            
+            // Get Input
             h = Input.GetAxis("Horizontal");
             v = Input.GetAxis("Vertical");
 
+            // Record pos and rot
             recordArray[gameCtrl.step, 0] = transform.position;
             recordArray[gameCtrl.step, 1] = transform.rotation;
-          
+            // record camera rot
+            recordArray[gameCtrl.step, 2] = camObj.rotation;
+            //Set Cam Dist
+            SetCameraOffset();
+
+            // Check Gravity
+            if (characterCtrlr.isGrounded == true)
+            {
+                moveDirection = new Vector3(h, 0, v);
+                if (Input.GetButton("Jump"))
+                {
+                    moveDirection.y = jumpSpd;
+                }
+            }
+            else
+            {
+                moveDirection.x = h;
+                moveDirection.z = v;
+                moveDirection.y -= gravity * Time.deltaTime;
+            }
+
+            //  Apply movement
+            moveDirection.x *= moveSpd;
+            moveDirection.z *= moveSpd;
+            moveDirection = transform.TransformDirection(moveDirection);
+            characterCtrlr.Move(moveDirection * Time.deltaTime);
+
         } else if (active == false && gameCtrl.gameState == "live")
         {
             transform.position = (Vector3)recordArray[gameCtrl.step, 0];
             transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
+            camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
 
         }
-		
-
-		//call fmod event : footstep.event
-
-		if (characterCtrlr.isGrounded == true) 
-		{	
-			moveDirection = new Vector3 (h, 0, v);
-			if (Input.GetButton ("Jump")) 
-			{
-				moveDirection.y = jumpSpd;
-			}
-		} else
-		{	moveDirection.x = h;
-			moveDirection.z = v;
-			moveDirection.y -= gravity*Time.deltaTime;
-		}
-			
-		moveDirection.x *= moveSpd;
-		moveDirection.z *= moveSpd;
-		moveDirection = transform.TransformDirection (moveDirection);
-		characterCtrlr.Move (moveDirection * Time.deltaTime);
-
-        // check if camera exists
-		SetCameraOffset ();
-
-
-
-
 	}
 
 	void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;
 	}
 
-    public void DestroyCamera()
+    public void DestroyComponentsAtLayerEnd()
     {
-        Transform cam = transform.GetChild(0);
-        Debug.Log("Destroy Camera Called");
-        Destroy(cam.gameObject);
+        Debug.Log("Destroy components Called");
+
+        camObj.GetComponent<Camera>().enabled = false;
+        Destroy(GetComponent<Aiming>());
+        Destroy(camObj.GetComponent<AudioListener>());
+        Destroy(camObj.GetComponent<Aiming>());
     }
 }

@@ -31,7 +31,7 @@ public class GameControl : MonoBehaviour {
                 break;
             case "live":
                 step++;
-                if (step >= 1800) gameState = "end";
+                if (step >= maxSteps) gameState = "end";
                 break;
 
             case "playback":
@@ -39,7 +39,7 @@ public class GameControl : MonoBehaviour {
 
             case "end":
                 activeInst.GetComponent<Movement>().active = false;
-                activeInst.GetComponent<Movement>().DestroyCamera();
+                activeInst.GetComponent<Movement>().DestroyComponentsAtLayerEnd();
                 
                 gameState = "start";
                 break;
