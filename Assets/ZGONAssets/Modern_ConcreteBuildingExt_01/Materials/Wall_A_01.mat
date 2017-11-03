@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Wall_A_01
+  m_Shader: {fileID: 4800000, guid: 2e3939409bcc09b4a8dd75f995d73a00, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BodyBumpTex:
+        m_Texture: {fileID: 2800000, guid: 059293e71829e14418e15f8eb4e87a15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BodyOcclusionTex:
+        m_Texture: {fileID: 2800000, guid: 3c31572328406464d91f2a12236b13a6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpDetailTex:
+        m_Texture: {fileID: 2800000, guid: 0ee54bfb117e190429f16c86efc6724a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: dd243bc6a69423d43a7d11b793882fe3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpTrimTex:
+        m_Texture: {fileID: 2800000, guid: 3027382d425264247ab0cdb02e5b3414, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DiffuseTrimTex:
+        m_Texture: {fileID: 2800000, guid: 8b9c6572e515d9c41a7f5145dfeff254, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b0a0186890be9b647bd1a3623cbd86a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _AtlasOffsetX: 0.25
+    - _AtlasOffsetY: 0.5
+    - _AtlasScaleX: 0.25
+    - _AtlasScaleY: 0.25
+    - _BodyBumpPower: 3.0192308
+    - _BodyOcclusionPower: 1
+    - _BumpDetailPower: 0.92307687
+    - _BumpPower: 1.1538461
+    - _DetailTexEnable: 0.9807692
+    - _DetailTexOffset: 0.9423078
+    - _DetailTexPower: 1.9807693
+    - _DetailTexScale: 10
+    - _Shininess: 0.012692308
+    - _TrimShininess: 0.113125004
+    m_Colors:
+    - _BodyOcclusionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 0.8134328, g: 0.8006977, b: 0.7223769, a: 1}
+    - _DetailTexColor: {r: 0.6268657, g: 0.6268657, b: 0.6268657, a: 1}
+    - _MainSpecColor: {r: 0.13432837, g: 0.13432837, b: 0.13432837, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TrimColor: {r: 0.71107155, g: 0.8201182, b: 0.8358209, a: 1}
+    - _TrimSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _VertexMaskColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1002 &2100001
+EditorExtensionImpl:
+  serializedVersion: 6
