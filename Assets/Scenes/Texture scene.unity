@@ -2486,52 +2486,40 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.89
+      value: 32.28
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.22
+      value: -5.14
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 19.23
+      value: -28.2
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+    - target: {fileID: 4868382357987236, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20.02628
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20.026302
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20.026302
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dcbfd8e45a1d1c44b90e6c0d822e7d2c, type: 3}
+  m_ParentPrefab: {fileID: 100100000, guid: ca28cef31bb33bc4f941e3e3d238cdbd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &639347553
 GameObject:
@@ -5348,8 +5336,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1178346068}
-  m_LocalRotation: {x: -0.03518527, y: -0.9621396, z: 0.15101549, w: -0.22415118}
-  m_LocalPosition: {x: 31.99393, y: -17.206924, z: 26.213467}
+  m_LocalRotation: {x: -0.035888784, y: 0.8387639, z: 0.055703647, w: 0.5404482}
+  m_LocalPosition: {x: 5.9410477, y: -24.983273, z: -14.4146805}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8604,8 +8592,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1815632073}
-  m_LocalRotation: {x: -0.13247861, y: 0.518764, z: 0.08175834, w: 0.8406241}
-  m_LocalPosition: {x: 28.116198, y: -22.87735, z: -3.5441175}
+  m_LocalRotation: {x: -0.035888784, y: 0.8387639, z: 0.055703647, w: 0.5404482}
+  m_LocalPosition: {x: 9.015753, y: -19.984692, z: -24.575546}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 957297939}
