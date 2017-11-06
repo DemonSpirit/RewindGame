@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public CharacterController characterCtrlr;
+
+    public int maxHealth = 100;
+    public int health;
+    public bool alive = true;
+
 	public float moveSpd;
 	public Vector3 moveDirection = Vector3.zero;
 	public float jumpSpd = 16f;
@@ -14,6 +19,10 @@ public class PlayerController : MonoBehaviour {
     public bool active = false;
     public GameControl gameCtrl;
     public GameObject bullet;
+
+    public Renderer rend;
+    public Color AliveColor, DeadColor;
+
     Transform camObj;
     float h, v;
     public float fireRate = 0.5f;
@@ -28,8 +37,16 @@ public class PlayerController : MonoBehaviour {
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
+        health = maxHealth;
+
         GameObject gamecontrollerObj = GameObject.Find("GameController");
         gameCtrl = gamecontrollerObj.GetComponent<GameControl>();
+
+        // Setting Alive State opacity fade
+        rend = GetComponent<Renderer>();
+        AliveColor = rend.material.GetColor("_Color");
+        DeadColor = AliveColor;
+        DeadColor.a = 0.2f;
 
         //initialise array values.
         for (int i = 0; i < gameCtrl.maxSteps; i++)
@@ -46,63 +63,84 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        if (active == true && gameCtrl.gameState == "live")
+        switch (gameCtrl.gameState)
         {
-            // Get Input
-            h = Input.GetAxis("Horizontal");
-            v = Input.GetAxis("Vertical");
-
-            // Record pos and rot
-            recordArray[gameCtrl.step, 0] = transform.position;
-            recordArray[gameCtrl.step, 1] = transform.rotation;
-            // record camera rot
-            recordArray[gameCtrl.step, 2] = camObj.rotation;
-            //Set Cam Dist
-            SetCameraOffset();
-
-            //check for fire button
-            if (Input.GetButton("Fire1"))
-            {
-                UseWeapon();
-                recordArray[gameCtrl.step, 3] = true;
-            }
-
-            // Check Gravity
-            if (characterCtrlr.isGrounded == true)
-            {
-                moveDirection = new Vector3(h, 0, v);
-                if (Input.GetButton("Jump"))
+            case "start":
+                health = maxHealth;
+                alive = true;
+                break;
+            case "live":
+                // check health state
+                HealthCheck();
+                if (alive == true)
                 {
-                    moveDirection.y = jumpSpd;
+                    rend.material.color = AliveColor;
+                } else
+                {
+                    rend.material.color = DeadColor;
                 }
-            }
-            else
-            {
-                moveDirection.x = h;
-                moveDirection.z = v;
-                moveDirection.y -= gravity * Time.deltaTime;
-            }
 
-            //  Apply movement
-            moveDirection.x *= moveSpd;
-            moveDirection.z *= moveSpd;
-            moveDirection = transform.TransformDirection(moveDirection);
-            characterCtrlr.Move(moveDirection * Time.deltaTime);
+                if (active == true)
+                {
+                    // Get Input
+                    h = Input.GetAxis("Horizontal");
+                    v = Input.GetAxis("Vertical");
 
-        } else if (active == false && gameCtrl.gameState == "live")
-        {
-            transform.position = (Vector3)recordArray[gameCtrl.step, 0];
-            transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
-            camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
+                    // Record pos and rot
+                    recordArray[gameCtrl.step, 0] = transform.position;
+                    recordArray[gameCtrl.step, 1] = transform.rotation;
+                    // record camera rot
+                    recordArray[gameCtrl.step, 2] = camObj.rotation;
+                    //Set Cam Dist
+                    SetCameraOffset();
+
+                    //check for fire button
+                    if (Input.GetButton("Fire1"))
+                    {
+                        UseWeapon();
+                        recordArray[gameCtrl.step, 3] = true;
+                    }
+
+                    // Check Gravity
+                    if (characterCtrlr.isGrounded == true)
+                    {
+                        moveDirection = new Vector3(h, 0, v);
+                        if (Input.GetButton("Jump"))
+                        {
+                            moveDirection.y = jumpSpd;
+                        }
+                    }
+                    else
+                    {
+                        moveDirection.x = h;
+                        moveDirection.z = v;
+                        moveDirection.y -= gravity * Time.deltaTime;
+                    }
+
+                    //  Apply movement
+                    moveDirection.x *= moveSpd;
+                    moveDirection.z *= moveSpd;
+                    moveDirection = transform.TransformDirection(moveDirection);
+                    characterCtrlr.Move(moveDirection * Time.deltaTime);
+
+                }
+                else
+                {
+                    transform.position = (Vector3)recordArray[gameCtrl.step, 0];
+                    transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
+                    camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
 
 
-            if ((bool)recordArray[gameCtrl.step,3] == true)
-            {
-                Debug.Log("Playback Fire Called");
-                UseWeapon();
-            }
+                    if ((bool)recordArray[gameCtrl.step, 3] == true)
+                    {
+                        Debug.Log("Playback Fire Called");
+                        UseWeapon();
+                    }
 
+                }
+            break;
         }
+            
 	}
 
 	void SetCameraOffset()
@@ -126,6 +164,17 @@ public class PlayerController : MonoBehaviour {
             Instantiate(bullet, camObj.position, camObj.rotation);
             nextFire = Time.time + fireRate;
             Debug.Log("Bullet Created");
+        }
+    }
+
+    void HealthCheck()
+    {
+        if (health <= 0)
+        {
+            alive = false;
+        } else
+        {
+            alive = true;
         }
     }
 }

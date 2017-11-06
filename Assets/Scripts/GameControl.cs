@@ -6,11 +6,13 @@ public class GameControl : MonoBehaviour {
     public int maxSteps = 900;
     public int step = 0;
     public int layer = 0;
+    public int time = 0;
     public string gameState = "start";
     public float[,] inputArray = new float[900 , 4];
     public GameObject playerPrefab;
     public Vector3 spawnPos;
     public GameObject activeInst;
+
 	// Use this for initialization
 	void Start () {
         gameState = "start";
@@ -31,6 +33,7 @@ public class GameControl : MonoBehaviour {
                 break;
             case "live":
                 step++;
+                time = (step / 60);
                 if (step >= maxSteps) gameState = "end";
                 break;
 

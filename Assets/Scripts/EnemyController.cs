@@ -9,6 +9,13 @@ public class EnemyController : MonoBehaviour {
     float turnSpeed = 0.1f;
     public Transform target;
     public GameControl gameControl;
+    public int dmg = 100;
+
+    public float fireRate = 1f;
+    public float nextFireTime = 0f;
+
+    public int maxHealth = 100;
+    public int health;
 
     Vector3 startPos;
     Quaternion startRot;
@@ -17,6 +24,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
         startPos = transform.position;
         startRot = transform.rotation;
+        health = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -42,24 +50,26 @@ public class EnemyController : MonoBehaviour {
                         RaycastHit hit;
                         if (Physics.Raycast(transform.position,dir,out hit, shootDist))
                         {
-                            Debug.Log(hit.transform.name);
-                            
                             // I do this because hit.transform will give me the cone collider not the parent collider.
-                            if (hit.transform == target)
+                            if (hit.transform == target && ((nextFireTime - Time.time) <= 0))
                             {
-                                //Target is in range
-                                Debug.Log("Target is in range");
-                                
+                                var targetController = target.gameObject.GetComponent<PlayerController>();
+                                if (targetController.alive == true)
+                                {
+                                    targetController.health -= dmg;
+                                    nextFireTime = Time.time + fireRate;
+                                    Debug.Log("Target Hit");
+                                    target = null;
+                                    state = "idle";                                    
+                                }
                             }
-
                         }
                         break;
                 }
                 break;
             case "end":
                 state = "idle";
-                target = null;
-                
+                target = null;               
                 break;
         }
         

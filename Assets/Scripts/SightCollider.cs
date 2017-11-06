@@ -11,7 +11,7 @@ public class SightCollider : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (owner.state == "idle")
+        if (owner.state == "idle" && other.GetComponent<PlayerController>().alive == true)
         {
             Debug.Log(other.name + " entered trigger!");
             owner.target = other.transform;
