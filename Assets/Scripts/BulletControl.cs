@@ -5,8 +5,9 @@ using UnityEngine;
 public class BulletControl : MonoBehaviour {
     public float spd = 3f;
     public int dmg = 10;
+    public int points = 10;
     public int team;
-    PlayerController ctrl;
+    //PlayerController ctrl;
     GameControl gameCtrl;
 
 	// Use this for initialization
@@ -23,16 +24,22 @@ public class BulletControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
-        if (other.tag == "Player")
-        { ctrl = other.GetComponent<PlayerController>();
-            if (ctrl.team != team)
-            {
-                ctrl.health -= dmg;
-                Destroy(gameObject);
-                Debug.Log("Bullet Destroyed");
+        switch (other.tag)
+        {
+            case "Player":
+                var ctrl = other.GetComponent<PlayerController>();
+                if (ctrl.team != team && ctrl.alive == true)
+                {
+                    ctrl.health -= dmg;
+                    if (team == 1) gameCtrl.team1points += points;
+                    if (team == 2) gameCtrl.team2points += points;
 
-            }
+                    Destroy(gameObject);
+
+                }
+                break;
+            default:
+                break;
         }
     }
 }

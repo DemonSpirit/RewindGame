@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour {
                                 {
                                     targetController.health -= dmg;
                                     nextFireTime = Time.time + fireRate;
-                                    Debug.Log("Target Hit");
+                                    
                                     target = null;
                                     state = "idle";                                    
                                 }

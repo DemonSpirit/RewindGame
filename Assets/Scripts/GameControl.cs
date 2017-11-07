@@ -14,6 +14,8 @@ public class GameControl : MonoBehaviour {
     public GameObject activeInst;
     int teamToSpawnFor = 1;
     public int amountOfTeams = 2;
+    public int team1points = 0;
+    public int team2points = 0;
 	// Use this for initialization
 	void Start () {
         gameState = "start";
@@ -27,6 +29,7 @@ public class GameControl : MonoBehaviour {
             case "start":
                 spawnPos = GameObject.Find("PlayerSpawn");
                 activeInst = Instantiate(playerPrefab, spawnPos.transform.position, Quaternion.identity);
+                
                 var instController = activeInst.GetComponent<PlayerController>();
                 instController.active = true;
 

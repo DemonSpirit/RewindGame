@@ -13,7 +13,7 @@ public class SightCollider : MonoBehaviour {
     {
         if (owner.state == "idle" && other.GetComponent<PlayerController>().alive == true)
         {
-            Debug.Log(other.name + " entered trigger!");
+            
             owner.target = other.transform;
             owner.state = "alert";
         }

@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour {
 
                     if ((bool)recordArray[gameCtrl.step, 3] == true)
                     {
-                        Debug.Log("Playback Fire Called");
+                        
                         UseWeapon();
                     }
 
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour {
 
     public void DestroyComponentsAtLayerEnd()
     {
-        Debug.Log("Destroy components Called");
+       
 
         camObj.GetComponent<Camera>().enabled = false;
         Destroy(GetComponent<Aiming>());
