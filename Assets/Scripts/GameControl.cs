@@ -10,9 +10,10 @@ public class GameControl : MonoBehaviour {
     public string gameState = "start";
     public float[,] inputArray = new float[900 , 4];
     public GameObject playerPrefab;
-    public Vector3 spawnPos;
+    public GameObject spawnPos;
     public GameObject activeInst;
-
+    int teamToSpawnFor = 1;
+    public int amountOfTeams = 2;
 	// Use this for initialization
 	void Start () {
         gameState = "start";
@@ -24,8 +25,15 @@ public class GameControl : MonoBehaviour {
         switch (gameState)
         {
             case "start":
-                activeInst = Instantiate(playerPrefab, spawnPos, Quaternion.identity);
-                activeInst.GetComponent<PlayerController>().active = true;
+                spawnPos = GameObject.Find("PlayerSpawn");
+                activeInst = Instantiate(playerPrefab, spawnPos.transform.position, Quaternion.identity);
+                var instController = activeInst.GetComponent<PlayerController>();
+                instController.active = true;
+
+                instController.team = teamToSpawnFor;
+                teamToSpawnFor++;
+                if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
+
                 step = 0;
                 layer++;
                 gameState = "live";

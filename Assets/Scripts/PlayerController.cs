@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public int maxHealth = 100;
     public int health;
     public bool alive = true;
+    public int team = 0;
 
 	public float moveSpd;
 	public Vector3 moveDirection = Vector3.zero;
@@ -21,7 +22,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject bullet;
 
     public Renderer rend;
-    public Color AliveColor, DeadColor;
+    public Color team1Color = Color.blue;
+    public Color team2Color = Color.red;
+    public Color aliveColor, deadColor;
 
     Transform camObj;
     float h, v;
@@ -44,9 +47,12 @@ public class PlayerController : MonoBehaviour {
 
         // Setting Alive State opacity fade
         rend = GetComponent<Renderer>();
-        AliveColor = rend.material.GetColor("_Color");
-        DeadColor = AliveColor;
-        DeadColor.a = 0.2f;
+        if (team == 1) aliveColor = team1Color;
+
+        if (team == 2) aliveColor = team2Color;
+
+        deadColor = aliveColor;
+        deadColor.a = 0.2f;
 
         //initialise array values.
         for (int i = 0; i < gameCtrl.maxSteps; i++)
@@ -74,10 +80,10 @@ public class PlayerController : MonoBehaviour {
                 HealthCheck();
                 if (alive == true)
                 {
-                    rend.material.color = AliveColor;
+                    rend.material.color = aliveColor;
                 } else
                 {
-                    rend.material.color = DeadColor;
+                    rend.material.color = deadColor;
                 }
 
                 if (active == true)
@@ -159,11 +165,11 @@ public class PlayerController : MonoBehaviour {
 
     void UseWeapon()
     {
-        if (Time.time >= nextFire)
+        if (Time.time >= nextFire && alive == true)
         {
-            Instantiate(bullet, camObj.position, camObj.rotation);
+            var inst = Instantiate(bullet, camObj.position+(camObj.forward*1.5f), camObj.rotation);
             nextFire = Time.time + fireRate;
-            Debug.Log("Bullet Created");
+            inst.GetComponent<BulletControl>().team = team;
         }
     }
 

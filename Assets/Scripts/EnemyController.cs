@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour {
                         if (Physics.Raycast(transform.position,dir,out hit, shootDist))
                         {
                             // I do this because hit.transform will give me the cone collider not the parent collider.
-                            if (hit.transform == target && ((nextFireTime - Time.time) <= 0))
+                            if (hit.transform == target && (Time.time >= nextFireTime))
                             {
                                 var targetController = target.gameObject.GetComponent<PlayerController>();
                                 if (targetController.alive == true)
