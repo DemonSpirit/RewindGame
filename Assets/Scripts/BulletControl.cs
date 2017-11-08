@@ -8,17 +8,21 @@ public class BulletControl : MonoBehaviour {
     public int points = 10;
     public int team;
     //PlayerController ctrl;
-    GameControl gameCtrl;
+    public GameControl gameCtrl;
 
 	// Use this for initialization
 	void Start () {
         gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
         Destroy(gameObject, 5f);
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void Update()
+    {
         if (gameCtrl.gameState == "start") Destroy(gameObject);
+    }
+    void FixedUpdate () {
+        
         transform.position += transform.forward * spd * Time.fixedDeltaTime;
 	}
 
@@ -28,11 +32,19 @@ public class BulletControl : MonoBehaviour {
         {
             case "Player":
                 var ctrl = other.GetComponent<PlayerController>();
+                var gmCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
                 if (ctrl.team != team && ctrl.alive == true)
                 {
                     ctrl.health -= dmg;
-                    if (team == 1) gameCtrl.team1points += points;
-                    if (team == 2) gameCtrl.team2points += points;
+                    if (team == 1)
+                    {
+                        gmCtrl.team1points += points;
+                    }
+
+                    if (team == 2)
+                    {
+                        gmCtrl.team2points += points;
+                    }
 
                     Destroy(gameObject);
 
