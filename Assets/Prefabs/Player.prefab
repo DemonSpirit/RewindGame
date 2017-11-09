@@ -352,9 +352,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterCtrlr: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 250
   health: 0
   alive: 1
+  team: 0
   moveSpd: 8
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
@@ -365,8 +366,10 @@ MonoBehaviour:
   gameCtrl: {fileID: 0}
   bullet: {fileID: 1335834766640820, guid: a333270d77e569b418a7a45e0dda9623, type: 2}
   rend: {fileID: 0}
-  AliveColor: {r: 0, g: 0, b: 0, a: 0}
-  DeadColor: {r: 0, g: 0, b: 0, a: 0}
+  team1Color: {r: 0, g: 0, b: 1, a: 1}
+  team2Color: {r: 1, g: 0, b: 0, a: 1}
+  aliveColor: {r: 0, g: 0, b: 0, a: 0}
+  deadColor: {r: 0, g: 0, b: 0, a: 0}
   fireRate: 0.1
   nextFire: 0
 --- !u!114 &114071827550442442

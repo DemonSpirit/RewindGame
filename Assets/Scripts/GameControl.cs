@@ -44,8 +44,11 @@ public class GameControl : MonoBehaviour {
 
                 step = 0;
                 layer++;
-                gameState = "live";
+                gameState = "pre-live";
                 
+                break;
+            case "pre-live":
+                gameState = "live";
                 break;
             case "live":
                 step++;
