@@ -5,7 +5,8 @@ using UnityEngine;
 public class SightCollider : MonoBehaviour {
 
     public EnemyController owner;
-    private void Awake()
+   
+    void Start()
     {
         owner = GetComponentInParent<EnemyController>();
     }
