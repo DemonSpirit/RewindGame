@@ -28,9 +28,11 @@ public class BulletControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        
         switch (other.tag)
-        {
+        {   
             case "Player":
+                
                 var ctrl = other.GetComponent<PlayerController>();
                 var gmCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
                 if (ctrl.team != team && ctrl.alive == true)
@@ -50,7 +52,18 @@ public class BulletControl : MonoBehaviour {
 
                 }
                 break;
-            default:
+            case "Scorezone":
+                
+
+                if (other.GetComponent<GoalZoneController>().team == 1 && team != 1)
+                {
+                    gameCtrl.team2points += points;
+                }
+                if (other.GetComponent<GoalZoneController>().team == 2 && team != 2)
+                {
+                    gameCtrl.team1points += points;
+                }
+                Destroy(gameObject);
                 break;
         }
     }

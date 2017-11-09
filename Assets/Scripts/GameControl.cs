@@ -6,6 +6,7 @@ public class GameControl : MonoBehaviour {
     public int maxSteps = 900;
     public int step = 0;
     public int layer = 0;
+    public int maxLayer = 4;
     public int time = 0;
     public string gameState = "start";
     public float[,] inputArray = new float[900 , 4];
@@ -16,6 +17,9 @@ public class GameControl : MonoBehaviour {
     public int amountOfTeams = 2;
     public int team1points = 0;
     public int team2points = 0;
+
+    int winner = 0;
+
 	// Use this for initialization
 	void Start () {
         gameState = "start";
@@ -25,7 +29,8 @@ public class GameControl : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
         switch (gameState)
-        {
+        {   
+            
             case "start":
                 spawnPos = GameObject.Find("PlayerSpawn");
                 activeInst = Instantiate(playerPrefab, spawnPos.transform.position, Quaternion.identity);
@@ -55,7 +60,31 @@ public class GameControl : MonoBehaviour {
                 activeInst.GetComponent<PlayerController>().active = false;
                 activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                 
-                gameState = "start";
+                if (layer == maxLayer)
+                {
+                    if (team1points > team2points)
+                    {
+                        winner = 1;
+                    } else
+                    {
+                        winner = 2;
+                    }
+                    if (winner == 1) Debug.Log("Blue wins!");
+                    if (winner == 2) Debug.Log("Red wins!");
+
+                    Debug.Log("Blue: " + team1points.ToString() + " : Red: " + team2points.ToString());
+                    gameState = "gameover";
+                } else
+                {
+                    gameState = "start";
+                }
+                
+                break;
+            case "gameover":
+                // Gameover Camera
+
+                //
+                Debug.Log("Game Over");
                 break;
 
         }
