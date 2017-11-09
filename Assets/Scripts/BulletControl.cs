@@ -9,6 +9,7 @@ public class BulletControl : MonoBehaviour {
     public int team;
     //PlayerController ctrl;
     public GameControl gameCtrl;
+    public GameObject particlePrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,10 @@ public class BulletControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        // particle effect
+        GameObject inst = Instantiate(particlePrefab,transform.position,transform.rotation);
+        GameObject.Destroy(inst, 1.5f);
+
         switch (other.tag)
         {   
             case "Player":
@@ -48,7 +52,7 @@ public class BulletControl : MonoBehaviour {
                         gmCtrl.team2points += points;
                     }
 
-                    Destroy(gameObject);
+                    DestroyBullet();
 
                 }
                 break;
@@ -63,8 +67,13 @@ public class BulletControl : MonoBehaviour {
                 {
                     gameCtrl.team1points += points;
                 }
-                Destroy(gameObject);
+                DestroyBullet();
                 break;
         }
+    }
+    void DestroyBullet()
+    {
+        
+        Destroy(gameObject);
     }
 }
