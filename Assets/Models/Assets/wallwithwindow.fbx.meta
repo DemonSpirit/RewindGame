@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 1a58b0ebdea79774fad9246e2703f1d0
+timeCreated: 1510258634
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: pCube261
+    100002: pCube263
+    100004: pCube264
+    100006: pCube265
+    100008: pCube266
+    100010: pCube279
+    100012: pCylinder10
+    100014: pCylinder12
+    100016: pCylinder13
+    100018: polySurface1837
+    100020: polySurface1838
+    100022: polySurface1838 1
+    100024: transform1773
+    100026: transform1774
+    100028: transform1775
+    100030: transform1776
+    100032: transform1777
+    100034: transform1778
+    100036: transform1779
+    100038: transform1786
+    100040: transform1787
+    100042: transform1788
+    100044: transform1789
+    100046: //RootNode
+    400000: pCube261
+    400002: pCube263
+    400004: pCube264
+    400006: pCube265
+    400008: pCube266
+    400010: pCube279
+    400012: pCylinder10
+    400014: pCylinder12
+    400016: pCylinder13
+    400018: polySurface1837
+    400020: polySurface1838
+    400022: polySurface1838 1
+    400024: transform1773
+    400026: transform1774
+    400028: transform1775
+    400030: transform1776
+    400032: transform1777
+    400034: transform1778
+    400036: transform1779
+    400038: transform1786
+    400040: transform1787
+    400042: transform1788
+    400044: transform1789
+    400046: //RootNode
+    2300000: pCube279
+    3300000: pCube279
+    4300000: pCube279
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koyupetrolmavisi
+    second: {fileID: 2100000, guid: daf2881c927ca86418741e40a60c9371, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert10
+    second: {fileID: 2100000, guid: e3170b2d2c945fc46a2a0d1ecfd5b094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert12
+    second: {fileID: 2100000, guid: 82c6a7bb69d7de44c97136e751199694, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: phongE1
+    second: {fileID: 2100000, guid: 4ccebcf46d6c9a54484d9c57cde765ab, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
