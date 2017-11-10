@@ -5,20 +5,20 @@ using UnityEngine;
 public class HealthbarController : MonoBehaviour {
 
     GameControl gameCtrl;
-    public GameObject[] Segments;
+    public GameObject[] segments;
     PlayerController activeInst;
     public GameObject segmentPrefab;
+    public int segmentAmount = 50;
     int amtOfSegments = 0;
-    public GameObject inst;
+    float segmentPercentage,framePercentage;
+
 
     // Use this for initialization
     void Start () {
         gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
-        for (int i = 0; i < 10; i++)
-        {
-            Segments[i] = null;
-        }
-	}
+        segments = new GameObject[10];
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -28,26 +28,34 @@ public class HealthbarController : MonoBehaviour {
             case "pre-live":
                 activeInst = gameCtrl.activeInst.GetComponent<PlayerController>();
                 amtOfSegments = activeInst.maxHealth / 50;
+                segmentPercentage = 100 / amtOfSegments;
+                framePercentage = segmentPercentage / 7f;
 
                 for (int i = 0; i < amtOfSegments; i++)
                 {
-                    var inst = Instantiate(segmentPrefab, new Vector3(0f+(50f*i),0f,0f), Quaternion.identity,transform);
-                    //Segments[i] = inst;
-                    
+                    GameObject inst = Instantiate(segmentPrefab, new Vector3(0f + (50f * i), 0f, 0f), Quaternion.identity, transform);
+                    segments[i] = inst;
+                    HealthbarAnimator segmentCtrl = inst.GetComponent<HealthbarAnimator>();
+                    segmentCtrl.segmentAmount = segmentAmount;
+
                 }
                 
                 break;
             case "live":
-                
+                float healthPerc = activeInst.health / activeInst.maxHealth * 100;
+                float draw = healthPerc / framePercentage;
+
+                Debug.Log(healthPerc);
                 break;
             case "end":
-                /*
+                
                 for (int i = 0; i < amtOfSegments; i++)
                 {
-                    Destroy(Segments[i]);
-                    Segments[i] = null;
+                    Destroy(segments[i]);
+                    segments[i] = null;
+                    
                 }
-                */
+                
                 break;
             default:
                 break;
