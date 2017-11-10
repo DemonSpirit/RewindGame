@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1215,13 +1215,13 @@ MonoBehaviour:
   maxLayer: 4
   time: 0
   gameState: start
-  playerPrefab: {fileID: 1090460022166188, guid: fd1d1a7e39cd8864dbe2311de9aeb627,
-    type: 2}
   spawnPos: {fileID: 0}
   activeInst: {fileID: 0}
   amountOfTeams: 2
   team1points: 0
   team2points: 0
+  arenaCam: {fileID: 0}
+  characterArray: []
 --- !u!4 &376333481
 Transform:
   m_ObjectHideFlags: 0
@@ -4024,8 +4024,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1178346068}
-  m_LocalRotation: {x: 0.022226142, y: 0.7151566, z: 0.022756046, w: -0.69824004}
-  m_LocalPosition: {x: 30.747662, y: -18.184011, z: 0.44690114}
+  m_LocalRotation: {x: 0.11854883, y: 0.7005382, z: 0.11976897, w: -0.6934319}
+  m_LocalPosition: {x: 9.713382, y: -19.649574, z: -5.3439355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6455,8 +6455,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1815632073}
-  m_LocalRotation: {x: 0.022226142, y: 0.7151566, z: 0.022756046, w: -0.69824004}
-  m_LocalPosition: {x: 33.82237, y: -19.738394, z: -9.7139635}
+  m_LocalRotation: {x: 0.11854883, y: 0.7005382, z: 0.11976897, w: -0.6934319}
+  m_LocalPosition: {x: 12.788088, y: -21.203957, z: -15.504801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 957297939}
