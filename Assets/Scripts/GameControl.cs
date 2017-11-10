@@ -13,48 +13,59 @@ public class GameControl : MonoBehaviour {
     public GameObject spawnPos;
     public GameObject activeInst;
 
-    int teamToSpawnFor = 1;
+    public int teamToSpawnFor = 1;
     public int amountOfTeams = 2;
     public int team1points = 0;
     public int team2points = 0;
 
     // Ref Arenacam
     public GameObject arenaCam;
+    // Ref Character Pick UI
+    public GameObject pickUI;
+    
 
 
     // PICK SCREEN //
     public GameObject[] characterArray;
+    PickUIController pickCtrl;
     bool ready = false;
-    int pick = 0;
+    public int pick = 0;
+    int amtOfCharacters = 2;
     //
     int winner = 0;
 
 	// Use this for initialization
 	void Start () {
-        gameState = "pick";
-        
-	}
+        gameState = "pre-pick";
+        // pick phase
+        pickCtrl = pickUI.GetComponent<PickUIController>();
+    }
 	
 	// Update is called once per frame
 	void LateUpdate () {
         switch (gameState)
         {
+            case "pre-pick":
+                pickUI.SetActive(true);              
+                gameState = "pick";
+                break;
             case "pick":
 
                 // choose hero
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     pick++;
-                    Debug.Log(pick);
+
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     pick--;
-                    Debug.Log(pick);
                 }
                 // pick clamp
-                if (pick > 3) pick = 0;
-                if (pick < 0) pick = 3;
+                if (pick > amtOfCharacters-1) pick = 0;
+                if (pick < 0) pick = (amtOfCharacters-1);
+                // change pick UI
+                pickCtrl.ChangePickUI(pick);
                 // confirm pick
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
@@ -65,6 +76,7 @@ public class GameControl : MonoBehaviour {
 
                 break;
             case "start":
+                pickUI.SetActive(false);
                 spawnPos = GameObject.Find("PlayerSpawn");
 
                 // spawn picked character
@@ -76,11 +88,10 @@ public class GameControl : MonoBehaviour {
                 var instController = activeInst.GetComponent<PlayerController>();
                 instController.active = true;
                 instController.team = teamToSpawnFor;
-                // move counter up so it spawns for the next player
-                teamToSpawnFor++;
-                if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
 
                 // reset game variables
+                team1points = 0;
+                team2points = 0;
                 ready = false;
                 step = 0;
                 layer++;
@@ -124,7 +135,10 @@ public class GameControl : MonoBehaviour {
                     gameState = "gameover";
                 } else
                 {
-                    gameState = "pick";
+                    gameState = "pre-pick";
+                    // move counter up so it spawns for the next player
+                    teamToSpawnFor++;
+                    if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
                 }
                 
                 break;

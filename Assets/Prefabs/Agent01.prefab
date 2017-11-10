@@ -109,8 +109,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7481766, y: 1, z: 8.249706}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -11.291856, y: 1.407, z: 0.1889994}
+  m_LocalScale: {x: 2.115408, y: 1.8757577, z: 1}
   m_Children:
   - {fileID: 4919937898558788}
   - {fileID: 4930289625827218}
@@ -294,7 +294,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33613185104637068
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -352,11 +352,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterCtrlr: {fileID: 0}
-  maxHealth: 150
+  agentName: BigBoy
+  maxHealth: 300
   health: 0
   alive: 1
   team: 0
-  moveSpd: 8
+  moveSpd: 4
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
   gravity: 30

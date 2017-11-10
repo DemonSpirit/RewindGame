@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public CharacterController characterCtrlr;
-
+    public string agentName = "???";
     public int maxHealth = 100;
     public int health;
     public bool alive = true;
