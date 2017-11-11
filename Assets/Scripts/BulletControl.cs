@@ -41,15 +41,9 @@ public class BulletControl : MonoBehaviour {
                 var gmCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
                 if (ctrl.team != team && ctrl.alive == true)
                 {
-                    ctrl.health -= dmg;
-                    if (team == 1)
+                    if (ctrl.team != team)
                     {
-                        gmCtrl.team1points += points;
-                    }
-
-                    if (team == 2)
-                    {
-                        gmCtrl.team2points += points;
+                        ctrl.health -= dmg;
                     }
 
                     DestroyBullet();

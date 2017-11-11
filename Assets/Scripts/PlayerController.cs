@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour {
     public GameControl gameCtrl;
     public GameObject bullet;
 
+    CapsuleCollider coll;
     public Renderer rend;
     public Color team1Color = Color.blue;
     public Color team2Color = Color.red;
     public Color aliveColor, deadColor;
+
+    // animation references
+    public bool animShooting = false;
 
     Transform camObj;
     float h, v;
@@ -45,6 +49,8 @@ public class PlayerController : MonoBehaviour {
         GameObject gamecontrollerObj = GameObject.Find("GameController");
         gameCtrl = gamecontrollerObj.GetComponent<GameControl>();
 
+        // Get collider component
+        coll = GetComponent<CapsuleCollider>();
         // Setting Alive State opacity fade
         rend = GetComponent<Renderer>();
         if (team == 1) aliveColor = team1Color;
@@ -63,6 +69,8 @@ public class PlayerController : MonoBehaviour {
             recordArray[i, 3] = false;
 
         }
+
+        
     }
 	
 
@@ -81,9 +89,11 @@ public class PlayerController : MonoBehaviour {
                 if (alive == true)
                 {
                     rend.material.color = aliveColor;
+                    coll.enabled = true;
                 } else
                 {
                     rend.material.color = deadColor;
+                    coll.enabled = false;
                 }
 
                 if (active == true)
@@ -105,6 +115,9 @@ public class PlayerController : MonoBehaviour {
                     {
                         UseWeapon();
                         recordArray[gameCtrl.step, 3] = true;
+                    } else
+                    {
+                        animShooting = false;
                     }
 
                     // Check Gravity
@@ -136,11 +149,14 @@ public class PlayerController : MonoBehaviour {
                     transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
                     camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
 
-
+                    // playback weapon
                     if ((bool)recordArray[gameCtrl.step, 3] == true)
                     {
                         
                         UseWeapon();
+                    } else
+                    {
+                        animShooting = false;
                     }
 
                 }
@@ -167,6 +183,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (Time.time >= nextFire && alive == true)
         {
+            animShooting = true;
             var inst = Instantiate(bullet, camObj.position+(camObj.forward*1.5f), camObj.rotation);
             nextFire = Time.time + fireRate;
             inst.GetComponent<BulletControl>().team = team;

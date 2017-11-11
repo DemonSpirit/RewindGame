@@ -26,7 +26,7 @@ public class TimerBackgroundChanger : MonoBehaviour
 
     public void ChangeTimerBackground(int teamNumber)
     {
-        Debug.Log("Caslled");
+        
         if (teamNumber == 2)
         {
             image.sprite = redTimer;

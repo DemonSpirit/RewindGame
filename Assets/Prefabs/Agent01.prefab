@@ -322,7 +322,7 @@ BoxCollider:
   m_GameObject: {fileID: 1045369580801758}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -371,6 +371,7 @@ MonoBehaviour:
   team2Color: {r: 1, g: 0, b: 0, a: 1}
   aliveColor: {r: 0, g: 0, b: 0, a: 0}
   deadColor: {r: 0, g: 0, b: 0, a: 0}
+  animShooting: 0
   fireRate: 0.1
   nextFire: 0
 --- !u!114 &114071827550442442
