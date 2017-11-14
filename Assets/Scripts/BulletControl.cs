@@ -32,8 +32,6 @@ public class BulletControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        
-
         switch (other.tag)
         {
             case "BlockProjectiles":
@@ -57,13 +55,12 @@ public class BulletControl : MonoBehaviour {
                     DestroyBullet();
                 }
 
-                if (ctrl.team != team && ctrl.alive == true)
+                if (ctrl.team != team && ctrl.alive == true && ctrl.active == false)
                 {
                      ctrl.health -= dmg;
                     // particle effect
                     spawnParticle(playerHitFX);
                     DestroyBullet();
-
                 }
                 break;
             case "Scorezone":
