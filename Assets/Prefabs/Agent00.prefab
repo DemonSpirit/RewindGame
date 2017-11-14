@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 114071827550442442}
   - component: {fileID: 114059160621582380}
   - component: {fileID: 95614490432208012}
+  - component: {fileID: 114754472878073480}
   m_Layer: 0
   m_Name: Agent00
   m_TagString: Player
@@ -2452,6 +2453,7 @@ MonoBehaviour:
   health: 0
   alive: 1
   team: 0
+  abilityIDs: 01000000000000000000000000000000
   moveSpd: 8
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
@@ -2467,8 +2469,9 @@ MonoBehaviour:
   aliveColor: {r: 0, g: 0, b: 0, a: 0}
   deadColor: {r: 0, g: 0, b: 0, a: 0}
   animShooting: 0
+  camObj: {fileID: 0}
   fireRate: 0.1
-  nextFire: 0
+  ability1CD: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2535,6 +2538,18 @@ MonoBehaviour:
   gameCtrl: {fileID: 0}
   animator: {fileID: 0}
   muzzlePrefab: {fileID: 1058004797675372}
+--- !u!114 &114754472878073480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090460022166188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a2a9acf6008d04fb4d6a798b279c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healBullet: {fileID: 0}
 --- !u!114 &114931612128162024
 MonoBehaviour:
   m_ObjectHideFlags: 1

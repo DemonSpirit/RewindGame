@@ -89,6 +89,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1652570853349510
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4159985946751112}
+  - component: {fileID: 33514661672240934}
+  - component: {fileID: 65554008861889776}
+  - component: {fileID: 23926538609654234}
+  m_Layer: 0
+  m_Name: ProjectileBlocker
+  m_TagString: BlockProjectiles
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4159985946751112
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652570853349510}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5099749, y: -0.13032097, z: 2.1179175}
+  m_LocalScale: {x: 2.1956766, y: 1.2696693, z: 0.73618805}
+  m_Children: []
+  m_Father: {fileID: 4919937898558788}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4377886037542262
 Transform:
   m_ObjectHideFlags: 1
@@ -109,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.291856, y: 1.407, z: 0.1889994}
+  m_LocalPosition: {x: -5.24271, y: 2.15, z: 3.1520824}
   m_LocalScale: {x: 2.115408, y: 1.8757577, z: 1}
   m_Children:
   - {fileID: 4919937898558788}
@@ -128,6 +159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4377886037542262}
+  - {fileID: 4159985946751112}
   m_Father: {fileID: 4482418938773068}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -247,6 +279,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!23 &23926538609654234
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652570853349510}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: bb2317e10506d4093a48ebd9b01e26b9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23929923106793690
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -295,6 +361,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &33514661672240934
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652570853349510}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33613185104637068
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -323,6 +396,18 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65554008861889776
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1652570853349510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -357,6 +442,7 @@ MonoBehaviour:
   health: 0
   alive: 1
   team: 0
+  abilityIDs: 01000000000000000000000000000000
   moveSpd: 4
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
@@ -372,8 +458,9 @@ MonoBehaviour:
   aliveColor: {r: 0, g: 0, b: 0, a: 0}
   deadColor: {r: 0, g: 0, b: 0, a: 0}
   animShooting: 0
+  camObj: {fileID: 0}
   fireRate: 0.1
-  nextFire: 0
+  ability1CD: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
   m_ObjectHideFlags: 1

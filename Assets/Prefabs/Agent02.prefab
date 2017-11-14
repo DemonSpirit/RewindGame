@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 143426587043960892}
   - component: {fileID: 114071827550442442}
   - component: {fileID: 114059160621582380}
+  - component: {fileID: 114967867155481224}
   m_Layer: 0
   m_Name: Agent02
   m_TagString: Player
@@ -109,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7481766, y: 1, z: 8.249706}
+  m_LocalPosition: {x: -6.7800193, y: 1.28, z: -2.1612418}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4919937898558788}
@@ -294,7 +295,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33613185104637068
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -352,10 +353,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterCtrlr: {fileID: 0}
+  agentName: Medic
   maxHealth: 200
   health: 0
   alive: 1
   team: 0
+  abilityIDs: 03000000000000000000000000000000
   moveSpd: 8
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
@@ -370,8 +373,10 @@ MonoBehaviour:
   team2Color: {r: 1, g: 0, b: 0, a: 1}
   aliveColor: {r: 0, g: 0, b: 0, a: 0}
   deadColor: {r: 0, g: 0, b: 0, a: 0}
+  animShooting: 0
+  camObj: {fileID: 0}
   fireRate: 0.1
-  nextFire: 0
+  ability1CD: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -432,6 +437,18 @@ MonoBehaviour:
   xQuat: {x: 0, y: 0, z: 0, w: 0}
   yQuat: {x: 0, y: 0, z: 0, w: 0}
   OrigRotation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &114967867155481224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090460022166188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a2a9acf6008d04fb4d6a798b279c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healBullet: {fileID: 1335834766640820, guid: e3a44101e568a094cba177c854bad386, type: 2}
 --- !u!124 &124304522284355140
 Behaviour:
   m_ObjectHideFlags: 1

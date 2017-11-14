@@ -7,9 +7,12 @@ public class BulletControl : MonoBehaviour {
     public int dmg = 10;
     public int points = 10;
     public int team;
+    public string type = "";
     //PlayerController ctrl;
     public GameControl gameCtrl;
-    public GameObject particlePrefab;
+    public GameObject playerHitFX;
+    public GameObject blockHitFX;
+    PlayerController otherCtrl;
 
 	// Use this for initialization
 	void Start () {
@@ -29,23 +32,36 @@ public class BulletControl : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        // particle effect
-        GameObject inst = Instantiate(particlePrefab,transform.position,transform.rotation);
-        GameObject.Destroy(inst, 1.5f);
+        
 
         switch (other.tag)
-        {   
+        {
+            case "BlockProjectiles":
+                otherCtrl = other.GetComponentInParent<PlayerController>();
+                if (otherCtrl.alive == true && otherCtrl.team != team )
+                {
+                    Debug.Log("Proj Blocked");
+                    spawnParticle(blockHitFX);
+                    DestroyBullet();
+                }
+                break;
             case "Player":
                 
                 var ctrl = other.GetComponent<PlayerController>();
                 var gmCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+
+                if (type == "healBullet" && ctrl.team == team && ctrl.alive == false)
+                {
+                    Debug.Log(ctrl.name + " Revived!");
+                    ctrl.health = ctrl.maxHealth;
+                    DestroyBullet();
+                }
+
                 if (ctrl.team != team && ctrl.alive == true)
                 {
-                    if (ctrl.team != team)
-                    {
-                        ctrl.health -= dmg;
-                    }
-
+                     ctrl.health -= dmg;
+                    // particle effect
+                    spawnParticle(playerHitFX);
                     DestroyBullet();
 
                 }
@@ -69,5 +85,10 @@ public class BulletControl : MonoBehaviour {
     {
         
         Destroy(gameObject);
+    }
+    void spawnParticle(GameObject particle)
+    {
+        GameObject inst = Instantiate(particle, transform.position, transform.rotation);
+        GameObject.Destroy(inst, 1.5f);
     }
 }

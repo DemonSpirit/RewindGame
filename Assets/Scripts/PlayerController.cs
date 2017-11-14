@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Abilities;
+
+
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,6 +13,9 @@ public class PlayerController : MonoBehaviour {
     public int health;
     public bool alive = true;
     public int team = 0;
+    // abilities
+    public int[] abilityIDs = new int[] { 0, 0, 0, 0};
+    
 
 	public float moveSpd;
 	public Vector3 moveDirection = Vector3.zero;
@@ -20,6 +26,7 @@ public class PlayerController : MonoBehaviour {
     public bool active = false;
     public GameControl gameCtrl;
     public GameObject bullet;
+    Ability abilities;
 
     CapsuleCollider coll;
     public Renderer rend;
@@ -30,10 +37,10 @@ public class PlayerController : MonoBehaviour {
     // animation references
     public bool animShooting = false;
 
-    Transform camObj;
+    public Transform camObj;
     float h, v;
     public float fireRate = 0.5f;
-    public float nextFire = 0f;
+    public float ability1CD = 0f;
 
     int maxSteps;
     object[,] recordArray = new object[900,4];
@@ -44,6 +51,7 @@ public class PlayerController : MonoBehaviour {
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
+        abilities = GetComponent<Ability>();
         health = maxHealth;
 
         GameObject gamecontrollerObj = GameObject.Find("GameController");
@@ -171,8 +179,6 @@ public class PlayerController : MonoBehaviour {
 
     public void DestroyComponentsAtLayerEnd()
     {
-       
-
         camObj.GetComponent<Camera>().enabled = false;
         Destroy(GetComponent<Aiming>());
         Destroy(camObj.GetComponent<AudioListener>());
@@ -181,12 +187,12 @@ public class PlayerController : MonoBehaviour {
 
     void UseWeapon()
     {
-        if (Time.time >= nextFire && alive == true)
+        if (Time.time >= ability1CD && alive == true)
         {
+            abilities.Use(this,abilityIDs[0]);
             animShooting = true;
-            var inst = Instantiate(bullet, camObj.position+(camObj.forward*1.5f), camObj.rotation);
-            nextFire = Time.time + fireRate;
-            inst.GetComponent<BulletControl>().team = team;
+            ability1CD = Time.time + fireRate;
+            //var inst = Instantiate(bullet, camObj.position+(camObj.forward*1.5f), camObj.rotation);
         }
     }
 

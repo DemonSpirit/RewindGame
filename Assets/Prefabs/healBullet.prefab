@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114555356729412910}
   - component: {fileID: 54386009548923072}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: healBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   dmg: 25
   points: 10
   team: 0
-  type: 
+  type: healBullet
   gameCtrl: {fileID: 0}
   playerHitFX: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
     type: 2}
