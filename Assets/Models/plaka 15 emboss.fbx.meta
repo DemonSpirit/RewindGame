@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: fdabc0a996669ed4e8be55820bc490d5
+timeCreated: 1510892480
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: pCube413
+    100002: pCube422
+    100004: pCube450
+    100006: //RootNode
+    100008: polySurface1965
+    100010: polySurface1966
+    100012: polySurface1967
+    100014: polySurface1967 1
+    100016: polySurface1968
+    100018: polySurface1969
+    100020: polySurface1970
+    100022: polySurface1971
+    100024: polySurface1972
+    100026: polySurface1973
+    100028: polySurface1974
+    100030: transform1902
+    100032: transform1952
+    100034: transform1953
+    100036: transform1954
+    100038: transform1955
+    100040: transform1956
+    100042: transform1957
+    100044: transform1958
+    100046: transform1959
+    100048: transform1960
+    100050: transform1961
+    100052: transform1962
+    100054: transform1963
+    400000: pCube413
+    400002: pCube422
+    400004: pCube450
+    400006: //RootNode
+    400008: polySurface1965
+    400010: polySurface1966
+    400012: polySurface1967
+    400014: polySurface1967 1
+    400016: polySurface1968
+    400018: polySurface1969
+    400020: polySurface1970
+    400022: polySurface1971
+    400024: polySurface1972
+    400026: polySurface1973
+    400028: polySurface1974
+    400030: transform1902
+    400032: transform1952
+    400034: transform1953
+    400036: transform1954
+    400038: transform1955
+    400040: transform1956
+    400042: transform1957
+    400044: transform1958
+    400046: transform1959
+    400048: transform1960
+    400050: transform1961
+    400052: transform1962
+    400054: transform1963
+    2300000: pCube450
+    3300000: pCube450
+    4300000: pCube450
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: koyupetrolmavisi
+    second: {fileID: 2100000, guid: daf2881c927ca86418741e40a60c9371, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert10
+    second: {fileID: 2100000, guid: e3170b2d2c945fc46a2a0d1ecfd5b094, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
