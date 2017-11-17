@@ -2458,7 +2458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCtrlr: {fileID: 0}
   agentName: ???
-  maxHealth: 100
+  maxHealth: 20
   health: 0
   alive: 1
   team: 0
@@ -2479,7 +2479,7 @@ MonoBehaviour:
   deadColor: {r: 0, g: 0, b: 0, a: 0}
   animShooting: 0
   camObj: {fileID: 0}
-  fireRate: 0.1
+  fireRate: 0.3
   ability1CD: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
