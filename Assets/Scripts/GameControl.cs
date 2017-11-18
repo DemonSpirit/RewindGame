@@ -30,7 +30,7 @@ public class GameControl : MonoBehaviour {
     PickUIController pickCtrl;
     bool ready = false;
     public int pick = 0;
-    int amtOfCharacters = 2;
+    int amtOfCharacters = 3;
     //
     int winner = 0;
 
