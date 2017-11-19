@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{169686d8-eb07-431e-b6dc-3506565f9388}">
+        <property name="assetPath">
+            <value>Starwars stuff/trprsht1 {4ea8945c-fe72-4c29-920f-f145e74a8722}.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>22.0499992</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.99555555555555553</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{45e76162-246b-4ee0-ab54-aaf04c7b1040}</destination>
+        </relationship>
+    </object>
+</objects>

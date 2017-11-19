@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{48e43030-8d2a-4ba1-96cb-27ecd30ddc33}">
+        <property name="assetPath">
+            <value>Starwars stuff/repeat-1 {8bed8081-ad90-4457-974a-86ce916d0c08}.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>22.0499992</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.4614965986394558</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{45e76162-246b-4ee0-ab54-aaf04c7b1040}</destination>
+        </relationship>
+    </object>
+</objects>

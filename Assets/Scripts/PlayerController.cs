@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public int team = 0;
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0};
+    public int[] abilityDMG = new int[] { 0, 0, 0, 0 };
     
 
 	public float moveSpd;
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour {
 
     // animation references
     public bool animShooting = false;
-
+    
     public Transform camObj;
     float h, v;
     public float fireRate = 0.5f;
@@ -183,6 +184,9 @@ public class PlayerController : MonoBehaviour {
         Destroy(GetComponent<Aiming>());
         Destroy(camObj.GetComponent<AudioListener>());
         Destroy(camObj.GetComponent<Aiming>());
+        //Destroy FMOD Listener
+        //GetComponent<FMOD_Listener>().enabled = false;
+
     }
 
     void UseWeapon()

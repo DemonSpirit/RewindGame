@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="EncodableAsset" id="{27760238-0e28-434e-bca2-8255770e46d2}">
+        <property name="assetPath">
+            <value>Starwars stuff/</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{45e76162-246b-4ee0-ab54-aaf04c7b1040}</destination>
+        </relationship>
+    </object>
+</objects>

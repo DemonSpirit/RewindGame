@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{59a60511-3dd4-4b0f-b4a4-93b375bd9b55}">
+        <property name="assetPath">
+            <value>sfx - Jeans being shaken.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.0786394557823129</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{45e76162-246b-4ee0-ab54-aaf04c7b1040}</destination>
+        </relationship>
+    </object>
+</objects>

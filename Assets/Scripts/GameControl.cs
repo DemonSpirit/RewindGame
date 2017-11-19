@@ -22,8 +22,6 @@ public class GameControl : MonoBehaviour {
     public GameObject arenaCam;
     // Ref Character Pick UI
     public GameObject pickUI;
-    
-
 
     // PICK SCREEN //
     public GameObject[] characterArray;
@@ -34,8 +32,17 @@ public class GameControl : MonoBehaviour {
     //
     int winner = 0;
 
-	// Use this for initialization
-	void Start () {
+    #region Sound References
+    [FMODUnity.EventRef]
+    public string changeSelectionSFX;
+    [FMODUnity.EventRef]
+    public string confirmSelectionSFX;
+    // BGM
+    [FMODUnity.EventRef]
+    public string characterSelectBGM;
+    #endregion
+    // Use this for initialization
+    void Start () {
         gameState = "pre-pick";
         // pick phase
         pickCtrl = pickUI.GetComponent<PickUIController>();
@@ -55,11 +62,14 @@ public class GameControl : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     pick++;
-
+                    // play sound
+                    FMODUnity.RuntimeManager.PlayOneShot(changeSelectionSFX);
                 }
                 if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
                     pick--;
+                    // play sound
+                    FMODUnity.RuntimeManager.PlayOneShot(changeSelectionSFX);
                 }
                 // pick clamp
                 if (pick > amtOfCharacters-1) pick = 0;
@@ -70,6 +80,8 @@ public class GameControl : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     ready = true;
+                    // play sound
+                    FMODUnity.RuntimeManager.PlayOneShot(confirmSelectionSFX);
                 }
                 // ready up
                 if (ready) gameState = "start";
@@ -77,12 +89,13 @@ public class GameControl : MonoBehaviour {
                 break;
             case "start":
                 pickUI.SetActive(false);
-                spawnPos = GameObject.Find("PlayerSpawn");
+                if (teamToSpawnFor == 1) spawnPos = GameObject.Find("BluePlayerSpawn");
+                if (teamToSpawnFor == 2) spawnPos = GameObject.Find("RedPlayerSpawn");
 
                 // spawn picked character
                 GameObject playerPrefab;
                 playerPrefab = characterArray[pick];
-                activeInst = Instantiate(playerPrefab, spawnPos.transform.position, Quaternion.identity);
+                activeInst = Instantiate(playerPrefab, spawnPos.transform.position, spawnPos.transform.rotation);
                 pick = 0;
                 // set spawned character as the active instance
                 var instController = activeInst.GetComponent<PlayerController>();

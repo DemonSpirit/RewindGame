@@ -5,8 +5,16 @@ namespace Abilities
 {
     public class Ability : MonoBehaviour
     {
+        [SerializeField]
+        int amtOfSkills = 5;
+        [FMODUnity.EventRef]
+        public string[] sfx;
+        [FMODUnity.EventRef]
+        public string hitMarkerSFX;
+
         GameObject inst;
         public GameObject healBullet;
+        public GameObject playerHitParticleFX;
 
         public void Use(PlayerController playerCtrl, int ID)
         {
@@ -17,7 +25,7 @@ namespace Abilities
                     Debug.Log("No AbilityID");
                     break;
                 case 1:
-                    Debug.Log("Shoot Ability: " + playerCtrl.name);
+                    Debug.Log("Projectile Shoot Ability: " + playerCtrl.name);
                     inst = Instantiate(playerCtrl.bullet, playerCtrl.camObj.position + (playerCtrl.camObj.forward * 1.5f), playerCtrl.camObj.rotation);
                     inst.GetComponent<BulletControl>().team = playerCtrl.team;
                     break;
@@ -28,6 +36,48 @@ namespace Abilities
                     Debug.Log("Heal Ability");
                     inst = Instantiate(healBullet, playerCtrl.camObj.position + (playerCtrl.camObj.forward * 1.5f), playerCtrl.camObj.rotation);
                     inst.GetComponent<BulletControl>().team = playerCtrl.team;
+                    break;
+                case 4:
+                    Debug.Log("Raycast Shot Ability");
+
+                    // raycast
+                    RaycastHit hit;
+                    // play sound
+                    FMODUnity.RuntimeManager.PlayOneShot(sfx[ID], transform.position);
+
+                    if (Physics.Raycast(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward, out hit, 50f))
+                    {
+                        // Debug Ray
+                        Debug.DrawRay(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward*50f,Color.green,1f);
+                        
+
+                        // If the hit obj is a player
+                        if (hit.transform.tag == "Player")
+                        {   
+                            // Get PlayerController and damage it.
+                            PlayerController hitCtrl = hit.transform.GetComponent<PlayerController>();
+
+                            if (hitCtrl.alive == true && hitCtrl.team != playerCtrl.team) {
+
+                                // apply damage to hit target.
+                                hitCtrl.health -= playerCtrl.abilityDMG[0];
+
+                                //play hitmarker sound
+                                if (playerCtrl.active == true) FMODUnity.RuntimeManager.PlayOneShot(hitMarkerSFX, transform.position);
+
+                                // spawn hit effect
+                                if (hitCtrl.active == false)
+                                {
+                                    Instantiate(playerHitParticleFX,hit.point,hit.transform.rotation);
+                                }
+                            }
+                        }
+                        if (hit.transform.tag == "Scorezone")
+                        {
+                            Debug.Log("Hit ScoreZone you would have got points but that code doesnt exist");
+                        }
+                        
+                    }
                     break;
 
             }
