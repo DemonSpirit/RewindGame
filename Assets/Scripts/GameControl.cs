@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour {
     public int layer = 0;
     public int maxLayer = 4;
     public int time = 0;
-    public string gameState = "pick";
+    public string gameState = "pre-pick";
     public float[,] inputArray = new float[900 , 4];
     public GameObject spawnPos;
     public GameObject activeInst;
@@ -17,6 +17,9 @@ public class GameControl : MonoBehaviour {
     public int amountOfTeams = 2;
     public int team1points = 0;
     public int team2points = 0;
+    // money
+    public int team1money = 0;
+    public int team2money = 0;
 
     // Ref Arenacam
     public GameObject arenaCam;
@@ -40,6 +43,8 @@ public class GameControl : MonoBehaviour {
     // BGM
     [FMODUnity.EventRef]
     public string characterSelectBGM;
+    [FMODUnity.EventRef]
+    public string noMoneySFX;
     #endregion
     // Use this for initialization
     void Start () {
@@ -79,7 +84,54 @@ public class GameControl : MonoBehaviour {
                 // confirm pick
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    ready = true;
+
+                    switch (pick)
+                    {
+                        case 0:
+                            ready = true;
+                            break;
+                        case 1:
+                            if (teamToSpawnFor == 1 && team1money >= 100)
+                            {
+                                team1money -= 100;
+                                ready = true;
+                            } else
+                            {
+                                FMODUnity.RuntimeManager.PlayOneShot(noMoneySFX);
+                            }
+                            if (teamToSpawnFor == 2 && team2money >= 100)
+                            {
+                                team2money -= 100;
+                                ready = true;
+                            }
+                            else
+                            {
+                                FMODUnity.RuntimeManager.PlayOneShot(noMoneySFX);
+                            }
+                            break;
+                        case 2:
+                            if (teamToSpawnFor == 1 && team1money >= 200)
+                            {
+                                team1money -= 200;
+                                ready = true;
+                            }
+                            else
+                            {
+                                FMODUnity.RuntimeManager.PlayOneShot(noMoneySFX);
+                            }
+                            if (teamToSpawnFor == 2 && team2money >= 200)
+                            {
+                                team2money -= 200;
+                                ready = true;
+                            }
+                            else
+                            {
+                                FMODUnity.RuntimeManager.PlayOneShot(noMoneySFX);
+                            }
+                            break;
+                       
+                    }
+                    
                     // play sound
                     FMODUnity.RuntimeManager.PlayOneShot(confirmSelectionSFX);
                 }

@@ -21,10 +21,33 @@ MonoBehaviour:
   - {fileID: 114530715288879746}
   - {fileID: 114912409620269294}
   - {fileID: 114763664096581896}
+  - {fileID: 114248988423336766}
   MasterBankRef: {fileID: 114513732909531750}
   StringsBankRef: {fileID: 114622608374292380}
-  stringsBankWriteTime: 636467254351137232
+  stringsBankWriteTime: 636467929952394792
   cacheVersion: 2
+--- !u!114 &114248988423336766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/snd_denyPurchase
+  guid: cd23a62422356b4aa0a8fa98cd15245e
+  Banks:
+  - {fileID: 114513732909531750}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 414
 --- !u!114 &114501807870540236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,11 +82,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: E:\Git Repos\Rewind\Assets\FMOD Banks\RewindProject\Build\Desktop\Master Bank.bank
-  lastModified: 636467254351107224
+  lastModified: 636467929952369790
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 539872
+    Value: 543904
   Exists: 1
 --- !u!114 &114530715288879746
 MonoBehaviour:
@@ -99,11 +122,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD Banks\RewindProject\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636467254351137232
+  lastModified: 636467929952394792
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 922
+    Value: 966
   Exists: 1
 --- !u!114 &114756629281652274
 MonoBehaviour:

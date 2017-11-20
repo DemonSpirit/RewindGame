@@ -15,6 +15,12 @@ namespace Abilities
         GameObject inst;
         public GameObject healBullet;
         public GameObject playerHitParticleFX;
+        GameControl gameCtrl;
+
+        void Start()
+        {
+            gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        }
 
         public void Use(PlayerController playerCtrl, int ID)
         {
@@ -48,7 +54,7 @@ namespace Abilities
                     if (Physics.Raycast(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward, out hit, 50f))
                     {
                         // Debug Ray
-                        Debug.DrawRay(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward*50f,Color.green,1f);
+                        //Debug.DrawRay(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward*50f,Color.green,1f);
                         
 
                         // If the hit obj is a player
@@ -62,6 +68,18 @@ namespace Abilities
                                 // apply damage to hit target.
                                 hitCtrl.health -= playerCtrl.abilityDMG[0];
 
+                                if (hitCtrl.health <= 0)
+                                {
+                                    if (playerCtrl.team == 1) gameCtrl.team1money += hitCtrl.bounty;
+                                    if (playerCtrl.team == 2) gameCtrl.team2money += hitCtrl.bounty;
+
+                                    // kill confirm set elimation text and gain money
+                                    if (playerCtrl.active == true)
+                                    {
+                                        GameObject.Find("EliminationText").GetComponent<EliminationTextAnimator>().SetText(hitCtrl.bounty.ToString() + "$ " + hitCtrl.agentName.ToString());
+                                    }
+                                }
+
                                 //play hitmarker sound
                                 if (playerCtrl.active == true) FMODUnity.RuntimeManager.PlayOneShot(hitMarkerSFX, transform.position);
 
@@ -74,7 +92,12 @@ namespace Abilities
                         }
                         if (hit.transform.tag == "Scorezone")
                         {
-                            Debug.Log("Hit ScoreZone you would have got points but that code doesnt exist");
+                            GoalZoneController goalCtrl = hit.transform.GetComponent<GoalZoneController>();
+                            if (goalCtrl.team != playerCtrl.team)
+                            {
+                                if (playerCtrl.team == 1) gameCtrl.team1points += 10;
+                                if (playerCtrl.team == 2) gameCtrl.team2points += 10;
+                            }
                         }
                         
                     }

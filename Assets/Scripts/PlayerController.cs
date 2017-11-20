@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     public int health;
     public bool alive = true;
     public int team = 0;
+    public int bounty = 100;
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0};
     public int[] abilityDMG = new int[] { 0, 0, 0, 0 };
