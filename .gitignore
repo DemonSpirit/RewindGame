@@ -32,3 +32,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+git update-index --assume-unchanged <fmod.log>
