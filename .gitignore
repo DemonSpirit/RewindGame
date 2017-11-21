@@ -33,4 +33,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-git update-index --assume-unchanged <fmod.log>
+Assets/FMODStudioCache.asset
+Assets/StreamingAssets/*.bank
+fmod.log
+fmod_editor.log
