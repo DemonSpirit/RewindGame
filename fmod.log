@@ -307,3 +307,8 @@
 [LOG] SystemI::close                           : Free channel pool.
 [LOG] SystemI::close                           : done.
 
+[LOG] Manager::readBank                        : fileversion = 78, compatVersion = 70 (oldest = 44, newest = 99)
+[LOG] Manager::readBank                        : fileversion = 78, compatVersion = 70 (oldest = 44, newest = 99)
+[LOG] Manager::readBank                        : fileversion = 78, compatVersion = 70 (oldest = 44, newest = 99)
+[LOG] Manager::readBank                        : fileversion = 78, compatVersion = 70 (oldest = 44, newest = 99)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
