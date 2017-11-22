@@ -49,6 +49,9 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Sets layer to default
+		gameObject.layer = 0;
+
 		characterCtrlr = GetComponent<CharacterController> ();
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;

@@ -60,6 +60,7 @@ namespace Abilities
                         // If the hit obj is a player
                         if (hit.transform.tag == "Player")
                         {   
+							
                             // Get PlayerController and damage it.
                             PlayerController hitCtrl = hit.transform.GetComponent<PlayerController>();
 
@@ -76,6 +77,9 @@ namespace Abilities
                                     // kill confirm set elimation text and gain money
                                     if (playerCtrl.active == true)
                                     {
+										// Sets raycast layer to ignoreRast
+										hit.transform.gameObject.layer = 2;
+
                                         GameObject.Find("EliminationText").GetComponent<EliminationTextAnimator>().SetText(hitCtrl.bounty.ToString() + "$ " + hitCtrl.agentName.ToString());
                                     }
                                 }
