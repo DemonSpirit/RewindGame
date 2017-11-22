@@ -93,6 +93,7 @@ public class PlayerController : MonoBehaviour {
         switch (gameCtrl.gameState)
         {
             case "start":
+                gameObject.layer = 0;
                 health = maxHealth;
                 alive = true;
                 break;

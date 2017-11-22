@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114622608374292380}
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   EditorEvents:
   - {fileID: 114501807870540236}
   - {fileID: 114756629281652274}
@@ -22,9 +22,9 @@ MonoBehaviour:
   - {fileID: 114912409620269294}
   - {fileID: 114763664096581896}
   - {fileID: 114248988423336766}
-  MasterBankRef: {fileID: 114083708500361852}
+  MasterBankRef: {fileID: 114616802171172288}
   StringsBankRef: {fileID: 114622608374292380}
-  stringsBankWriteTime: 636468626109667450
+  stringsBankWriteTime: 636467929952394792
   cacheVersion: 2
 --- !u!114 &114083708500361852
 MonoBehaviour:
@@ -59,7 +59,7 @@ MonoBehaviour:
   Path: event:/snd_denyPurchase
   guid: cd23a62422356b4aa0a8fa98cd15245e
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -119,7 +119,7 @@ MonoBehaviour:
   Path: event:/Test
   guid: 47527ea70d513245a1ad1a3b9877a205
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -159,7 +159,7 @@ MonoBehaviour:
   Path: event:/snd_ChangeSelection
   guid: 5f570e2dfbd0fa4aa7ba914a2f37d8c2
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -167,6 +167,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 520
+--- !u!114 &114616802171172288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: E:\Git Repos\Rewind\Assets\FMOD Banks\RewindProject\Build\Desktop\Master Bank.bank
+  lastModified: 636467929952369790
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 543904
+  Exists: 1
 --- !u!114 &114622608374292380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\FMOD Banks\RewindProject\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636468626109667450
+  lastModified: 636467929952394792
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -199,7 +217,7 @@ MonoBehaviour:
   Path: event:/snd_FireWeapon
   guid: ed8a068fee62f846bc1266405d0096a5
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -221,7 +239,7 @@ MonoBehaviour:
   Path: event:/bgm_Battle
   guid: b4211b26c3424645a762596b6cbc0cdd
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -243,7 +261,7 @@ MonoBehaviour:
   Path: event:/snd_HitMarker
   guid: 0bc6911494b15c48a4397fecddf4f4fe
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -265,7 +283,7 @@ MonoBehaviour:
   Path: event:/snd_ConfirmSelection
   guid: 345177630991584b91d9046b08df66bc
   Banks:
-  - {fileID: 114083708500361852}
+  - {fileID: 114616802171172288}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
