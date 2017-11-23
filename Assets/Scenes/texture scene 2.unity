@@ -18997,12 +18997,18 @@ MonoBehaviour:
   amountOfTeams: 2
   team1points: 0
   team2points: 0
+  team1money: 0
+  team2money: 0
   arenaCam: {fileID: 410321349}
   pickUI: {fileID: 603137327}
   characterArray:
   - {fileID: 1090460022166188, guid: 5c52ff411f7b6174b9c34466b9007014, type: 2}
   - {fileID: 1090460022166188, guid: 74cb4835fc47233499008f12d0156cbf, type: 2}
   pick: 0
+  changeSelectionSFX: 
+  confirmSelectionSFX: 
+  characterSelectBGM: 
+  noMoneySFX: 
 --- !u!4 &376333481
 Transform:
   m_ObjectHideFlags: 0
@@ -19963,6 +19969,7 @@ GameObject:
   - component: {fileID: 410321352}
   - component: {fileID: 410321350}
   - component: {fileID: 410321351}
+  - component: {fileID: 410321355}
   m_Layer: 0
   m_Name: ArenaCam
   m_TagString: Untagged
@@ -20045,6 +20052,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &410321355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 410321349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: cfca043ef44f3cc4fa327da906556b92, type: 2}
 --- !u!1 &411434746
 GameObject:
   m_ObjectHideFlags: 0
@@ -98162,7 +98181,7 @@ Prefab:
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
@@ -98172,7 +98191,7 @@ Prefab:
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
@@ -98216,7 +98235,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1007212645507208, guid: 8d4768abb0d92eb49adc87077cac0dcb, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d4768abb0d92eb49adc87077cac0dcb, type: 2}
