@@ -37,16 +37,11 @@ public class OverheadHealthbarController : MonoBehaviour
                 //transform.rotation = Quaternion.FromToRotation(transform.position, gameCtrl.activeInst.transform.position);
                 float hpPerc = ((float)playerCtrl.health / playerCtrl.maxHealth) * 100f;
 
-                for (int i = 0; i < healthbarSprites.Length - 1; i++)
-                {
-                    if (hpPerc >= (100 - (i * 5)))
-                    {
-                        rend.sprite = healthbarSprites[(healthbarSprites.Length - i )-1];
-                        
-                        break;
-                    }
-
-                }
+				float indexDivider = 100 / (healthbarSprites.Length - 1);
+				int spriteIndex = (int) ((hpPerc + 2.5f) / indexDivider);
+				print("spriteIndex " + spriteIndex);
+				rend.sprite = healthbarSprites[spriteIndex];
+                
                 break;
         }
         

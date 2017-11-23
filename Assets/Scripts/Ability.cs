@@ -44,7 +44,7 @@ namespace Abilities
                     inst.GetComponent<BulletControl>().team = playerCtrl.team;
                     break;
                 case 4:
-                    Debug.Log("Raycast Shot Ability");
+                    //Debug.Log("Raycast Shot Ability");
 
                     // raycast
                     RaycastHit hit;
@@ -67,7 +67,9 @@ namespace Abilities
                             if (hitCtrl.alive == true && hitCtrl.team != playerCtrl.team) {
 
                                 // apply damage to hit target.
+								
                                 hitCtrl.health -= playerCtrl.abilityDMG[0];
+								print("hitCtrl" + hitCtrl.health);
 
                                 if (hitCtrl.health <= 0)
                                 {
