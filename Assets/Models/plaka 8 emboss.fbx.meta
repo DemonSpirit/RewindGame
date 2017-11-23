@@ -17,6 +17,19 @@ ModelImporter:
     100018: transform1932
     100020: transform1933
     100022: transform1934
+    100024: pCube399
+    100026: pCube444
+    100028: pCube445
+    100030: pCube446
+    100032: pCube447
+    100034: pCube448
+    100036: pCube449
+    100038: transform1889
+    100040: transform1890
+    100042: transform1891
+    100044: transform1892
+    100046: transform1893
+    100048: transform1894
     400000: pCube432
     400002: pCube433
     400004: pCube434
@@ -29,11 +42,32 @@ ModelImporter:
     400018: transform1932
     400020: transform1933
     400022: transform1934
+    400024: pCube399
+    400026: pCube444
+    400028: pCube445
+    400030: pCube446
+    400032: pCube447
+    400034: pCube448
+    400036: pCube449
+    400038: transform1889
+    400040: transform1890
+    400042: transform1891
+    400044: transform1892
+    400046: transform1893
+    400048: transform1894
     2300000: polySurface1988
+    2300002: pCube449
     3300000: polySurface1988
+    3300002: pCube449
     4300000: polySurface1988
+    4300002: pCube449
     9500000: //RootNode
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cam
+    second: {fileID: 2100000, guid: 49fae4bd0a2964e4985b1f3b32404b9c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
