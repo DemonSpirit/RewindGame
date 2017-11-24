@@ -159,26 +159,34 @@ public class PlayerController : MonoBehaviour {
                 }
                 else
                 {
-                    transform.position = (Vector3)recordArray[gameCtrl.step, 0];
-                    transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
-                    camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
-
-                    // playback weapon
-                    if ((bool)recordArray[gameCtrl.step, 3] == true)
-                    {
-                        
-                        UseWeapon();
-                    } else
-                    {
-                        animShooting = false;
-                    }
-
+                    PlaybackCharacterActions();
                 }
-            break;
+                break;
+            case "pre-rewind":
+                active = false;
+                break;
+            case "rewind":
+                
+                PlaybackCharacterActions();
+                break;
         }
             
 	}
 
+    void PlaybackCharacterActions()
+    {
+        // Get events for recordArray and set them.
+        transform.position = (Vector3)recordArray[gameCtrl.step, 0];
+        transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
+        camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
+        // Check recordArray if weapon was pressed.
+        if ((bool)recordArray[gameCtrl.step, 3] == true)
+        {
+            UseWeapon();
+        } else {
+            animShooting = false;
+        }
+    }
 	void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;
 	}

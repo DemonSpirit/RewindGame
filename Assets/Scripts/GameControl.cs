@@ -3,37 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour {
+    // 
     public int maxSteps = 900;
+    public float[,] inputArray = new float[900, 4];
     public int step = 0;
     public int layer = 0;
     public int maxLayer = 4;
     public int time = 0;
+
+    //GameState
     public string gameState = "pre-pick";
-    public float[,] inputArray = new float[900 , 4];
+    int winner = 0;
+
+    //Character Spawning
     public GameObject spawnPos;
     public GameObject activeInst;
 
     public int teamToSpawnFor = 1;
+
+    //Team Variables
     public int amountOfTeams = 2;
     public int team1points = 0;
     public int team2points = 0;
-    // money
     public int team1money = 0;
     public int team2money = 0;
 
-    // Ref Arenacam
+    // Ref Arenacam - Spinning camera at the end of a layer.
     public GameObject arenaCam;
-    // Ref Character Pick UI
-    public GameObject pickUI;
+
+
 
     // PICK SCREEN //
+    // Ref Character Pick UI
+    public GameObject pickUI;
     public GameObject[] characterArray;
     PickUIController pickCtrl;
     bool ready = false;
     public int pick = 0;
     int amtOfCharacters = 3;
-    //
-    int winner = 0;
+
+    
 
     #region Sound References
     [FMODUnity.EventRef]
@@ -168,16 +177,33 @@ public class GameControl : MonoBehaviour {
                 gameState = "live";
                 break;
             case "live":
+
                 step++;
                 time = (step / 60);
-                if (step >= maxSteps) gameState = "end";
+                if (step >= maxSteps) gameState = "rewind";
+                break;
+            case "pre-rewind":
+                // - Turn off input for the active character.
+                activeInst.GetComponent<PlayerController>().active = false;
+                gameState = "rewind";
                 break;
 
+            case "rewind":
+                // Rewind the game events to convey to the player that we are going back in time.
+                // rewind steps
+                Debug.Log("Rewinding Step: " + step.ToString());
+                step--;
+                time = (step / 60);
+                // - Check if back to first step.
+                if (step <= 0) gameState = "end";
+                break;
             case "playback":
+                // this state playback the game.
+
                 break;
 
             case "end":
-                activeInst.GetComponent<PlayerController>().active = false;
+                
                 activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                 // Turn arena cam on for the pick/gameover phase
                 arenaCam.SetActive(true);
