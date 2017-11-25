@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 	
 
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
         switch (gameCtrl.gameState)
         {
@@ -119,8 +119,10 @@ public class PlayerController : MonoBehaviour {
                     // Record pos and rot
                     recordArray[gameCtrl.step, 0] = transform.position;
                     recordArray[gameCtrl.step, 1] = transform.rotation;
+
                     // record camera rot
                     recordArray[gameCtrl.step, 2] = camObj.rotation;
+
                     //Set Cam Dist
                     SetCameraOffset();
 
@@ -163,7 +165,8 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
             case "pre-rewind":
-                active = false;
+                
+                
                 break;
             case "rewind":
                 
