@@ -42,6 +42,8 @@ public class GameControl : MonoBehaviour {
     public int pick = 0;
     int amtOfCharacters = 3;
 
+
+    float secondTimer = 0;
     
 
     #region Sound References
@@ -177,22 +179,23 @@ public class GameControl : MonoBehaviour {
                 gameState = "live";
                 break;
             case "live":
-
-                step++;
+                secondTimer += Time.deltaTime;
+                if (secondTimer >= 1) step++;
                 time = (step / 60);
-                if (step >= maxSteps) gameState = "rewind";
+                if (step >= maxSteps) gameState = "pre-rewind";
                 break;
             case "pre-rewind":
                 // - Turn off input for the active character.
                 activeInst.GetComponent<PlayerController>().active = false;
                 gameState = "rewind";
+                step--;
                 break;
 
             case "rewind":
                 // Rewind the game events to convey to the player that we are going back in time.
                 // rewind steps
                 Debug.Log("Rewinding Step: " + step.ToString());
-                step--;
+                step-=2;
                 time = (step / 60);
                 // - Check if back to first step.
                 if (step <= 0) gameState = "end";
