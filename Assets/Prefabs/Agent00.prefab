@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33613185104637068}
   - component: {fileID: 65523106422140846}
   - component: {fileID: 23268293393179244}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2398,7 +2398,7 @@ Skybox:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465212416417220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: e6df21326b9a5b6489069411b666b18b, type: 2}
 --- !u!65 &65523106422140846
 BoxCollider:
@@ -2634,8 +2634,6 @@ MonoBehaviour:
   - event:/snd_FireWeapon
   hitMarkerSFX: event:/snd_HitMarker
   healBullet: {fileID: 0}
-  playerHitParticleFX: {fileID: 1000010191825552, guid: 83e55d3418297934fab882559d009285,
-    type: 2}
 --- !u!114 &114839088032575652
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -63,6 +63,9 @@ public class GameControl : MonoBehaviour {
         // pick phase
         pickCtrl = pickUI.GetComponent<PickUIController>();
     }
+
+    public GameObject playerHitPFX;
+    public GameObject woodHitPFX;
 	
 	// Update is called once per frame
 	void LateUpdate () {

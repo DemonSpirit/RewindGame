@@ -14,12 +14,15 @@ namespace Abilities
 
         GameObject inst;
         public GameObject healBullet;
-        public GameObject playerHitParticleFX;
+        GameObject playerHitPFX;
+        GameObject woodHitPFX;
         GameControl gameCtrl;
 
         void Start()
         {
             gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+            playerHitPFX = gameCtrl.playerHitPFX;
+            woodHitPFX = gameCtrl.woodHitPFX;
         }
 
         public void Use(PlayerController playerCtrl, int ID)
@@ -56,7 +59,11 @@ namespace Abilities
                         // Debug Ray
                         //Debug.DrawRay(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward*50f,Color.green,1f);
                         
+                        if (hit.transform.tag == "Environment_Wood")
+                        {
 
+                            Destroy(Instantiate(woodHitPFX, hit.point, hit.transform.rotation),0.4f);
+                        }
                         // If the hit obj is a player
                         if (hit.transform.tag == "Player")
                         {   
@@ -92,7 +99,7 @@ namespace Abilities
                                 // spawn hit effect
                                 if (hitCtrl.active == false)
                                 {
-                                    Instantiate(playerHitParticleFX,hit.point,hit.transform.rotation);
+                                    Instantiate(playerHitPFX,hit.point,hit.transform.rotation);
                                 }
                             }
                         }
