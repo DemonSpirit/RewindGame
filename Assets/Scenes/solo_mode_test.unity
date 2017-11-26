@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4513498, g: 0.50032866, b: 0.56955844, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -644,74 +644,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.019999998, y: 0.020000001, z: 0.16431877}
   m_Center: {x: 0, y: -2.1001144e-12, z: 0.07215938}
---- !u!1 &376333479
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 376333481}
-  - component: {fileID: 376333480}
-  m_Layer: 0
-  m_Name: GameController
-  m_TagString: GameController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &376333480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 376333479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82e6aab87c86fc648af84904cb81dd7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSteps: 900
-  step: 0
-  layer: 0
-  maxLayer: 10
-  time: 0
-  gameState: start
-  spawnPos: {fileID: 0}
-  activeInst: {fileID: 0}
-  teamToSpawnFor: 1
-  amountOfTeams: 2
-  team1points: 0
-  team2points: 0
-  team1money: 0
-  team2money: 0
-  arenaCam: {fileID: 410321349}
-  pickUI: {fileID: 603137327}
-  characterArray:
-  - {fileID: 1090460022166188, guid: 5c52ff411f7b6174b9c34466b9007014, type: 2}
-  - {fileID: 1090460022166188, guid: 74cb4835fc47233499008f12d0156cbf, type: 2}
-  - {fileID: 1090460022166188, guid: ea67059d4b0d85047b2f8775f93f55dc, type: 2}
-  pick: 0
-  changeSelectionSFX: event:/snd_ChangeSelection
-  confirmSelectionSFX: event:/snd_ConfirmSelection
-  characterSelectBGM: 
-  noMoneySFX: event:/snd_denyPurchase
-  playerHitPFX: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069,
-    type: 2}
-  woodHitPFX: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 2}
---- !u!4 &376333481
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 376333479}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.75, y: -0.7282636, z: 1.14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &407093627
 Prefab:
   m_ObjectHideFlags: 0
@@ -3722,6 +3654,58 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2548914535d4bc04987280309f722ae2, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &2096168160
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -24.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.7282636
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4243736212699852, guid: b243c0afcebe39342b1562031b86de39, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817571590181168, guid: b243c0afcebe39342b1562031b86de39,
+        type: 2}
+      propertyPath: arenaCam
+      value: 
+      objectReference: {fileID: 410321349}
+    - target: {fileID: 114817571590181168, guid: b243c0afcebe39342b1562031b86de39,
+        type: 2}
+      propertyPath: pickUI
+      value: 
+      objectReference: {fileID: 603137327}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b243c0afcebe39342b1562031b86de39, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2100704962 stripped
 GameObject:

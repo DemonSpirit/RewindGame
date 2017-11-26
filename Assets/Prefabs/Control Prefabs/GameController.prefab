@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1090294532245954}
+  m_IsPrefabParent: 1
+--- !u!1 &1090294532245954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4243736212699852}
+  - component: {fileID: 114817571590181168}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4243736212699852
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090294532245954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.75, y: -0.7282636, z: 1.14}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114817571590181168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090294532245954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e6aab87c86fc648af84904cb81dd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSteps: 900
+  step: 0
+  layer: 0
+  maxLayer: 10
+  time: 0
+  gameState: start
+  spawnPos: {fileID: 0}
+  activeInst: {fileID: 0}
+  teamToSpawnFor: 1
+  amountOfTeams: 2
+  team1points: 0
+  team2points: 0
+  team1money: 0
+  team2money: 0
+  arenaCam: {fileID: 0}
+  pickUI: {fileID: 0}
+  characterArray:
+  - {fileID: 1090460022166188, guid: 5c52ff411f7b6174b9c34466b9007014, type: 2}
+  - {fileID: 1090460022166188, guid: 74cb4835fc47233499008f12d0156cbf, type: 2}
+  - {fileID: 1090460022166188, guid: ea67059d4b0d85047b2f8775f93f55dc, type: 2}
+  pick: 0
+  changeSelectionSFX: event:/snd_ChangeSelection
+  confirmSelectionSFX: event:/snd_ConfirmSelection
+  characterSelectBGM: 
+  noMoneySFX: event:/snd_denyPurchase
+  playerHitPFX: {fileID: 1000013169864706, guid: e5a3d6da48298a0458c1990f58c27069,
+    type: 2}
+  woodHitPFX: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 2}
