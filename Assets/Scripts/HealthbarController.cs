@@ -44,8 +44,7 @@ public class HealthbarController : MonoBehaviour {
             case "live":
                 float healthPerc = activeInst.health / activeInst.maxHealth * 100;
                 float draw = healthPerc / framePercentage;
-
-                //Debug.Log(healthPerc);
+                
                 break;
             case "end":
                 

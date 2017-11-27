@@ -8,21 +8,13 @@ public class OverheadHealthbarController : MonoBehaviour
     public Sprite[] healthbarSprites;
     GameControl gameCtrl;
     PlayerController playerCtrl;
-    float eachChunkPerc;
-    // Use this for initialization
 
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
         playerCtrl = GetComponentInParent<PlayerController>();
         gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
-
-        Debug.Log(healthbarSprites.Length);
-        eachChunkPerc = 100 / healthbarSprites.Length;
-        Debug.Log(eachChunkPerc);
     }
-
-    // Update is called once per frame
     void Update()
     {
 

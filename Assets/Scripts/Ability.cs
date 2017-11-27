@@ -27,7 +27,7 @@ namespace Abilities
 
         public void Use(PlayerController playerCtrl, int ID)
         {
-            
+
             switch (ID)
             {
                 case 0:
@@ -54,29 +54,31 @@ namespace Abilities
                     // play sound
                     FMODUnity.RuntimeManager.PlayOneShot(sfx[ID], transform.position);
 
+                    
                     if (Physics.Raycast(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward, out hit, 50f))
                     {
                         // Debug Ray
                         //Debug.DrawRay(playerCtrl.cam.transform.position, playerCtrl.cam.transform.forward*50f,Color.green,1f);
-                        
+
                         if (hit.transform.tag == "Environment_Wood")
                         {
 
-                            Destroy(Instantiate(woodHitPFX, hit.point, hit.transform.rotation),0.4f);
+                            Destroy(Instantiate(woodHitPFX, hit.point, hit.transform.rotation), 0.4f);
                         }
                         // If the hit obj is a player
                         if (hit.transform.tag == "Player")
-                        {   
-							
+                        {
+
                             // Get PlayerController and damage it.
                             PlayerController hitCtrl = hit.transform.GetComponent<PlayerController>();
 
-                            if (hitCtrl.alive == true && hitCtrl.team != playerCtrl.team) {
+                            if (hitCtrl.alive == true && hitCtrl.team != playerCtrl.team)
+                            {
 
                                 // apply damage to hit target.
-								
+
                                 hitCtrl.health -= playerCtrl.abilityDMG[0];
-								print("hitCtrl" + hitCtrl.health);
+                                print("hitCtrl" + hitCtrl.health);
 
                                 if (hitCtrl.health <= 0)
                                 {
@@ -86,8 +88,8 @@ namespace Abilities
                                     // kill confirm set elimation text and gain money
                                     if (playerCtrl.active == true)
                                     {
-										// Sets raycast layer to ignoreRast
-										hit.transform.gameObject.layer = 2;
+                                        // Sets raycast layer to ignoreRast
+                                        hit.transform.gameObject.layer = 2;
 
                                         GameObject.Find("EliminationText").GetComponent<EliminationTextAnimator>().SetText(hitCtrl.bounty.ToString() + "$ " + hitCtrl.agentName.ToString());
                                     }
@@ -99,11 +101,11 @@ namespace Abilities
                                 // spawn hit effect
                                 if (hitCtrl.active == false)
                                 {
-                                    Instantiate(playerHitPFX,hit.point,hit.transform.rotation);
+                                    Instantiate(playerHitPFX, hit.point, hit.transform.rotation);
                                 }
                             }
                         }
-                        if (hit.transform.tag == "Scorezone")
+                        if (hit.transform.tag == "Scorezone" && gameCtrl.gameState == "live")
                         {
                             GoalZoneController goalCtrl = hit.transform.GetComponent<GoalZoneController>();
                             if (goalCtrl.team != playerCtrl.team)
@@ -112,11 +114,12 @@ namespace Abilities
                                 if (playerCtrl.team == 2) gameCtrl.team2points += 10;
                             }
                         }
-                        
+
                     }
                     break;
-
             }
+
+            
             
         }
 
