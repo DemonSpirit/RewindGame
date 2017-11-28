@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -326,10 +326,10 @@ GameObject:
   m_Component:
   - component: {fileID: 383485814}
   - component: {fileID: 383485807}
+  - component: {fileID: 383485810}
   - component: {fileID: 383485813}
   - component: {fileID: 383485812}
   - component: {fileID: 383485811}
-  - component: {fileID: 383485810}
   - component: {fileID: 383485809}
   - component: {fileID: 383485808}
   m_Layer: 0
@@ -400,15 +400,15 @@ MonoBehaviour:
 --- !u!114 &383485810
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114442498757131828, guid: 5c0513cca2a6db244a6e9395f944d041,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 383485806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c9ba90bdeb84932a1126df0ad34171, type: 3}
+  m_Script: {fileID: 11500000, guid: ccbf1fdfd35f06144847391e7c2ccdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soloMode: 0
   RotAxisXY: 1
   x: 0
   y: 0
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1194309968}
   - component: {fileID: 1194309967}
   - component: {fileID: 1194309966}
-  - component: {fileID: 1194309965}
+  - component: {fileID: 1194309963}
   - component: {fileID: 1194309961}
   - component: {fileID: 1194309962}
   m_Layer: 0
@@ -842,18 +842,18 @@ MonoBehaviour:
   camObj: {fileID: 0}
   h: 0
   v: 0
---- !u!114 &1194309965
+--- !u!114 &1194309963
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114277707546417574, guid: 5c0513cca2a6db244a6e9395f944d041,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194309960}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c9ba90bdeb84932a1126df0ad34171, type: 3}
+  m_Script: {fileID: 11500000, guid: ccbf1fdfd35f06144847391e7c2ccdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soloMode: 0
   RotAxisXY: 0
   x: 0
   y: 0
@@ -1151,7 +1151,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629687038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 689, y: 293, z: 0}
+  m_LocalPosition: {x: 490, y: 236, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 743702747}

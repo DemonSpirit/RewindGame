@@ -36,7 +36,7 @@ public class SoloPlayerController : MonoBehaviour {
     object[,] sendArray = new object[1000, 6];
     object[] tempArray = new object[6];
 
-    Aiming horzAim, vertAim;
+    SoloAiming horzAim, vertAim;
 
     // Use this for initialization
     void Start () {
@@ -51,8 +51,8 @@ public class SoloPlayerController : MonoBehaviour {
         // Get collider component
         coll = GetComponent<CapsuleCollider>();
         // Get Aiming scripts
-        horzAim = GetComponent<Aiming>();
-        vertAim = GetComponentInChildren<Aiming>();
+        horzAim = GetComponent<SoloAiming>();
+        vertAim = GetComponentInChildren<SoloAiming>();
 
         ///// CHEWCK ME
         //initialise array values.
@@ -263,7 +263,7 @@ public class SoloPlayerController : MonoBehaviour {
 	}
 
     public void DestroyComponentsAtLayerEnd()
-    {
+    {   // are we even using this for solo mode?
         camObj.GetComponent<Camera>().enabled = false;
         Destroy(GetComponent<Aiming>());
         Destroy(camObj.GetComponent<AudioListener>());

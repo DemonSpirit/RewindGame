@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Aiming : MonoBehaviour {
+public class SoloAiming : MonoBehaviour {
 
     public enum RotAxis
     {
@@ -25,19 +25,22 @@ public class Aiming : MonoBehaviour {
     public Quaternion yQuat;
 
     public Quaternion OrigRotation;
-    GameControl gameCtrl;
-    
+    SoloGameController gameCtrl;
+    SoloPlayerController playerCtrl;
 
 	void Start()
 	{	Cursor.lockState = CursorLockMode.Locked;
+
        
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>(); 
+        gameCtrl = GameObject.Find("GameController").GetComponent<SoloGameController>();
+        playerCtrl = GameObject.Find("Player").GetComponent<SoloPlayerController>();
+        
         
 	}
     // Update is called once per frame
     void Update()
     {
-        if (gameCtrl.gameState == "live")
+        if (gameCtrl.gameState == "live" && playerCtrl.active == true )
         {
             x = Input.GetAxis("Mouse X");
             y = Input.GetAxis("Mouse Y");
