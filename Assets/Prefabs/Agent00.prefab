@@ -2497,7 +2497,7 @@ MonoBehaviour:
   bounty: 100
   abilityIDs: 04000000000000000000000000000000
   abilityDMG: 0a000000000000000000000000000000
-  moveSpd: 8
+  moveSpd: 10
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
   gravity: 30
@@ -2526,6 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c9ba90bdeb84932a1126df0ad34171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soloMode: 0
   RotAxisXY: 0
   x: 0
   y: 0
@@ -2657,6 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c9ba90bdeb84932a1126df0ad34171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soloMode: 0
   RotAxisXY: 1
   x: 0
   y: 0
