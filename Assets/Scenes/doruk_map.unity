@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -794,6 +794,7 @@ MonoBehaviour:
   layer: 0
   maxLayer: 12
   time: 0
+  gameMode: versus
   gameState: start
   spawnPos: {fileID: 0}
   activeInst: {fileID: 0}
@@ -814,8 +815,9 @@ MonoBehaviour:
   confirmSelectionSFX: event:/snd_ConfirmSelection
   characterSelectBGM: 
   noMoneySFX: event:/snd_denyPurchase
-  playerHitPFX: {fileID: 0}
-  woodHitPFX: {fileID: 0}
+  playerHitPFX: {fileID: 1000010191825552, guid: 83e55d3418297934fab882559d009285,
+    type: 2}
+  woodHitPFX: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 2}
 --- !u!4 &376333481
 Transform:
   m_ObjectHideFlags: 0
@@ -6736,22 +6738,22 @@ Prefab:
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 53.5
       objectReference: {fileID: 0}
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 30.5
+      value: -57.5
       objectReference: {fileID: 0}
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 53.5
       objectReference: {fileID: 0}
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 30.5
+      value: -57.5
       objectReference: {fileID: 0}
     - target: {fileID: 114872817674715548, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
