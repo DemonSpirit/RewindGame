@@ -197,7 +197,7 @@ public class GameControl : MonoBehaviour {
                     case "live":
                         secondTimer += Time.deltaTime;
                         if (secondTimer >= 1) step++;
-                        time = (step / 60);
+                        time = (maxSteps / 60) - (step / 60);
                         if (step >= maxSteps) gameState = "pre-rewind";
                         break;
                     case "pre-rewind":
@@ -212,7 +212,7 @@ public class GameControl : MonoBehaviour {
                         // rewind steps
                         Debug.Log("Rewinding Step: " + step.ToString());
                         step-=2;
-                        time = (step / 60);
+                        time = (maxSteps / 60) - (step / 60);
                         // - Check if back to first step.
                         if (step <= 0) gameState = "end";
                         break;
