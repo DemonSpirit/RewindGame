@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 33563684498737650}
   - component: {fileID: 23096065729927872}
   - component: {fileID: 95912649362295862}
+  - component: {fileID: 65056618909827456}
+  - component: {fileID: 65020353144449694}
+  - component: {fileID: 65016711605943376}
   m_Layer: 0
   m_Name: Edge of Wall 1
   m_TagString: Untagged
@@ -56,7 +59,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e3170b2d2c945fc46a2a0d1ecfd5b094, type: 2}
+  - {fileID: 2100000, guid: e590ccf189f35f24c931599881d8398b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,6 +86,42 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931241273270828}
   m_Mesh: {fileID: 4300000, guid: ec95fee41ad7d6d4ea9fc40f6e4a06e0, type: 3}
+--- !u!65 &65016711605943376
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931241273270828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0070117908, y: 0.01, z: 0.00039222784}
+  m_Center: {x: 0.0034720937, y: 1.8415501e-30, z: 0.00016902343}
+--- !u!65 &65020353144449694
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931241273270828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.016723396, y: 0.01, z: 0.00044791072}
+  m_Center: {x: -0.0051993276, y: 4.094515e-27, z: 0.00025277954}
+--- !u!65 &65056618909827456
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931241273270828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009536639, y: 0.01, z: 0.00069439854}
+  m_Center: {x: 0.0072410745, y: -6.713675e-27, z: -0.0001387361}
 --- !u!95 &95912649362295862
 Animator:
   serializedVersion: 3

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33128482533135994}
   - component: {fileID: 23494981505449834}
   - component: {fileID: 95037024706916580}
+  - component: {fileID: 65596996572788654}
   m_Layer: 0
   m_Name: plaka 7
   m_TagString: Untagged
@@ -83,6 +84,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926240613568026}
   m_Mesh: {fileID: 4300002, guid: cb80a2b5bb7a1da4ea80a1fc3cd901d2, type: 3}
+--- !u!65 &65596996572788654
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926240613568026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.010000008, y: 0.01, z: 0.009999995}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95037024706916580
 Animator:
   serializedVersion: 3
