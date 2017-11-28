@@ -22,6 +22,10 @@ GameObject:
   - component: {fileID: 33026761474311840}
   - component: {fileID: 23405443020032598}
   - component: {fileID: 95145306588603638}
+  - component: {fileID: 65267603669745750}
+  - component: {fileID: 65005916951568520}
+  - component: {fileID: 65048254529324416}
+  - component: {fileID: 65503740286016924}
   m_Layer: 0
   m_Name: plaka 16 frame beveled
   m_TagString: Untagged
@@ -83,6 +87,54 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192726105513070}
   m_Mesh: {fileID: 4300002, guid: c285b8b17d3a7024db8ad76d577e881a, type: 3}
+--- !u!65 &65005916951568520
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192726105513070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.089156024, y: 0.089517154, z: 2.0572848}
+  m_Center: {x: 0, y: -0.6499756, z: 0}
+--- !u!65 &65048254529324416
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192726105513070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.089156024, y: 1.3894714, z: 0.118253805}
+  m_Center: {x: 0, y: 0, z: -0.96951276}
+--- !u!65 &65267603669745750
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192726105513070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.089156024, y: 0.08587178, z: 2.0572848}
+  m_Center: {x: 0, y: 0.65179926, z: 0}
+--- !u!65 &65503740286016924
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1192726105513070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.089156024, y: 1.3894714, z: 0.11539234}
+  m_Center: {x: 0, y: 0, z: 0.97094357}
 --- !u!95 &95145306588603638
 Animator:
   serializedVersion: 3

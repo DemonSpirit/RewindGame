@@ -21,6 +21,10 @@ GameObject:
   - component: {fileID: 4925723410400344}
   - component: {fileID: 33038875982493956}
   - component: {fileID: 23506854944786928}
+  - component: {fileID: 65648044513346460}
+  - component: {fileID: 65171024099364946}
+  - component: {fileID: 65114751304217548}
+  - component: {fileID: 65304926672354064}
   m_Layer: 0
   m_Name: plaka 9 frame
   m_TagString: Untagged
@@ -82,3 +86,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1127106595162270}
   m_Mesh: {fileID: 4300002, guid: 0ee4d566101347946af501c9aa792932, type: 3}
+--- !u!65 &65114751304217548
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127106595162270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08915603, y: 1.3894719, z: 0.12549925}
+  m_Center: {x: 0, y: 0, z: -0.96589065}
+--- !u!65 &65171024099364946
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127106595162270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08915603, y: 0.08418584, z: 2.0572803}
+  m_Center: {x: 0, y: -0.652643, z: 0}
+--- !u!65 &65304926672354064
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127106595162270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08915603, y: 1.3894719, z: 0.13374662}
+  m_Center: {x: 0, y: 0, z: 0.96176696}
+--- !u!65 &65648044513346460
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1127106595162270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08915603, y: 0.08712804, z: 2.0572803}
+  m_Center: {x: 0, y: 0.6511719, z: 0}

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4066360174954236}
   - component: {fileID: 33008600543179314}
   - component: {fileID: 23292165206388724}
+  - component: {fileID: 65962381082090294}
   m_Layer: 0
   m_Name: plaka 5
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893608981835554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.4278965, y: 0.4405322, z: 35.732494}
+  m_LocalPosition: {x: -12.4278965, y: 0.718, z: 35.732494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1893608981835554}
   m_Mesh: {fileID: 4300002, guid: 52b4bbe15b3a1554f9cb809a903f465c, type: 3}
+--- !u!65 &65962381082090294
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893608981835554}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.08915603, y: 1.389472, z: 2.0572803}
+  m_Center: {x: 0, y: 0, z: 0}

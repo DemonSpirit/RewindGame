@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4986316401678672}
   - component: {fileID: 33057107874356906}
   - component: {fileID: 23035507132971652}
+  - component: {fileID: 65555730715346720}
+  - component: {fileID: 65346930770696562}
   m_Layer: 0
   m_Name: plaka 18 emboss
   m_TagString: Untagged
@@ -84,3 +86,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1553894053261168}
   m_Mesh: {fileID: 4300000, guid: 7460a27ee57257449b565c316ab5c0f9, type: 3}
+--- !u!65 &65346930770696562
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553894053261168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3246622, y: 1.1321682, z: 1.7568474}
+  m_Center: {x: -0.0012574196, y: -0.0020215511, z: -0.005220413}
+--- !u!65 &65555730715346720
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1553894053261168}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.09680271, y: 1.3894719, z: 2.0572803}
+  m_Center: {x: -0.02400446, y: 0, z: 0}
