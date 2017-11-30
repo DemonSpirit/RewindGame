@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameControl : MonoBehaviour {
     
     // Rewind Variables
-    public int maxSteps = 900;
+    //public int maxSteps = 900;
     public float[,] inputArray = new float[900, 4];
     public int step = 0;
     public int layer = 0;
@@ -46,7 +46,9 @@ public class GameControl : MonoBehaviour {
     public int pick = 0;
     int amtOfCharacters = 3;
 
-    float secondTimer = 0;
+    float startTimeOut = 0;
+	float startTimeOutLimit = 0;
+	[HideInInspector] public bool roundStarted;
 
     #region Sound References
     [FMODUnity.EventRef]
@@ -65,6 +67,7 @@ public class GameControl : MonoBehaviour {
     #endregion
 
     void Start () {
+		time = timeLimit;
         gameState = "pre-pick";
         // pick phase
         pickCtrl = pickUI.GetComponent<PickUIController>();
@@ -168,6 +171,7 @@ public class GameControl : MonoBehaviour {
 
                         break;
                     case "start":
+						roundStarted = false;
                         pickUI.SetActive(false);
                         if (teamToSpawnFor == 1) spawnPos = GameObject.Find("BluePlayerSpawn");
                         if (teamToSpawnFor == 2) spawnPos = GameObject.Find("RedPlayerSpawn");
@@ -196,20 +200,21 @@ public class GameControl : MonoBehaviour {
                         gameState = "live";
                         break;
                     case "live":
-                        secondTimer += Time.deltaTime;
-						if (secondTimer >= 1){
+                        startTimeOut += Time.deltaTime;
+						if (startTimeOut >= startTimeOutLimit){
+							roundStarted = true;
 							step++;
-							time += Time.deltaTime;
+							time -= Time.deltaTime;
 						}
 						
-						if (time >= timeLimit) gameState = "pre-rewind";
+						if (time <= 0) gameState = "pre-rewind";
                         break;
                     case "pre-rewind":
                         // - Turn off input for the active character.
                         activeInst.GetComponent<PlayerController>().active = false;
                         gameState = "rewind";
                         step--;
-						time -= Time.deltaTime;
+						time += Time.deltaTime;
                         break;
 
                     case "rewind":
@@ -217,9 +222,9 @@ public class GameControl : MonoBehaviour {
                         // rewind steps
                         Debug.Log("Rewinding Step: " + step.ToString());
                         step-=2;
-						time -= 2* Time.deltaTime;
+						time += 2* Time.deltaTime;
                         // - Check if back to first step.
-                        if (time <= 0) gameState = "end";
+						if (time >= timeLimit) gameState = "end";
                         break;
                     case "playback":
                         // this state playback the game.

@@ -44,8 +44,11 @@ public class PlayerController : MonoBehaviour {
     public float fireRate = 0.5f;
     public float ability1CD = 0f;
 
-    int maxSteps;
-    object[,] recordArray = new object[900,4];
+	// Rewind variables
+	List<Vector3> playerPos;
+	List <Quaternion> playerRot;
+	List <Quaternion> cameraRot;
+	List<bool> playerIsShooting;
 
 	// Use this for initialization
 	void Start () {
@@ -74,15 +77,10 @@ public class PlayerController : MonoBehaviour {
         deadColor.a = 0.2f;
 
         //initialise array values.
-        for (int i = 0; i < gameCtrl.maxSteps; i++)
-        {
-            recordArray[i, 0] = Vector3.zero;
-            recordArray[i, 1] = Quaternion.identity;
-            recordArray[i, 2] = Quaternion.identity;
-            recordArray[i, 3] = false;
-
-        }
-
+		playerPos = new List<Vector3>();
+		playerRot = new List<Quaternion>();
+		cameraRot = new List<Quaternion>();
+		playerIsShooting = new List<bool>();
         
     }
 	
@@ -116,25 +114,36 @@ public class PlayerController : MonoBehaviour {
                     h = Input.GetAxis("Horizontal");
                     v = Input.GetAxis("Vertical");
 
-                    // Record pos and rot
-                    recordArray[gameCtrl.step, 0] = transform.position;
-                    recordArray[gameCtrl.step, 1] = transform.rotation;
-
-                    // record camera rot
-                    recordArray[gameCtrl.step, 2] = camObj.rotation;
+              
+                
 
                     //Set Cam Dist
                     SetCameraOffset();
 
+				if (gameCtrl.roundStarted){
+					// Adds new player position, player rotation and camera rotation to each list
+					playerPos.Add(transform.position);
+					playerRot.Add(transform.rotation);
+					cameraRot.Add(camObj.rotation);
+				}
+					
                     //check for fire button
                     if (Input.GetButton("Fire1"))
                     {
                         UseWeapon();
-                        recordArray[gameCtrl.step, 3] = true;
-                    } else
+
+						if (gameCtrl.roundStarted)
+							playerIsShooting.Add(true);
+                    } 
+
+					else
                     {
                         animShooting = false;
+
+						if (gameCtrl.roundStarted)
+							playerIsShooting.Add(false);
                     }
+				
 
                     // Check Gravity
                     if (characterCtrlr.isGrounded == true)
@@ -179,14 +188,13 @@ public class PlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         // Get events for recordArray and set them.
-		if (gameCtrl.step < 0)
-			return;
+
 		
-        transform.position = (Vector3)recordArray[gameCtrl.step, 0];
-        transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
-        camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];
+		transform.position = playerPos[gameCtrl.step];
+		transform.rotation = playerRot[gameCtrl.step];
+		camObj.rotation = cameraRot[gameCtrl.step];
         // Check recordArray if weapon was pressed.
-        if ((bool)recordArray[gameCtrl.step, 3] == true)
+		if (playerIsShooting[gameCtrl.step])
         {
             UseWeapon();
         } else {
