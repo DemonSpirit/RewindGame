@@ -15,6 +15,7 @@ public class TimerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        txt.text = gameControl.time.ToString();
+		int time = (int) gameControl.time;
+        txt.text = time.ToString();
 	}
 }

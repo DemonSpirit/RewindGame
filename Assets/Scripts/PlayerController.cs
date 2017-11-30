@@ -179,6 +179,9 @@ public class PlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         // Get events for recordArray and set them.
+		if (gameCtrl.step < 0)
+			return;
+		
         transform.position = (Vector3)recordArray[gameCtrl.step, 0];
         transform.rotation = (Quaternion)recordArray[gameCtrl.step, 1];
         camObj.rotation = (Quaternion)recordArray[gameCtrl.step, 2];

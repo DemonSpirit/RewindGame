@@ -10,7 +10,8 @@ public class GameControl : MonoBehaviour {
     public int step = 0;
     public int layer = 0;
     public int maxLayer = 4;
-    public int time = 0;
+    public float time = 0;
+	[SerializeField] float timeLimit;
 
     // Game Mode and State
     public string gameMode = "versus";
@@ -196,15 +197,19 @@ public class GameControl : MonoBehaviour {
                         break;
                     case "live":
                         secondTimer += Time.deltaTime;
-                        if (secondTimer >= 1) step++;
-                        time = (maxSteps / 60) - (step / 60);
-                        if (step >= maxSteps) gameState = "pre-rewind";
+						if (secondTimer >= 1){
+							step++;
+							time += Time.deltaTime;
+						}
+						
+						if (time >= timeLimit) gameState = "pre-rewind";
                         break;
                     case "pre-rewind":
                         // - Turn off input for the active character.
                         activeInst.GetComponent<PlayerController>().active = false;
                         gameState = "rewind";
                         step--;
+						time -= Time.deltaTime;
                         break;
 
                     case "rewind":
@@ -212,9 +217,9 @@ public class GameControl : MonoBehaviour {
                         // rewind steps
                         Debug.Log("Rewinding Step: " + step.ToString());
                         step-=2;
-                        time = (maxSteps / 60) - (step / 60);
+						time -= 2* Time.deltaTime;
                         // - Check if back to first step.
-                        if (step <= 0) gameState = "end";
+                        if (time <= 0) gameState = "end";
                         break;
                     case "playback":
                         // this state playback the game.
