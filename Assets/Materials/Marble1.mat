@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Goal 2
-  m_Shader: {fileID: 4800000, guid: 067c960c8cf22704395ae36e67a762c9, type: 3}
+  m_Name: Marble1
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -36,12 +36,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 0.203, y: 0.203}
+        m_Offset: {x: 0.703, y: -0.09}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 6a9bcc0cdf4b134428c017269098d472, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Texture: {fileID: 2800000, guid: 5953ee9ad165f1043b599bec48d57de5, type: 3}
+        m_Scale: {x: 0.203, y: 0.203}
+        m_Offset: {x: 0.703, y: -0.09}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -55,34 +55,22 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Alpha: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Distortion: 0.586
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Hole: 0.455
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Size: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.279
     - _SrcBlend: 1
-    - _TimeX: 0
     - _UVSec: 0
-    - _Value1: 1
-    - _Value2: 1
-    - _Value3: 1
-    - _Value4: 1
-    - _Value5: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.08965492, b: 1, a: 1}
-    - _ColorX: {r: 0.034482475, g: 0, b: 1, a: 1}
+    - _Color: {r: 0.3897059, g: 0.3897059, b: 0.3897059, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
