@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameControl : MonoBehaviour {
     
     // Rewind Variables
-    //public int maxSteps = 900;
     public float[,] inputArray = new float[900, 4];
     public int step = 0;
     public int layer = 0;
     public int maxLayer = 4;
+
+	float timeoutTime;
+	[SerializeField] float timeoutTimeLimit;
     public float time = 0;
 	[SerializeField] float timeLimit;
 
@@ -45,10 +47,6 @@ public class GameControl : MonoBehaviour {
     bool ready = false;
     public int pick = 0;
     int amtOfCharacters = 3;
-
-    float startTimeOut = 0;
-	float startTimeOutLimit = 0;
-	[HideInInspector] public bool roundStarted;
 
     #region Sound References
     [FMODUnity.EventRef]
@@ -171,7 +169,7 @@ public class GameControl : MonoBehaviour {
 
                         break;
                     case "start":
-						roundStarted = false;
+						timeoutTime = timeoutTimeLimit;
                         pickUI.SetActive(false);
                         if (teamToSpawnFor == 1) spawnPos = GameObject.Find("BluePlayerSpawn");
                         if (teamToSpawnFor == 2) spawnPos = GameObject.Find("RedPlayerSpawn");
@@ -192,20 +190,30 @@ public class GameControl : MonoBehaviour {
                         ready = false;
                         step = 0;
                         layer++;
-                        gameState = "pre-live";
-                
-                        break;
+						gameState = "time-out";
+						break;
+					case "time-out": 
+						arenaCam.SetActive(false);
+						
+						if (timeoutTime > 0)
+						{
+							timeoutTime -= Time.deltaTime;
+							time = timeoutTime;
+						}
+
+						else {
+							gameState = "pre-live";
+							time = timeLimit;
+						}
+	                
+	                    break;
                     case "pre-live":
-                        arenaCam.SetActive(false);
+                        //arenaCam.SetActive(false);
                         gameState = "live";
                         break;
                     case "live":
-                        startTimeOut += Time.deltaTime;
-						if (startTimeOut >= startTimeOutLimit){
-							roundStarted = true;
-							step++;
-							time -= Time.deltaTime;
-						}
+						step++;
+						time -= Time.deltaTime;
 						
 						if (time <= 0) gameState = "pre-rewind";
                         break;
@@ -224,7 +232,7 @@ public class GameControl : MonoBehaviour {
                         step-=2;
 						time += 2* Time.deltaTime;
                         // - Check if back to first step.
-						if (time >= timeLimit) gameState = "end";
+						if (step <= 0) gameState = "end";
                         break;
                     case "playback":
                         // this state playback the game.
@@ -232,7 +240,7 @@ public class GameControl : MonoBehaviour {
                         break;
 
                     case "end":
-                
+                		
                         activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                         // Turn arena cam on for the pick/gameover phase
                         arenaCam.SetActive(true);

@@ -37,7 +37,7 @@ public class Aiming : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (gameCtrl.gameState == "live")
+		if (gameCtrl.gameState == "live" || gameCtrl.gameState == "time-out")
         {
             x = Input.GetAxis("Mouse X");
             y = Input.GetAxis("Mouse Y");

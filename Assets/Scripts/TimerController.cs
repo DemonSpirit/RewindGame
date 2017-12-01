@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour {
 
+	int startFontSize;
     public Text txt;
     public GameControl gameControl;
 	// Use this for initialization
@@ -16,22 +17,43 @@ public class TimerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		UpdateText();
-       
 	}
 
 	void UpdateText()
 	{
 		decimal time = (decimal) gameControl.time;
 
-		if (time > 3)
+		switch (gameControl.gameState)
 		{
-			time = decimal.Round(time, 0);
-		}
-		else 
-		{
-			time = decimal.Round(time, 1);
-		}
+			case "time-out":
+				time = decimal.Round(time, 0);
+				txt.color = Color.yellow;
+				break;
+			case "live":
+			case "pre-rewind":
+			case "rewind":
 
+				if (time > 3)
+				{
+					time = decimal.Round(time, 0);
+					txt.color = Color.white;
+				}
+
+				else 
+				{
+				time = decimal.Round(time, 1);
+				txt.color = Color.red;
+				}
+			break;
+
+		default:
+			txt.text = "";
+			return;
+		}
+			
 		txt.text = time.ToString();
+
+		if (time < 0)
+			txt.text = "0";
 	}
 }

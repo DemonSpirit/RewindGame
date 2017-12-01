@@ -95,6 +95,11 @@ public class PlayerController : MonoBehaviour {
                 health = maxHealth;
                 alive = true;
                 break;
+
+			case "time-out":
+			//Set Cam Dist
+				SetCameraOffset();
+				break;
             case "live":
                 // check health state
                 HealthCheck();
@@ -120,28 +125,24 @@ public class PlayerController : MonoBehaviour {
                     //Set Cam Dist
                     SetCameraOffset();
 
-				if (gameCtrl.roundStarted){
+
 					// Adds new player position, player rotation and camera rotation to each list
 					playerPos.Add(transform.position);
 					playerRot.Add(transform.rotation);
 					cameraRot.Add(camObj.rotation);
-				}
+
 					
                     //check for fire button
                     if (Input.GetButton("Fire1"))
                     {
                         UseWeapon();
-
-						if (gameCtrl.roundStarted)
-							playerIsShooting.Add(true);
+						playerIsShooting.Add(true);
                     } 
 
 					else
                     {
                         animShooting = false;
-
-						if (gameCtrl.roundStarted)
-							playerIsShooting.Add(false);
+						playerIsShooting.Add(false);
                     }
 				
 
