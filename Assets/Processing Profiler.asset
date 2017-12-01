@@ -281,12 +281,12 @@ MonoBehaviour:
       lut: {fileID: 2800000, guid: d38157da0df799643a00ea1de30f75d4, type: 3}
       contribution: 1
   chromaticAberration:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       spectralTexture: {fileID: 0}
       intensity: 1
   grain:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       colored: 0
       intensity: 0.643
