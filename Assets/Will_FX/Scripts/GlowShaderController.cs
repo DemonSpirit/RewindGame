@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Table : MouseInteract {
+public class GlowShaderController : ShaderInteraction {
 	public Color Color = new Color(0.733f, 0.447f, 0.224f);
 	public Color Glow = new Color(1.000f, 0.847f, 0.733f);
 	public float MinGlow = 4.6f;

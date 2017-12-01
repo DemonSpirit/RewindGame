@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouseInteract : MonoBehaviour {
+public class ShaderInteraction : MonoBehaviour {
 	protected bool Selected = false;
 
 	protected Renderer shader;

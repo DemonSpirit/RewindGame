@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalZoneController : MonoBehaviour {
+public class GoalZoneController: MonoBehaviour {
 
     public int team = 0;
+    public float TimeX = 0.0f;
+    Renderer rend;
     Color color;
 
 	// Use this for initialization
 	void Start () {
-        Renderer rend = GetComponent<Renderer>();
+        rend = GetComponent<Renderer>();
         if (team == 1) {
             color = Color.blue;
         } else
@@ -23,7 +25,7 @@ public class GoalZoneController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        rend.material.SetFloat("_TimeX", TimeX);
 	}
     
 }
