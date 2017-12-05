@@ -11,43 +11,39 @@ public class Speeding : MonoBehaviour {
     Vector3 currPosition;
     Vector3 diffPosition;
 
-    Animator animator;
-
+    public Animator animator;
     public Transform gunXform;
     public float speed;
     public float forwardsAmount;
 
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-
-    }
-
     private void Update()
     {
 
-        Debug.Log(animator.GetFloat("Speed"));
+
+        currPosition = xform.position;
+        currPosition.y = 0;
 
 
-        //currPosition = xform.position;
-        //currPosition.y = 0;
-        
+        Vector3 direction = gunXform.forward;
+        direction.y = 0;
+        direction.Normalize();
 
-        //Vector3 direction = gunXform.forward;
-        //direction.y = 0;
-        //direction.Normalize();
+        diffPosition = currPosition - lastPosition;
+        speed = diffPosition.magnitude / Time.deltaTime;
 
-        //diffPosition = currPosition - lastPosition;
-        //speed = diffPosition.magnitude / Time.deltaTime;
+        forwardsAmount = Vector3.Dot(direction, diffPosition.normalized);
 
-        //forwardsAmount = Vector3.Dot(direction, diffPosition.normalized);
+        lastPosition = currPosition;
 
-        //lastPosition = currPosition;
+        Debug.Log(forwardsAmount + "," + speed);
+
+        animator.SetFloat("Speed", speed);
+
     }
 
     private void OnEnable()
     {
-        //xform = this.transform;
-        //lastPosition = xform.position;
+        xform = this.transform;
+        lastPosition = xform.position;
     }
 }
