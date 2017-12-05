@@ -35,7 +35,7 @@ public class Speeding : MonoBehaviour {
 
         lastPosition = currPosition;
 
-        Debug.Log(forwardsAmount + "," + speed);
+        //Debug.Log(forwardsAmount + "," + speed);
 
         animator.SetFloat("Speed", speed);
 
