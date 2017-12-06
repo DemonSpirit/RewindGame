@@ -33,6 +33,8 @@ public class OverheadHealthbarController : MonoBehaviour
 				int spriteIndex = (int) ((hpPerc + 2.5f) / indexDivider);
 				//print("spriteIndex " + spriteIndex);
 				rend.sprite = healthbarSprites[spriteIndex];
+
+                transform.LookAt(gameCtrl.activeInst.transform);
                 
                 break;
         }

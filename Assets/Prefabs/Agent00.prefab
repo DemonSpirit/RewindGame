@@ -4120,7 +4120,7 @@ Skybox:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465212416417220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: e6df21326b9a5b6489069411b666b18b, type: 2}
 --- !u!65 &65523106422140846
 BoxCollider:
@@ -4305,7 +4305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: cfca043ef44f3cc4fa327da906556b92, type: 2}
+  profile: {fileID: 11400000, guid: 877725f37ce203247900841c15aedff6, type: 2}
 --- !u!114 &114133524031606636
 MonoBehaviour:
   m_ObjectHideFlags: 1
