@@ -7,16 +7,18 @@ using Abilities;
 
 public class PlayerController : MonoBehaviour {
 
-	public CharacterController characterCtrlr;
+    public CharacterController characterCtrlr;
     public string agentName = "???";
     public int maxHealth = 100;
     public int health;
     public bool alive = true;
     public int team = 0;
     public int bounty = 100;
+    [SerializeField]
+    private float myTimeLimit;
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0};
-    public int[] abilityDMG = new int[] { 0, 0, 0, 0 };
+    public int[] abilityDMG = new int[] { 0, 0, 0, 0};
     
 
 	public float moveSpd;
@@ -65,18 +67,28 @@ public class PlayerController : MonoBehaviour {
         GameObject gamecontrollerObj = GameObject.Find("GameController");
         gameCtrl = gamecontrollerObj.GetComponent<GameControl>();
 
+        
         // Get collider component
         coll = GetComponent<CapsuleCollider>();
         // Setting Alive State opacity fade
         rend = GetComponent<Renderer>();
-        if (team == 1) aliveColor = team1Color;
+        if (team == 1)
+        {
+            aliveColor = team1Color;
+            //record this character's time limit to use for later.
+            myTimeLimit = gameCtrl.timeLimitTeam1;
+        }
 
-        if (team == 2) aliveColor = team2Color;
+        if (team == 2) 
+        {
+            aliveColor = team2Color;
+            myTimeLimit = gameCtrl.timeLimitTeam2;
+        }
 
         deadColor = aliveColor;
         deadColor.a = 0.2f;
 
-        //initialise array values.
+        //initialise lists
 		playerPos = new List<Vector3>();
 		playerRot = new List<Quaternion>();
 		cameraRot = new List<Quaternion>();
@@ -90,12 +102,14 @@ public class PlayerController : MonoBehaviour {
 
         switch (gameCtrl.gameState)
         {
-            case "start":
+            case "pre-pick":
                 gameObject.layer = 0;
                 health = maxHealth;
                 alive = true;
                 break;
+            case "start":
 
+                break;
 			case "time-out":
 			//Set Cam Dist
 				SetCameraOffset();
@@ -135,7 +149,6 @@ public class PlayerController : MonoBehaviour {
                         UseWeapon();
 						playerIsShooting.Add(true);
                     } 
-
 					else
                     {
                         animShooting = false;
@@ -195,24 +208,26 @@ public class PlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         // Get events for respective lists and set them.
-        if (transform.position != null)
+        if (gameCtrl.time >= gameCtrl.currentLayerTimeLimit - myTimeLimit)
         {
-            
             transform.position = playerPos[gameCtrl.step];
+            transform.rotation = playerRot[gameCtrl.step];
+            camObj.rotation = cameraRot[gameCtrl.step];
+            if (playerIsShooting[gameCtrl.step])
+            {
+                UseWeapon();
+            }
+            else
+            {
+                animShooting = false;
+            }
         } else
         {
-            print("TRANSFORM ERROR");
-        }
+            print(name + " doesnt exist in this moment. Time: "+gameCtrl.time);
 
-        transform.rotation = playerRot[gameCtrl.step];
-		camObj.rotation = cameraRot[gameCtrl.step];
-        // Check recordArray if weapon was pressed.
-		if (playerIsShooting[gameCtrl.step])
-        {
-            UseWeapon();
-        } else {
-            animShooting = false;
         }
+        
+		
     }
 	void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;

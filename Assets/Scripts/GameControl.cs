@@ -5,17 +5,22 @@ using UnityEngine;
 public class GameControl : MonoBehaviour {
     
     // Rewind Variables
-    public float[,] inputArray = new float[900, 4];
+    public float[,] inputArray = new float[900, 4]; // not used anymore;
     public int step = 0;
     public int layer = 0;
     public int maxLayer = 4;
+    [SerializeField]
+    int rewindSpd = 2;
 
 	float timeoutTime;
 	[SerializeField] float timeoutTimeLimit;
     public float time = 0;
 	[SerializeField] float timeLimit;
+    public float currentLayerTimeLimit;
+    [SerializeField]
+    float furthestLayerTimeLimit = 0f;
     public float timeLimitTeam1 = 4f;
-    public float timeLimitTeam2 = 4f;
+    public float timeLimitTeam2 = 8f;
 
     // Game Mode and State
     public string gameMode = "versus";
@@ -92,7 +97,8 @@ public class GameControl : MonoBehaviour {
                         pickUI.SetActive(true);              
                         gameState = "pick";
                         // set vars for auto playback in background
-                        time = timeLimit;
+                        time = furthestLayerTimeLimit;
+                        step = 0;
                         break;
                     case "pick":
 
@@ -177,7 +183,7 @@ public class GameControl : MonoBehaviour {
                         //print("time: "+time.ToString()+" step: "+step.ToString());
                         if (time <= 0)
                         {
-                            time = timeLimit;
+                            time = furthestLayerTimeLimit;
                             step = 0;
                         }
 
@@ -187,9 +193,18 @@ public class GameControl : MonoBehaviour {
                     case "start":
 						timeoutTime = timeoutTimeLimit;
                         pickUI.SetActive(false);
-                        if (teamToSpawnFor == 1) spawnPos = GameObject.Find("BluePlayerSpawn");
-                        if (teamToSpawnFor == 2) spawnPos = GameObject.Find("RedPlayerSpawn");
-
+                        if (teamToSpawnFor == 1)
+                        {
+                            spawnPos = GameObject.Find("BluePlayerSpawn");
+                            currentLayerTimeLimit = timeLimitTeam1;
+                        }
+                        if (teamToSpawnFor == 2)
+                        {
+                            spawnPos = GameObject.Find("RedPlayerSpawn");
+                            currentLayerTimeLimit = timeLimitTeam2;
+                        }
+                        // check if this is the furthest layer. this is to ensure when playing back actions, we get all the events instead of the events from the last layer's time limit.
+                        if (currentLayerTimeLimit > furthestLayerTimeLimit) furthestLayerTimeLimit = currentLayerTimeLimit;
                         // spawn picked character
                         GameObject playerPrefab;
                         playerPrefab = characterArray[pick];
@@ -214,13 +229,16 @@ public class GameControl : MonoBehaviour {
 						if (timeoutTime > 0)
 						{
 							timeoutTime -= Time.deltaTime;
+                            // Set time for the UI time text
 							time = timeoutTime;
 						}
 
 						else {
 							gameState = "pre-live";
-							time = timeLimit;
-						}
+                            if (teamToSpawnFor == 1) time = timeLimitTeam1;
+                            if (teamToSpawnFor == 2) time = timeLimitTeam2;
+
+                        }
 	                
 	                    break;
                     case "pre-live":
@@ -231,22 +249,27 @@ public class GameControl : MonoBehaviour {
 						step++;
 						time -= Time.deltaTime;
 						
-						if (time <= 0) gameState = "pre-rewind";
+						if (time <= 0) gameState = "live-end";
+                        break;
+                    case "live-end":
+                        gameState = "pre-rewind";
                         break;
                     case "pre-rewind":
                         // - Turn off input for the active character.
                         activeInst.GetComponent<PlayerController>().active = false;
                         gameState = "rewind";
-                        step--; // go back by one
+                        // go back by one
+                        step--; 
 						time += Time.deltaTime;
+                        
                         break;
 
                     case "rewind":
                         // Rewind the game events to convey to the player that we are going back in time.
                         // rewind steps
                         //Debug.Log("Rewinding Step: " + step.ToString());
-                        step-=2;
-						time += 2* Time.deltaTime;
+                        step -= rewindSpd;
+						time += rewindSpd * Time.deltaTime;
                         // - Check if back to first step.
 						if (step <= 0) gameState = "rewind-end";
                         break;

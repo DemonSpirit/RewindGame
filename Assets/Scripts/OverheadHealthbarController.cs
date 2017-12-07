@@ -20,22 +20,18 @@ public class OverheadHealthbarController : MonoBehaviour
 
         switch (gameCtrl.gameState)
         {
-            case "pre-live":
+            case "live-end":
                 rend.sprite = healthbarSprites[healthbarSprites.Length - 1];
                 break;
-            case "live":
 
-                //rotate towards activeinst
-                //transform.rotation = Quaternion.FromToRotation(transform.position, gameCtrl.activeInst.transform.position);
+            default:
                 float hpPerc = ((float)playerCtrl.health / playerCtrl.maxHealth) * 100f;
 
-				float indexDivider = 100 / (healthbarSprites.Length - 1);
-				int spriteIndex = (int) ((hpPerc + 2.5f) / indexDivider);
-				//print("spriteIndex " + spriteIndex);
-				rend.sprite = healthbarSprites[spriteIndex];
-
+                float indexDivider = 100 / (healthbarSprites.Length - 1);
+                int spriteIndex = (int)((hpPerc + 2.5f) / indexDivider);
+                rend.sprite = healthbarSprites[spriteIndex];
+                // look at active character.
                 transform.LookAt(gameCtrl.activeInst.transform);
-                
                 break;
         }
         
