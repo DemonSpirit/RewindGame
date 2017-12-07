@@ -78,7 +78,7 @@ namespace Abilities
                                 // apply damage to hit target.
 
                                 hitCtrl.health -= playerCtrl.abilityDMG[0];
-                                print("hitCtrl" + hitCtrl.health);
+                                //print("hitCtrl" + hitCtrl.health);
 
                                 if (hitCtrl.health <= 0)
                                 {

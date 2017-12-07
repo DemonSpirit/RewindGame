@@ -29,6 +29,7 @@ public class TimerController : MonoBehaviour {
 				time = decimal.Round(time, 0);
 				txt.color = Color.yellow;
 				break;
+            
 			case "live":
 			case "pre-rewind":
 			case "rewind":

@@ -119,9 +119,6 @@ public class PlayerController : MonoBehaviour {
                     h = Input.GetAxis("Horizontal");
                     v = Input.GetAxis("Vertical");
 
-              
-                
-
                     //Set Cam Dist
                     SetCameraOffset();
 
@@ -170,7 +167,7 @@ public class PlayerController : MonoBehaviour {
 
                 }
                 else
-                {
+                {   // Not the active instance, playback actions.
                     PlaybackCharacterActions();
                 }
                 break;
@@ -182,17 +179,32 @@ public class PlayerController : MonoBehaviour {
                 
                 PlaybackCharacterActions();
                 break;
+            case "rewind-end":
+                for (int i = 0; i < 320; i++) // im trying to debug the Argument Out of Range error
+                {
+                    //print(i.ToString()+"  :  "+playerPos[i].ToString());
+                }
+                break;
+            case "pick":
+                PlaybackCharacterActions();
+                break;
         }
             
 	}
 
     void PlaybackCharacterActions()
     {
-        // Get events for recordArray and set them.
+        // Get events for respective lists and set them.
+        if (transform.position != null)
+        {
+            
+            transform.position = playerPos[gameCtrl.step];
+        } else
+        {
+            print("TRANSFORM ERROR");
+        }
 
-		
-		transform.position = playerPos[gameCtrl.step];
-		transform.rotation = playerRot[gameCtrl.step];
+        transform.rotation = playerRot[gameCtrl.step];
 		camObj.rotation = cameraRot[gameCtrl.step];
         // Check recordArray if weapon was pressed.
 		if (playerIsShooting[gameCtrl.step])

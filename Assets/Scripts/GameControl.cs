@@ -14,6 +14,8 @@ public class GameControl : MonoBehaviour {
 	[SerializeField] float timeoutTimeLimit;
     public float time = 0;
 	[SerializeField] float timeLimit;
+    public float timeLimitTeam1 = 4f;
+    public float timeLimitTeam2 = 4f;
 
     // Game Mode and State
     public string gameMode = "versus";
@@ -89,6 +91,8 @@ public class GameControl : MonoBehaviour {
                     case "pre-pick":
                         pickUI.SetActive(true);              
                         gameState = "pick";
+                        // set vars for auto playback in background
+                        time = timeLimit;
                         break;
                     case "pick":
 
@@ -167,6 +171,18 @@ public class GameControl : MonoBehaviour {
                         // ready up
                         if (ready) gameState = "start";
 
+                        // playback the game in the background
+                        step++;
+                        time -= Time.deltaTime;
+                        //print("time: "+time.ToString()+" step: "+step.ToString());
+                        if (time <= 0)
+                        {
+                            time = timeLimit;
+                            step = 0;
+                        }
+
+                       
+
                         break;
                     case "start":
 						timeoutTime = timeoutTimeLimit;
@@ -221,30 +237,33 @@ public class GameControl : MonoBehaviour {
                         // - Turn off input for the active character.
                         activeInst.GetComponent<PlayerController>().active = false;
                         gameState = "rewind";
-                        step--;
+                        step--; // go back by one
 						time += Time.deltaTime;
                         break;
 
                     case "rewind":
                         // Rewind the game events to convey to the player that we are going back in time.
                         // rewind steps
-                        Debug.Log("Rewinding Step: " + step.ToString());
+                        //Debug.Log("Rewinding Step: " + step.ToString());
                         step-=2;
 						time += 2* Time.deltaTime;
                         // - Check if back to first step.
-						if (step <= 0) gameState = "end";
-                        break;
-                    case "playback":
-                        // this state playback the game.
-
+						if (step <= 0) gameState = "rewind-end";
                         break;
 
-                    case "end":
-                		
+                    case "rewind-end":
+                        // this state playbacks the game.
                         activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                         // Turn arena cam on for the pick/gameover phase
                         arenaCam.SetActive(true);
-                        //
+                        gameState = "end";
+                        break;
+                        
+                    case "playback":
+                        
+                        break;
+
+                    case "end":
 
                         // check if the game is over.
                         if (layer == maxLayer)
