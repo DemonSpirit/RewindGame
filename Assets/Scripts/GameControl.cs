@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameControl : MonoBehaviour {
     #region Important Rewind Variables
     public int step = 0;
-    [SerializeField] int endStep = 0;
+    public int endStep = 0;
     int stepsPerSecond = 60;
     public int layer = 0;
     public int maxLayer = 4;

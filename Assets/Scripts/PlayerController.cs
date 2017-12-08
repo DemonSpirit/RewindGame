@@ -14,8 +14,7 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;
     public int team = 0;
     public int bounty = 100;
-    [SerializeField]
-    private float myTimeLimit;
+   
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0};
     public int[] abilityDMG = new int[] { 0, 0, 0, 0};
@@ -77,13 +76,13 @@ public class PlayerController : MonoBehaviour {
         {
             aliveColor = team1Color;
             //record this character's time limit to use for later.
-            myTimeLimit = gameCtrl.timeLimitTeam1;
+            
         }
 
         if (team == 2) 
         {
             aliveColor = team2Color;
-            myTimeLimit = gameCtrl.timeLimitTeam2;
+            
         }
 
         deadColor = aliveColor;
@@ -207,7 +206,7 @@ public class PlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         // Get events from respective lists and set them.
-        if (gameCtrl.step < playerPos.Count) // u do -1
+        if (gameCtrl.step < playerPos.Count) // u do -1 to stop error
         {
             if (!isExisting)
             {
