@@ -3992,7 +3992,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4149,7 +4149,6 @@ MonoBehaviour:
   alive: 1
   team: 0
   bounty: 100
-  myTimeLimit: 0
   abilityIDs: 04000000000000000000000000000000
   abilityDMG: 0a000000000000000000000000000000
   moveSpd: 7
@@ -4159,8 +4158,10 @@ MonoBehaviour:
   camOffset: {x: 0, y: 0, z: 0}
   cam: {fileID: 20905566886966118}
   active: 0
+  isExisting: 1
   gameCtrl: {fileID: 0}
   bullet: {fileID: 1335834766640820, guid: a333270d77e569b418a7a45e0dda9623, type: 2}
+  smokePFX: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
   rend: {fileID: 0}
   team1Color: {r: 0, g: 0, b: 1, a: 1}
   team2Color: {r: 1, g: 0, b: 0, a: 1}

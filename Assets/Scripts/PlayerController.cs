@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;
     public int team = 0;
     public int bounty = 100;
+
+
    
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0};
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] bool isExisting = true;
     public GameControl gameCtrl;
     public GameObject bullet;
+    [SerializeField] GameObject smokePFX;
     Ability abilities;
 
     CapsuleCollider coll;
@@ -118,6 +121,9 @@ public class PlayerController : MonoBehaviour {
 			//Set Cam Dist
 				SetCameraOffset();
 				break;
+            case "pre-live":
+                Reset();
+                break;
             case "live":
                 // check health state
                 HealthCheck();
@@ -231,7 +237,10 @@ public class PlayerController : MonoBehaviour {
             if (isExisting)
             {
                 isExisting = false;
-                transform.GetChild(2).gameObject.SetActive(false);
+                //transform.GetChild(2).gameObject.SetActive(false);
+                Destroy(Instantiate(smokePFX,transform.position,transform.rotation),2f);
+                transform.position = new Vector3(0f, -15f, 0f);
+                
             }
                 
             
@@ -274,5 +283,10 @@ public class PlayerController : MonoBehaviour {
         {
             alive = true;
         }
+    }
+    private void Reset()
+    {
+        health = maxHealth;
+        HealthCheck();
     }
 }
