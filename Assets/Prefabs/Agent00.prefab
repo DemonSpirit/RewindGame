@@ -4234,9 +4234,10 @@ MonoBehaviour:
   alive: 1
   team: 0
   bounty: 100
+  myTimeLimit: 0
   abilityIDs: 04000000000000000000000000000000
   abilityDMG: 0a000000000000000000000000000000
-  moveSpd: 10
+  moveSpd: 7
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 12
   gravity: 30
