@@ -16,11 +16,12 @@ namespace Abilities
         public GameObject healBullet;
         GameObject playerHitPFX;
         GameObject woodHitPFX;
+
         GameControl gameCtrl;
 
         void Start()
         {
-            gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+            gameCtrl = GameControl.instance;
             playerHitPFX = gameCtrl.playerHitPFX;
             woodHitPFX = gameCtrl.woodHitPFX;
         }

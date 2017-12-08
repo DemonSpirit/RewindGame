@@ -16,8 +16,9 @@ public class BulletControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
         Destroy(gameObject, 5f);
+        
 	}
 
     // Update is called once per frame

@@ -22,7 +22,7 @@ public class EliminationTextAnimator : MonoBehaviour
         txt = GetComponent<Text>();
         baseColor = txt.color;
         basePos = transform.position;
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
     }
 
     // Update is called once per frame

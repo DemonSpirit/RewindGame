@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour {
+    // singleton
+    public static GameControl instance;
+
     #region Important Rewind Variables
     public int step = 0;
     public int endStep = 0;
@@ -71,7 +74,10 @@ public class GameControl : MonoBehaviour {
     public GameObject playerHitPFX;
     public GameObject woodHitPFX;
     #endregion
-
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start () {
 		time = timeLimit;
         gameState = "pre-pick";

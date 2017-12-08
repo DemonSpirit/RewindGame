@@ -4,7 +4,6 @@ using System.Collections;
 public abstract class Pickup: MonoBehaviour
 {
     protected GameControl gameCtrl;
-    [SerializeField] [FMODUnity.EventRef] string pickupSFX;
     Vector3 startPos;
     Quaternion startRot;
     Material mat;
@@ -17,7 +16,7 @@ public abstract class Pickup: MonoBehaviour
 
     private void Start()
     {
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
         startPos = transform.position;
         mat = GetComponent<Renderer>().material;
         
@@ -47,7 +46,7 @@ public abstract class Pickup: MonoBehaviour
             PickupAction(other);
             // fade alpha when collected.
             mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, alphaFade);
-            FMODUnity.RuntimeManager.PlayOneShot(pickupSFX);
+            AudioControl.Sound(AudioControl.instance.pickupSFX);
         }
     }
     void Reset()

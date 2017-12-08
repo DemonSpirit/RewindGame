@@ -11,7 +11,7 @@ public class GetMoneyForUI : MonoBehaviour
     void Start()
     {
         txt = GetComponent<Text>();
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
     }
 
     // Update is called once per frame

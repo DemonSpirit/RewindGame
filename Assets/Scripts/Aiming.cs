@@ -31,7 +31,7 @@ public class Aiming : MonoBehaviour {
 	void Start()
 	{	Cursor.lockState = CursorLockMode.Locked;
        
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>(); 
+        gameCtrl = GameControl.instance; 
         
 	}
     // Update is called once per frame

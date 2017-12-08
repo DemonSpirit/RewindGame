@@ -13,7 +13,8 @@ public class OverheadHealthbarController : MonoBehaviour
     {
         rend = GetComponent<SpriteRenderer>();
         playerCtrl = GetComponentInParent<PlayerController>();
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
+        
     }
     void Update()
     {

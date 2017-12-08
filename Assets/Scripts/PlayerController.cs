@@ -66,9 +66,7 @@ public class PlayerController : MonoBehaviour {
 
         abilities = GetComponent<Ability>();
         health = maxHealth;
-
-        GameObject gamecontrollerObj = GameObject.Find("GameController");
-        gameCtrl = gamecontrollerObj.GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
 
         
         // Get collider component

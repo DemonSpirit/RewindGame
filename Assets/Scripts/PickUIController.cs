@@ -13,7 +13,7 @@ public class PickUIController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameCtrl = GameObject.Find("GameController").GetComponent<GameControl>();
+        gameCtrl = GameControl.instance;
         pickText = GetComponentInChildren<Text>();
         pickIcon = GetComponentInChildren<Image>();
     }
