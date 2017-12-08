@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameControl : MonoBehaviour {
-    
-    // Rewind Variables
-    public float[,] inputArray = new float[900, 4]; // not used anymore;
+    #region Important Rewind Variables
     public int step = 0;
     public int layer = 0;
     public int maxLayer = 4;
-    [SerializeField]
-    int rewindSpd = 2;
-
-	float timeoutTime;
-	[SerializeField] float timeoutTimeLimit;
+    [SerializeField] int rewindSpd = 2;
+    #endregion   
+    // set time for the countdown timer.
+    float countdownTime;
+	[SerializeField] float countdownTimeLimit;
     public float time = 0;
+
+    // set time limits for teams
 	[SerializeField] float timeLimit;
     public float currentLayerTimeLimit;
-    [SerializeField]
-    float furthestLayerTimeLimit = 0f;
+    [SerializeField] float furthestLayerTimeLimit = 0f;
     public float timeLimitTeam1 = 4f;
     public float timeLimitTeam2 = 8f;
 
@@ -31,7 +30,7 @@ public class GameControl : MonoBehaviour {
     public GameObject spawnPos;
     public GameObject activeInst;
 
-    public int teamToSpawnFor = 1;
+    public int teamToSpawnFor = 0;
 
     #region Versus Mode Variables
     //Team Variables
@@ -75,13 +74,14 @@ public class GameControl : MonoBehaviour {
 		time = timeLimit;
         gameState = "pre-pick";
         // pick phase
-        pickCtrl = pickUI.GetComponent<PickUIController>();
+        pickCtrl = pickUI.GetComponent<PickUIController>(); 
     }
 
     
 	void LateUpdate () {
         switch (gameMode)
         {
+#region  solo game mode state
             case "solo":
                 switch (gameState)
                 {
@@ -90,15 +90,22 @@ public class GameControl : MonoBehaviour {
                         break;
                 }
                 break;
+            #endregion
+#region versus game mode state
             case "versus":
                 switch (gameState)
                 {
                     case "pre-pick":
+                        // enable the pick screen ui
                         pickUI.SetActive(true);              
-                        gameState = "pick";
                         // set vars for auto playback in background
                         time = furthestLayerTimeLimit;
                         step = 0;
+                        ready = false;
+                        // move counter up so it spawns for the next player
+                        teamToSpawnFor++;
+                        if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
+                        gameState = "pick";
                         break;
                     case "pick":
 
@@ -180,31 +187,25 @@ public class GameControl : MonoBehaviour {
                         // playback the game in the background
                         step++;
                         time -= Time.deltaTime;
-                        //print("time: "+time.ToString()+" step: "+step.ToString());
+                    
+                        // check if the loop is over and restart it.
                         if (time <= 0)
                         {
                             time = furthestLayerTimeLimit;
                             step = 0;
                         }
 
-                       
-
                         break;
                     case "start":
-						timeoutTime = timeoutTimeLimit;
+						countdownTime = countdownTimeLimit;
                         pickUI.SetActive(false);
-                        if (teamToSpawnFor == 1)
-                        {
-                            spawnPos = GameObject.Find("BluePlayerSpawn");
-                            currentLayerTimeLimit = timeLimitTeam1;
-                        }
-                        if (teamToSpawnFor == 2)
-                        {
-                            spawnPos = GameObject.Find("RedPlayerSpawn");
-                            currentLayerTimeLimit = timeLimitTeam2;
-                        }
+
+                        //Set the current team variables
+                        SetCurrentTeam(teamToSpawnFor);
+                        
                         // check if this is the furthest layer. this is to ensure when playing back actions, we get all the events instead of the events from the last layer's time limit.
                         if (currentLayerTimeLimit > furthestLayerTimeLimit) furthestLayerTimeLimit = currentLayerTimeLimit;
+
                         // spawn picked character
                         GameObject playerPrefab;
                         playerPrefab = characterArray[pick];
@@ -216,39 +217,32 @@ public class GameControl : MonoBehaviour {
                         instController.team = teamToSpawnFor;
 
                         // reset game variables
-                        team1points = 0;
-                        team2points = 0;
-                        ready = false;
-                        step = 0;
-                        layer++;
-						gameState = "time-out";
+                        NewLayer();
+                        // Go to next gameState
+                        gameState = "countdown";
 						break;
-					case "time-out": 
+					case "countdown": 
 						arenaCam.SetActive(false);
-						
-						if (timeoutTime > 0)
-						{
-							timeoutTime -= Time.deltaTime;
-                            // Set time for the UI time text
-							time = timeoutTime;
-						}
 
-						else {
-							gameState = "pre-live";
+                        if (countdownTime > 0)
+                        {
+                            countdownTime -= Time.deltaTime;
+                            // Set time for the UI time text
+                            time = countdownTime;
+                        }
+                        else
+                        {
+                            gameState = "pre-live";
                             if (teamToSpawnFor == 1) time = timeLimitTeam1;
                             if (teamToSpawnFor == 2) time = timeLimitTeam2;
-
                         }
-	                
 	                    break;
                     case "pre-live":
-                        //arenaCam.SetActive(false);
                         gameState = "live";
                         break;
                     case "live":
 						step++;
-						time -= Time.deltaTime;
-						
+						time -= Time.deltaTime;						
 						if (time <= 0) gameState = "live-end";
                         break;
                     case "live-end":
@@ -259,23 +253,23 @@ public class GameControl : MonoBehaviour {
                         activeInst.GetComponent<PlayerController>().active = false;
                         gameState = "rewind";
                         // go back by one
-                        step--; 
-						time += Time.deltaTime;
+                        //step--; 
+						//time += Time.deltaTime;
                         
                         break;
 
                     case "rewind":
                         // Rewind the game events to convey to the player that we are going back in time.
                         // rewind steps
-                        //Debug.Log("Rewinding Step: " + step.ToString());
+                        
                         step -= rewindSpd;
 						time += rewindSpd * Time.deltaTime;
                         // - Check if back to first step.
 						if (step <= 0) gameState = "rewind-end";
                         break;
 
-                    case "rewind-end":
-                        // this state playbacks the game.
+                    case "rewind-end":                 
+                        // turn off camera and other components for active inst
                         activeInst.GetComponent<PlayerController>().DestroyComponentsAtLayerEnd();
                         // Turn arena cam on for the pick/gameover phase
                         arenaCam.SetActive(true);
@@ -304,11 +298,8 @@ public class GameControl : MonoBehaviour {
                             Debug.Log("Blue: " + team1points.ToString() + " : Red: " + team2points.ToString());
                             gameState = "gameover";
                         } else
-                        {
-                            gameState = "pre-pick";
-                            // move counter up so it spawns for the next player
-                            teamToSpawnFor++;
-                            if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
+                        { // game is not over yet, go to pick phase.
+                            gameState = "pre-pick";                  
                         }
                         break;
                     case "gameover":              
@@ -317,6 +308,27 @@ public class GameControl : MonoBehaviour {
                         break;
                 }
                 break;
-        }       
+        }
+#endregion
+    }
+    void SetCurrentTeam(int team)
+    {
+        if (team == 1)
+        {
+            spawnPos = GameObject.Find("BluePlayerSpawn");
+            currentLayerTimeLimit = timeLimitTeam1;
+        }
+        if (team == 2)
+        {
+            spawnPos = GameObject.Find("RedPlayerSpawn");
+            currentLayerTimeLimit = timeLimitTeam2;
+        }
+    }
+    void NewLayer()
+    {
+        team1points = 0;
+        team2points = 0;
+        step = 0;
+        layer++;
     }
 }

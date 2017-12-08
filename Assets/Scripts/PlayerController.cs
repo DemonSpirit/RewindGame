@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour {
             case "start":
 
                 break;
-			case "time-out":
+			case "countdown":
 			//Set Cam Dist
 				SetCameraOffset();
 				break;

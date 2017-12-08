@@ -25,7 +25,7 @@ public class TimerController : MonoBehaviour {
 
 		switch (gameControl.gameState)
 		{
-			case "time-out":
+			case "countdown":
 				time = decimal.Round(time, 0);
 				txt.color = Color.yellow;
 				break;

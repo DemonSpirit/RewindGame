@@ -18,7 +18,7 @@ public class TimerBackgroundChanger : MonoBehaviour
     }
 
     void Update()
-	{   if (gameCtrl.gameState == "pre-live" || gameCtrl.gameState == "time-out")
+	{   if (gameCtrl.gameState == "pre-live" || gameCtrl.gameState == "countdown")
         {
             ChangeTimerBackground(gameCtrl.teamToSpawnFor);
         }

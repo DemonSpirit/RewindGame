@@ -18,7 +18,7 @@ public class UIGetCharacterText : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-	{   if (gameCtrl.gameState == "pre-live" || gameCtrl.gameState == "time-out")
+	{   if (gameCtrl.gameState == "pre-live" || gameCtrl.gameState == "countdown")
         {
             activeInst = gameCtrl.activeInst.GetComponent<PlayerController>();
             nameTxt.text = activeInst.agentName.ToString();
