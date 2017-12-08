@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameControl : MonoBehaviour {
     #region Important Rewind Variables
     public int step = 0;
+    [SerializeField] int endStep = 0;
+    int stepsPerSecond = 60;
     public int layer = 0;
     public int maxLayer = 4;
     [SerializeField] int rewindSpd = 2;
@@ -17,7 +19,7 @@ public class GameControl : MonoBehaviour {
     // set time limits for teams
 	[SerializeField] float timeLimit;
     public float currentLayerTimeLimit;
-    [SerializeField] float furthestLayerTimeLimit = 0f;
+    [SerializeField] float furthestLayerTimeLimit = 1f;
     public float timeLimitTeam1 = 4f;
     public float timeLimitTeam2 = 8f;
 
@@ -100,6 +102,8 @@ public class GameControl : MonoBehaviour {
                         pickUI.SetActive(true);              
                         // set vars for auto playback in background
                         time = furthestLayerTimeLimit;
+                        endStep = Mathf.FloorToInt(stepsPerSecond * furthestLayerTimeLimit);
+                        
                         step = 0;
                         ready = false;
                         // move counter up so it spawns for the next player
@@ -187,9 +191,9 @@ public class GameControl : MonoBehaviour {
                         // playback the game in the background
                         step++;
                         time -= Time.deltaTime;
-                    
+
                         // check if the loop is over and restart it.
-                        if (time <= 0)
+                        if (step >= endStep)
                         {
                             time = furthestLayerTimeLimit;
                             step = 0;
@@ -238,12 +242,13 @@ public class GameControl : MonoBehaviour {
                         }
 	                    break;
                     case "pre-live":
+                        endStep = Mathf.FloorToInt(stepsPerSecond*currentLayerTimeLimit);
                         gameState = "live";
                         break;
                     case "live":
 						step++;
 						time -= Time.deltaTime;						
-						if (time <= 0) gameState = "live-end";
+						if (step >= endStep) gameState = "live-end";
                         break;
                     case "live-end":
                         gameState = "pre-rewind";
@@ -253,8 +258,9 @@ public class GameControl : MonoBehaviour {
                         activeInst.GetComponent<PlayerController>().active = false;
                         // set time to count from zero
                         time = 0f;
+                        step--;
                         gameState = "rewind";
-                        
+                        //step = Mathf.FloorToInt(furthestLayerTimeLimit * stepsPerSecond);
                         
                         break;
 
@@ -265,7 +271,7 @@ public class GameControl : MonoBehaviour {
                         step -= rewindSpd;
 						time += rewindSpd * Time.deltaTime;
                         // - Check if back to the start
-						if (time >= currentLayerTimeLimit) gameState = "rewind-end";
+						if (step <= 0) gameState = "rewind-end";
                         break;
 
                     case "rewind-end":                 
@@ -326,6 +332,7 @@ public class GameControl : MonoBehaviour {
     }
     void NewLayer()
     {
+        
         team1points = 0;
         team2points = 0;
         step = 0;

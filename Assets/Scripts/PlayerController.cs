@@ -190,6 +190,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
             case "pre-rewind":
+                print("playerPos.count = "+playerPos.Count.ToString());
                 
                 break;
             case "rewind":
@@ -197,10 +198,7 @@ public class PlayerController : MonoBehaviour {
                 PlaybackCharacterActions();
                 break;
             case "rewind-end":
-                for (int i = 0; i < 320; i++) // im trying to debug the Argument Out of Range error
-                {
-                    //print(i.ToString()+"  :  "+playerPos[i].ToString());
-                }
+                
                 break;
         }
             
@@ -209,7 +207,7 @@ public class PlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         // Get events from respective lists and set them.
-        if (gameCtrl.time >= gameCtrl.currentLayerTimeLimit - myTimeLimit)
+        if (gameCtrl.step < playerPos.Count) // u do -1
         {
             if (!isExisting)
             {
