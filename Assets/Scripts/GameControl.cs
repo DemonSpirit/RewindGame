@@ -251,10 +251,10 @@ public class GameControl : MonoBehaviour {
                     case "pre-rewind":
                         // - Turn off input for the active character.
                         activeInst.GetComponent<PlayerController>().active = false;
+                        // set time to count from zero
+                        time = 0f;
                         gameState = "rewind";
-                        // go back by one
-                        //step--; 
-						//time += Time.deltaTime;
+                        
                         
                         break;
 
@@ -264,8 +264,8 @@ public class GameControl : MonoBehaviour {
                         
                         step -= rewindSpd;
 						time += rewindSpd * Time.deltaTime;
-                        // - Check if back to first step.
-						if (step <= 0) gameState = "rewind-end";
+                        // - Check if back to the start
+						if (time >= currentLayerTimeLimit) gameState = "rewind-end";
                         break;
 
                     case "rewind-end":                 

@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 	public Vector3 camOffset = Vector3.zero;
 	public Camera cam;
     public bool active = false;
+    [SerializeField] bool isExisting = true;
     public GameControl gameCtrl;
     public GameObject bullet;
     Ability abilities;
@@ -106,6 +107,10 @@ public class PlayerController : MonoBehaviour {
                 gameObject.layer = 0;
                 health = maxHealth;
                 alive = true;
+                isExisting = true;
+                break;
+            case "pick":             
+                PlaybackCharacterActions();
                 break;
             case "start":
 
@@ -186,7 +191,6 @@ public class PlayerController : MonoBehaviour {
                 break;
             case "pre-rewind":
                 
-                
                 break;
             case "rewind":
                 
@@ -198,18 +202,21 @@ public class PlayerController : MonoBehaviour {
                     //print(i.ToString()+"  :  "+playerPos[i].ToString());
                 }
                 break;
-            case "pick":
-                PlaybackCharacterActions();
-                break;
         }
             
 	}
 
     void PlaybackCharacterActions()
     {
-        // Get events for respective lists and set them.
+        // Get events from respective lists and set them.
         if (gameCtrl.time >= gameCtrl.currentLayerTimeLimit - myTimeLimit)
         {
+            if (!isExisting)
+            {
+                isExisting = true;
+                transform.GetChild(2).gameObject.SetActive(true);
+            }
+
             transform.position = playerPos[gameCtrl.step];
             transform.rotation = playerRot[gameCtrl.step];
             camObj.rotation = cameraRot[gameCtrl.step];
@@ -223,8 +230,14 @@ public class PlayerController : MonoBehaviour {
             }
         } else
         {
-            print(name + " doesnt exist in this moment. Time: "+gameCtrl.time);
-
+            print(name + " doesnt exist in this moment. Time: "+gameCtrl.time+" gameState: "+gameCtrl.gameState);
+            if (isExisting)
+            {
+                isExisting = false;
+                transform.GetChild(2).gameObject.SetActive(false);
+            }
+                
+            
         }
         
 		
