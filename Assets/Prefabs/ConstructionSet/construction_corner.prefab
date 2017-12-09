@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4802257590616334}
   - component: {fileID: 33633384310911176}
   - component: {fileID: 23919377049782544}
+  - component: {fileID: 65426717565404808}
+  - component: {fileID: 65911268421775292}
   m_Layer: 0
   m_Name: construction_corner
   m_TagString: Untagged
@@ -82,3 +84,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584214669373700}
   m_Mesh: {fileID: 4300000, guid: cae715ec4076c5549a52234580b41153, type: 3}
+--- !u!65 &65426717565404808
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1584214669373700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0017987448, y: 0.009643233, z: 0.029999994}
+  m_Center: {x: 0.001632786, y: 0.0027032048, z: 0.004999999}
+--- !u!65 &65911268421775292
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1584214669373700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009446263, y: 0.0019159472, z: 0.029999994}
+  m_Center: {x: -0.0021909713, y: -0.0011604395, z: 0.005}
