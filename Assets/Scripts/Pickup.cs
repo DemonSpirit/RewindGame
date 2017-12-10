@@ -16,7 +16,7 @@ public abstract class Pickup: MonoBehaviour
 
     private void Start()
     {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
         startPos = transform.position;
         mat = GetComponent<Renderer>().material;
         
@@ -41,7 +41,7 @@ public abstract class Pickup: MonoBehaviour
     {
         if (!isClaimed && gameCtrl.gameState == "live")
         {
-            print(other.name + " entered " + name);
+            //print(other.name + " entered " + name);
             isClaimed = true;
             PickupAction(other);
             // fade alpha when collected.

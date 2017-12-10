@@ -11,7 +11,7 @@ public class GetScoreForUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
         txt = GetComponent<Text>();
     }
 

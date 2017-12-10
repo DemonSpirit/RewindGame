@@ -1309,6 +1309,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1611870212053048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4602534784464572}
+  - component: {fileID: 33727843756657482}
+  - component: {fileID: 65862944154512288}
+  - component: {fileID: 23288158707835798}
+  m_Layer: 0
+  m_Name: BlockShield
+  m_TagString: BlockProjectiles
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1613799374451328
 GameObject:
   m_ObjectHideFlags: 1
@@ -2991,12 +3009,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.888221, y: -3.576082e-17, z: 12.884193}
+  m_LocalPosition: {x: -6.8223133, y: 1.118, z: 8.3706255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4919937898558788}
   - {fileID: 4189021940962832}
   - {fileID: 4909537611538694}
+  - {fileID: 4602534784464572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3204,6 +3223,19 @@ Transform:
   m_Father: {fileID: 4070411699028926}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4602534784464572
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611870212053048}
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.042686462, y: 0.3455, z: 1.4053745}
+  m_LocalScale: {x: 0.19909032, y: 1.6979302, z: 1.7025189}
+  m_Children: []
+  m_Father: {fileID: 4482418938773068}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!4 &4602639597940162
 Transform:
   m_ObjectHideFlags: 1
@@ -3914,6 +3946,40 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!23 &23288158707835798
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611870212053048}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 80a3836b51f17a6489a14f73e36139f5, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!23 &23300244456687206
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -4041,6 +4107,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1275498960525876}
   m_Mesh: {fileID: 4300000, guid: d418877debb1a7b48b3f4eff0021532a, type: 3}
+--- !u!33 &33727843756657482
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611870212053048}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!45 &45529072792515348
 Skybox:
   m_ObjectHideFlags: 1
@@ -4049,6 +4122,18 @@ Skybox:
   m_GameObject: {fileID: 1465212416417220}
   m_Enabled: 0
   m_CustomSkybox: {fileID: 2100000, guid: e6df21326b9a5b6489069411b666b18b, type: 2}
+--- !u!65 &65862944154512288
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611870212053048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!81 &81844992337516696
 AudioListener:
   m_ObjectHideFlags: 1
@@ -4149,7 +4234,9 @@ MonoBehaviour:
   alive: 1
   team: 0
   bounty: 100
-  abilityIDs: 04000000000000000000000000000000
+  maxAmmo: 5
+  ammo: 5
+  abilityIDs: 01000000000000000000000000000000
   abilityDMG: 0a000000000000000000000000000000
   moveSpd: 7
   moveDirection: {x: 0, y: 0, z: 0}
@@ -4160,7 +4247,7 @@ MonoBehaviour:
   active: 0
   isExisting: 1
   gameCtrl: {fileID: 0}
-  bullet: {fileID: 1335834766640820, guid: a333270d77e569b418a7a45e0dda9623, type: 2}
+  bullet: {fileID: 1048610330558400, guid: 40300eeb20a78ab4194382a09e0705cc, type: 2}
   smokePFX: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9, type: 2}
   rend: {fileID: 0}
   team1Color: {r: 0, g: 0, b: 1, a: 1}

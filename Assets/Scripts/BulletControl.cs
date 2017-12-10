@@ -16,7 +16,7 @@ public class BulletControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
         Destroy(gameObject, 5f);
         
 	}

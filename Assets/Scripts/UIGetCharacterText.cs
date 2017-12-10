@@ -12,7 +12,7 @@ public class UIGetCharacterText : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
 
     }
 

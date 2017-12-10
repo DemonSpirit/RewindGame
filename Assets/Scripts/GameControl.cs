@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour {
     // singleton
-    public static GameControl instance;
+    public static GameControl main;
 
     #region Important Rewind Variables
     public int step = 0;
@@ -73,10 +73,11 @@ public class GameControl : MonoBehaviour {
     #region GameObject References
     public GameObject playerHitPFX;
     public GameObject woodHitPFX;
+    public GameObject explosionPFX;
     #endregion
     private void Awake()
     {
-        instance = this;
+        main = this;
     }
     void Start () {
 		time = timeLimit;
@@ -203,6 +204,11 @@ public class GameControl : MonoBehaviour {
                         {
                             time = furthestLayerTimeLimit;
                             step = 0;
+                            GameObject[] playerList = GameObject.FindGameObjectsWithTag("Player");
+                            for (int i = 0; i < playerList.Length ; i++)
+                            {
+                                playerList[i].GetComponent<PlayerController>().Reset();
+                            }
                         }
 
                         break;
@@ -341,7 +347,14 @@ public class GameControl : MonoBehaviour {
         
         team1points = 0;
         team2points = 0;
+        timeLimitTeam1 += 2f;
+        timeLimitTeam2 += 2f;
         step = 0;
         layer++;
+    }
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 50, 50, 50), "projectiles: "+GameObject.FindGameObjectsWithTag("Projectile").Length.ToString());
+        
     }
 }

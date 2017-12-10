@@ -15,7 +15,7 @@ public class HealthbarController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
         segments = new GameObject[10];
 
     }

@@ -21,7 +21,7 @@ namespace Abilities
 
         void Start()
         {
-            gameCtrl = GameControl.instance;
+            gameCtrl = GameControl.main;
             playerHitPFX = gameCtrl.playerHitPFX;
             woodHitPFX = gameCtrl.woodHitPFX;
         }
@@ -35,9 +35,22 @@ namespace Abilities
                     Debug.Log("No AbilityID");
                     break;
                 case 1:
-                    Debug.Log("Projectile Shoot Ability: " + playerCtrl.name);
-                    inst = Instantiate(playerCtrl.bullet, playerCtrl.camObj.position + (playerCtrl.camObj.forward * 1.5f), playerCtrl.camObj.rotation);
-                    inst.GetComponent<BulletControl>().team = playerCtrl.team;
+                    //Debug.Log("Projectile Shoot Ability: " + playerCtrl.name);
+
+                    if (playerCtrl.ammo > 0)
+                    {
+                        playerCtrl.ammo -= 1;
+                        Quaternion camRot = playerCtrl.camObj.transform.rotation;
+                        Quaternion playerRot = playerCtrl.transform.rotation;
+                        inst = Instantiate(playerCtrl.bullet, playerCtrl.camObj.position + (playerCtrl.camObj.forward * 1.5f), new Quaternion(camRot.x, playerRot.y, playerRot.z, playerRot.w));
+                        inst.GetComponent<Projectile>().team = playerCtrl.team;
+                        if (GameControl.main.gameState == "live") inst.GetComponent<Projectile>().real = true;
+                    } else
+                    {
+                        //print("no ammo!");
+                    }
+
+                    
                     break;
                 case 2:
                     Debug.Log("Block Ability");

@@ -13,7 +13,7 @@ public class PickUIController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
         pickText = GetComponentInChildren<Text>();
         pickIcon = GetComponentInChildren<Image>();
     }

@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     public bool alive = true;
     public int team = 0;
     public int bounty = 100;
+    public int maxAmmo = 5;
+    public int ammo = 5;
 
 
    
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] bool isExisting = true;
     public GameControl gameCtrl;
     public GameObject bullet;
+    GameObject blockShield;
     [SerializeField] GameObject smokePFX;
     Ability abilities;
 
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour {
 	List <Quaternion> playerRot;
 	List <Quaternion> cameraRot;
 	List<bool> playerIsShooting;
+    List<bool> playerIsBlocking;
 
 	// Use this for initialization
 	void Start () {
@@ -64,9 +68,12 @@ public class PlayerController : MonoBehaviour {
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
+        blockShield = transform.GetChild(3).gameObject;
+        
+
         abilities = GetComponent<Ability>();
         health = maxHealth;
-        gameCtrl = GameControl.instance;
+        gameCtrl = GameControl.main;
 
         
         // Get collider component
@@ -94,6 +101,7 @@ public class PlayerController : MonoBehaviour {
 		playerRot = new List<Quaternion>();
 		cameraRot = new List<Quaternion>();
 		playerIsShooting = new List<bool>();
+        playerIsBlocking = new List<bool>();
         
     }
 	
@@ -105,12 +113,11 @@ public class PlayerController : MonoBehaviour {
         {
             case "pre-pick":
                 gameObject.layer = 0;
-                health = maxHealth;
-                alive = true;
+                Reset();
                 isExisting = true;
                 break;
             case "pick":             
-                PlaybackCharacterActions();
+                PlaybackCharacterActions();        
                 break;
             case "start":
 
@@ -121,6 +128,7 @@ public class PlayerController : MonoBehaviour {
 				break;
             case "pre-live":
                 Reset();
+                ammo = maxAmmo;
                 break;
             case "live":
                 // check health state
@@ -162,7 +170,19 @@ public class PlayerController : MonoBehaviour {
                         animShooting = false;
 						playerIsShooting.Add(false);
                     }
-				
+
+                    // check if blocking
+                    if (Input.GetButton("Fire2"))
+                    {
+                        Block(true);
+                        playerIsBlocking.Add(true);
+                    }
+                    else
+                    {
+                        Block(false);
+                        playerIsBlocking.Add(false);
+                    }
+
 
                     // Check Gravity
                     if (characterCtrlr.isGrounded == true)
@@ -193,7 +213,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
             case "pre-rewind":
-                print("playerPos.count = "+playerPos.Count.ToString());
+                //print("playerPos.count = "+playerPos.Count.ToString());
                 
                 break;
             case "rewind":
@@ -221,6 +241,8 @@ public class PlayerController : MonoBehaviour {
             transform.position = playerPos[gameCtrl.step];
             transform.rotation = playerRot[gameCtrl.step];
             camObj.rotation = cameraRot[gameCtrl.step];
+
+            // check if shooting
             if (playerIsShooting[gameCtrl.step])
             {
                 UseWeapon();
@@ -229,9 +251,17 @@ public class PlayerController : MonoBehaviour {
             {
                 animShooting = false;
             }
+            // check if blocking
+            if (playerIsBlocking[gameCtrl.step])
+            {
+                Block(true);
+            } else
+            {
+                Block(false);
+            }
         } else
         {
-            print(name + " doesnt exist in this moment. Time: "+gameCtrl.time+" gameState: "+gameCtrl.gameState);
+            //print(name + " doesnt exist in this moment. Time: "+gameCtrl.time+" gameState: "+gameCtrl.gameState);
             if (isExisting)
             {
                 isExisting = false;
@@ -246,7 +276,17 @@ public class PlayerController : MonoBehaviour {
         
 		
     }
-	void SetCameraOffset()
+
+    void Block(bool _isBlocking)
+    {
+        blockShield.SetActive(_isBlocking);
+    }
+    private void OnGUI() // draw ammo text temporarily
+    {   if (active) GUI.Label(new Rect(10, 10, 100, 20), "Ammo: " + ammo.ToString());
+    }
+
+
+    void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;
 	}
 
@@ -282,9 +322,11 @@ public class PlayerController : MonoBehaviour {
             alive = true;
         }
     }
-    private void Reset()
+    public void Reset()
     {
         health = maxHealth;
         HealthCheck();
+        //ammo = maxAmmo;
+        //print(name + " resetted.");
     }
 }
