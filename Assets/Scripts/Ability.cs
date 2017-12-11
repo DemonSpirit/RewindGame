@@ -55,6 +55,7 @@ namespace Abilities
                     } else
                     {
                         //print("no ammo!");
+                        FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.rocketFireNoAmmoSFX, transform.position);
                     }
 
                     

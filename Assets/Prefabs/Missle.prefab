@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048610330558400}
   m_LocalRotation: {x: -0.50006235, y: 0.49993756, z: -0.49993762, w: 0.5000625}
-  m_LocalPosition: {x: -17.454, y: 0.667, z: -1.6130311}
+  m_LocalPosition: {x: 4.611399, y: 0.24360444, z: 3.3768704}
   m_LocalScale: {x: 14.814796, y: 14.814804, z: 14.814804}
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,7 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49e54b3fa90caf47af6947d96c14537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpd: 8
+  moveSpd: 100
+  startSpd: 4000
   target: {fileID: 0}
   team: 0
   pointsGain: 1
+  isPickup: 0
+  real: 0

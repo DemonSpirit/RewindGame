@@ -83,7 +83,9 @@ public class GameControl : MonoBehaviour {
 		time = timeLimit;
         gameState = "pre-pick";
         // pick phase
-        pickCtrl = pickUI.GetComponent<PickUIController>(); 
+        pickCtrl = pickUI.GetComponent<PickUIController>();
+        // start ambience
+        AudioControl.Sound(AudioControl.instance.ambientRain);
     }
 
     

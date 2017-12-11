@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     Rigidbody rb;
     public float moveSpd = 500f;
-    float startSpd = 4000f;
+    [SerializeField] float startSpd = 4000f;
     public Transform target;
     float rotAmt = 10f;
     public int team = 0;
@@ -49,13 +49,16 @@ public class Projectile : MonoBehaviour {
 
             if (other.tag == "Projectile" && other.GetComponent<Projectile>().team != team)
             {
+                
                 Explode();
+
             }
 
             if (other.tag == "BlockProjectiles")
             {
                 StopVelocity();
-                
+                FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.blockSFX, transform.position);
+
             }
 
             if (other.tag == "Player" && isPickup)
@@ -78,6 +81,7 @@ public class Projectile : MonoBehaviour {
             {
                 colPlayer.health = 0;
                 StopVelocity();
+                FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.painHitSFX,transform.position);
             }
         }
     }

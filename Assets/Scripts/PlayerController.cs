@@ -18,18 +18,18 @@ public class PlayerController : MonoBehaviour {
     public int ammo = 5;
 
 
-   
-    // abilities
-    public int[] abilityIDs = new int[] { 0, 0, 0, 0};
-    public int[] abilityDMG = new int[] { 0, 0, 0, 0};
-    
 
-	public float moveSpd;
-	public Vector3 moveDirection = Vector3.zero;
-	public float jumpSpd = 16f;
-	public float gravity = 20f;
-	public Vector3 camOffset = Vector3.zero;
-	public Camera cam;
+    // abilities
+    public int[] abilityIDs = new int[] { 0, 0, 0, 0 };
+    public int[] abilityDMG = new int[] { 0, 0, 0, 0 };
+
+
+    public float moveSpd;
+    public Vector3 moveDirection = Vector3.zero;
+    public float jumpSpd = 16f;
+    public float gravity = 20f;
+    public Vector3 camOffset = Vector3.zero;
+    public Camera cam;
     public bool active = false;
     [SerializeField] bool isExisting = true;
     public GameControl gameCtrl;
@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour {
 
     // animation references
     public bool animShooting = false;
+    float footstepCooldown = 0f;
+    [SerializeField] float footstepRate = 0.015f;
     
     public Transform camObj;
     float h, v;
@@ -205,6 +207,18 @@ public class PlayerController : MonoBehaviour {
                     moveDirection.z *= moveSpd;
                     moveDirection = transform.TransformDirection(moveDirection);
                     characterCtrlr.Move(moveDirection * Time.deltaTime);
+                    // play footsteps
+                    if (footstepCooldown <= 0f && characterCtrlr.isGrounded && moveDirection.x != 0f && moveDirection.z != 0f)
+                    {
+
+                        FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.footstepSFX, transform.position);
+                        footstepCooldown = 1f;
+                        print("footstep");
+                    } else if (footstepCooldown > 0)
+                    {
+                        footstepCooldown -= footstepRate;
+                    }
+                    
 
                 }
                 else
