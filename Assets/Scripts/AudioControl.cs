@@ -5,6 +5,7 @@ public class AudioControl : MonoBehaviour
 {
     public static AudioControl instance;
     [FMODUnity.EventRef] public string pickupSFX;
+    [FMODUnity.EventRef] public string rocketFireSFX;
 
     void Awake()
     {

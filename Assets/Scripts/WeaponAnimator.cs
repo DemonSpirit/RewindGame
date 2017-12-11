@@ -17,7 +17,7 @@ public class WeaponAnimator : MonoBehaviour
         gameCtrl = GameControl.main;
         animator = GetComponent<Animator>();
         playerCtrl = GetComponentInParent<PlayerController>();
-        muzzlePrefab.SetActive(true);
+        //muzzlePrefab.SetActive(true);
 
     }
 

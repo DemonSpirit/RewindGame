@@ -40,11 +40,18 @@ namespace Abilities
                     if (playerCtrl.ammo > 0)
                     {
                         playerCtrl.ammo -= 1;
+                        // get the camera angle
                         Quaternion camRot = playerCtrl.camObj.transform.rotation;
                         Quaternion playerRot = playerCtrl.transform.rotation;
+                        // create rocket at that angle
                         inst = Instantiate(playerCtrl.bullet, playerCtrl.camObj.position + (playerCtrl.camObj.forward * 1.5f), new Quaternion(camRot.x, playerRot.y, playerRot.z, playerRot.w));
+                        // set rocket team
                         inst.GetComponent<Projectile>().team = playerCtrl.team;
+                        // set if rocket is a rewind or not
                         if (GameControl.main.gameState == "live") inst.GetComponent<Projectile>().real = true;
+                        // call sfx
+                        
+                        FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.rocketFireSFX,transform.position);
                     } else
                     {
                         //print("no ammo!");
