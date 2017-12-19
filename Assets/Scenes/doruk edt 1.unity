@@ -10733,6 +10733,73 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 644698538}
   m_Mesh: {fileID: 4300002, guid: 352157dc31ba3bb4997eb4c493778ac5, type: 3}
+--- !u!1001 &647899739
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1706166407}
+    m_Modifications:
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.313
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.564525
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -43.543
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.118259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.11826
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 3.118259
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174561221446160, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+      propertyPath: m_Name
+      value: meka tattoo gate (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e3b7f32f3b029144eab295fd6e549607, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &647899740 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4058849890884370, guid: e3b7f32f3b029144eab295fd6e549607,
+    type: 2}
+  m_PrefabInternal: {fileID: 647899739}
 --- !u!1 &649207988
 GameObject:
   m_ObjectHideFlags: 0
@@ -26606,6 +26673,7 @@ Transform:
   - {fileID: 1150981203}
   - {fileID: 1831089448}
   - {fileID: 229658138}
+  - {fileID: 647899740}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
