@@ -5,7 +5,8 @@ using Abilities;
 
 
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     public CharacterController characterCtrlr;
     public string agentName = "???";
@@ -17,7 +18,7 @@ public class PlayerController : MonoBehaviour {
     public int maxAmmo = 5;
     public int ammo = 5;
 
-
+    bool showMesh = true;
 
     // abilities
     public int[] abilityIDs = new int[] { 0, 0, 0, 0 };
@@ -48,6 +49,9 @@ public class PlayerController : MonoBehaviour {
     public bool animShooting = false;
     float footstepCooldown = 0f;
     [SerializeField] float footstepRate = 0.015f;
+
+    // CharacterModel Obj
+    GameObject charModel;
     
     public Transform camObj;
     float h, v;
@@ -62,7 +66,8 @@ public class PlayerController : MonoBehaviour {
     List<bool> playerIsBlocking;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		//Sets layer to default
 		gameObject.layer = 0;
 
@@ -70,6 +75,7 @@ public class PlayerController : MonoBehaviour {
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
+        charModel = transform.GetChild(2).gameObject;
         blockShield = transform.GetChild(3).gameObject;
         
 
@@ -77,7 +83,7 @@ public class PlayerController : MonoBehaviour {
         health = maxHealth;
         gameCtrl = GameControl.main;
 
-        
+
         // Get collider component
         coll = GetComponent<CapsuleCollider>();
         // Setting Alive State opacity fade
@@ -106,10 +112,11 @@ public class PlayerController : MonoBehaviour {
         playerIsBlocking = new List<bool>();
         
     }
-	
 
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
 
         switch (gameCtrl.gameState)
         {
@@ -118,16 +125,16 @@ public class PlayerController : MonoBehaviour {
                 Reset();
                 isExisting = true;
                 break;
-            case "pick":             
-                PlaybackCharacterActions();        
+            case "pick":
+                PlaybackCharacterActions();
                 break;
             case "start":
 
                 break;
-			case "countdown":
-			//Set Cam Dist
-				SetCameraOffset();
-				break;
+            case "countdown":
+                //Set Cam Dist
+                SetCameraOffset();
+                break;
             case "pre-live":
                 Reset();
                 ammo = maxAmmo;
@@ -139,7 +146,8 @@ public class PlayerController : MonoBehaviour {
                 {
                     rend.material.color = aliveColor;
                     coll.enabled = true;
-                } else
+                }
+                else
                 {
                     rend.material.color = deadColor;
                     coll.enabled = false;
@@ -154,23 +162,30 @@ public class PlayerController : MonoBehaviour {
                     //Set Cam Dist
                     SetCameraOffset();
 
+                    //turn my mesh off
+                    if (showMesh && charModel.activeInHierarchy == true)
+                    {
+                        charModel.SetActive(false);
+                    }
+                    
 
-					// Adds new player position, player rotation and camera rotation to each list
-					playerPos.Add(transform.position);
-					playerRot.Add(transform.rotation);
-					cameraRot.Add(camObj.rotation);
 
-					
+                    // Adds new player position, player rotation and camera rotation to each list
+                    playerPos.Add(transform.position);
+                    playerRot.Add(transform.rotation);
+                    cameraRot.Add(camObj.rotation);
+
+
                     //check for fire button
                     if (Input.GetButton("Fire1"))
                     {
                         UseWeapon();
-						playerIsShooting.Add(true);
-                    } 
-					else
+                        playerIsShooting.Add(true);
+                    }
+                    else
                     {
                         animShooting = false;
-						playerIsShooting.Add(false);
+                        playerIsShooting.Add(false);
                     }
 
                     // check if blocking
@@ -214,11 +229,12 @@ public class PlayerController : MonoBehaviour {
                         FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.footstepSFX, transform.position);
                         footstepCooldown = 1f;
                         print("footstep");
-                    } else if (footstepCooldown > 0)
+                    }
+                    else if (footstepCooldown > 0)
                     {
                         footstepCooldown -= footstepRate;
                     }
-                    
+
 
                 }
                 else
@@ -227,19 +243,20 @@ public class PlayerController : MonoBehaviour {
                 }
                 break;
             case "pre-rewind":
-                //print("playerPos.count = "+playerPos.Count.ToString());
-                
+
+
                 break;
             case "rewind":
-                
+
                 PlaybackCharacterActions();
                 break;
             case "rewind-end":
-                
+                charModel.SetActive(true);
                 break;
         }
+    }
             
-	}
+	
 
     void PlaybackCharacterActions()
     {
@@ -340,7 +357,6 @@ public class PlayerController : MonoBehaviour {
     {
         health = maxHealth;
         HealthCheck();
-        //ammo = maxAmmo;
-        //print(name + " resetted.");
+        
     }
 }

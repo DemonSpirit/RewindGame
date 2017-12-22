@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour {
     // singleton
@@ -75,6 +76,9 @@ public class GameControl : MonoBehaviour {
     public GameObject woodHitPFX;
     public GameObject explosionPFX;
     #endregion
+
+    public Text headerTxt;
+
     private void Awake()
     {
         main = this;
@@ -86,6 +90,8 @@ public class GameControl : MonoBehaviour {
         pickCtrl = pickUI.GetComponent<PickUIController>();
         // start ambience
         AudioControl.Sound(AudioControl.instance.ambientRain);
+
+        headerTxt = GameObject.Find("HeaderText").GetComponent<Text>();
     }
 
     
@@ -107,8 +113,10 @@ public class GameControl : MonoBehaviour {
                 switch (gameState)
                 {
                     case "pre-pick":
+                        /*
                         // enable the pick screen ui
-                        pickUI.SetActive(true);              
+                        pickUI.SetActive(true);        
+                        */
                         // set vars for auto playback in background
                         time = furthestLayerTimeLimit;
                         endStep = Mathf.FloorToInt(stepsPerSecond * furthestLayerTimeLimit);
@@ -118,10 +126,19 @@ public class GameControl : MonoBehaviour {
                         // move counter up so it spawns for the next player
                         teamToSpawnFor++;
                         if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
+                        if (teamToSpawnFor == 1)
+                        {
+                            headerTxt.text = "Blue Player, press enter to start.";
+                        } else
+                        {
+                            headerTxt.text = "Red Player, press enter to start.";
+                        }
+                        
                         gameState = "pick";
                         break;
                     case "pick":
 
+/*
                         // choose hero
                         if (Input.GetKeyDown(KeyCode.UpArrow))
                         {
@@ -194,7 +211,14 @@ public class GameControl : MonoBehaviour {
                             // play sound
                             FMODUnity.RuntimeManager.PlayOneShot(confirmSelectionSFX);
                         }
+
+    */
+                        
                         // ready up
+                        if (Input.GetKeyDown(KeyCode.Return))
+                        {
+                            ready = true;
+                        }
                         if (ready) gameState = "start";
 
                         // playback the game in the background
@@ -233,7 +257,7 @@ public class GameControl : MonoBehaviour {
                         var instController = activeInst.GetComponent<PlayerController>();
                         instController.active = true;
                         instController.team = teamToSpawnFor;
-
+                        headerTxt.text = "Score points by shooting into your opponent's goal.";
                         // reset game variables
                         NewLayer();
                         // Go to next gameState
@@ -257,6 +281,7 @@ public class GameControl : MonoBehaviour {
 	                    break;
                     case "pre-live":
                         endStep = Mathf.FloorToInt(stepsPerSecond*currentLayerTimeLimit);
+                        headerTxt.text = "";
                         gameState = "live";
                         break;
                     case "live":
@@ -273,6 +298,7 @@ public class GameControl : MonoBehaviour {
                         // set time to count from zero
                         time = 0f;
                         step--;
+                        headerTxt.text = "Rewinding time";
                         gameState = "rewind";
                         //step = Mathf.FloorToInt(furthestLayerTimeLimit * stepsPerSecond);
                         
@@ -312,10 +338,19 @@ public class GameControl : MonoBehaviour {
                             {
                                 winner = 2;
                             }
-                            if (winner == 1) Debug.Log("Blue wins!");
-                            if (winner == 2) Debug.Log("Red wins!");
+                            if (winner == 1)
+                            {
+                                Debug.Log("Blue wins!");
+                                headerTxt.text = "Blue player wins!";
+                            }
+                            if (winner == 2)
+                            {
+                                Debug.Log("Red wins!");
+                                headerTxt.text = "Red player wins!";
+                            }
 
                             Debug.Log("Blue: " + team1points.ToString() + " : Red: " + team2points.ToString());
+                            
                             gameState = "gameover";
                         } else
                         { // game is not over yet, go to pick phase.
