@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: plant_thing_neon_detail
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -18,7 +18,23 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BodyBumpTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BodyOcclusionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpDetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpTrimTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -31,6 +47,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DiffuseTrimTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -55,9 +75,21 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AtlasOffsetX: 0
+    - _AtlasOffsetY: 0
+    - _AtlasScaleX: 1
+    - _AtlasScaleY: 1
+    - _BodyBumpPower: 1
+    - _BodyOcclusionPower: 1
+    - _BumpDetailPower: 1
+    - _BumpPower: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DetailTexEnable: 0
+    - _DetailTexOffset: 1
+    - _DetailTexPower: 1.5
+    - _DetailTexScale: 2
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -66,11 +98,23 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimPower: 3
+    - _Shininess: 0.078125
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _TrimShininess: 0.078125
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _BodyOcclusionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0.1342, g: 0.7604, b: 0.7604, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorTint: {r: 1, g: 1, b: 1, a: 1}
+    - _DetailTexColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0.95862055, b: 1, a: 0}
+    - _MainSpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TrimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TrimSpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _VertexMaskColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
