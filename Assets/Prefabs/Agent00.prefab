@@ -677,9 +677,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4086208185101886}
-  - component: {fileID: 95140785052231724}
-  - component: {fileID: 114866846130497444}
-  - component: {fileID: 114084620028980564}
   m_Layer: 0
   m_Name: sci fi gun FBX
   m_TagString: Untagged
@@ -3419,7 +3416,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1090460022166188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.1972675, y: -1.114, z: 1.7358731}
+  m_LocalPosition: {x: -9.16707, y: 1.61, z: 13.435791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4919937898558788}
@@ -5277,23 +5274,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1465212416417220}
   m_Enabled: 1
---- !u!95 &95140785052231724
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312152284459966}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8fe431f5bb3e4fb449ee5fac8e32c3c9, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95344487814975218
 Animator:
   serializedVersion: 3
@@ -5433,7 +5413,7 @@ MonoBehaviour:
   aliveColor: {r: 0, g: 0, b: 0, a: 0}
   deadColor: {r: 0, g: 0, b: 0, a: 0}
   animShooting: 0
-  footstepRate: 0.015
+  footstepRate: 0.04
   camObj: {fileID: 0}
   fireRate: 0.1
   ability1CD: 0
@@ -5462,21 +5442,6 @@ MonoBehaviour:
   xQuat: {x: 0, y: 0, z: 0, w: 0}
   yQuat: {x: 0, y: 0, z: 0, w: 0}
   OrigRotation: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &114084620028980564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312152284459966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5ffd75a775d464bb098c9ad6e154fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCtrl: {fileID: 0}
-  gameCtrl: {fileID: 0}
-  animator: {fileID: 0}
-  muzzlePrefab: {fileID: 0}
 --- !u!114 &114095066747116816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5599,21 +5564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: 0
---- !u!114 &114866846130497444
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1312152284459966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5ffd75a775d464bb098c9ad6e154fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCtrl: {fileID: 0}
-  gameCtrl: {fileID: 0}
-  animator: {fileID: 0}
-  muzzlePrefab: {fileID: 0}
 --- !u!114 &114931612128162024
 MonoBehaviour:
   m_ObjectHideFlags: 1
