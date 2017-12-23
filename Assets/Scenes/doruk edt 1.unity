@@ -26539,7 +26539,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1477617916
+  randomSeed: -167512940
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -36384,9 +36384,9 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 82c6a7bb69d7de44c97136e751199694, type: 2}
+  - {fileID: 2100000, guid: 3216537ab4444df43b0e5cea9929b688, type: 2}
   - {fileID: 2100000, guid: 4ccebcf46d6c9a54484d9c57cde765ab, type: 2}
-  - {fileID: 2100000, guid: daf2881c927ca86418741e40a60c9371, type: 2}
+  - {fileID: 2100000, guid: 3cae218a55912164da876ce7a9a2d1be, type: 2}
   - {fileID: 2100000, guid: f388b9b6f49cf7d4c8722c63e52feb2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -41451,6 +41451,11 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 23113309915746466, guid: 1f46b2345ebbd5f4cbd4ec80d8b5cec2,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d2b8d39a7f4c4d488cff75b5db401e7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f46b2345ebbd5f4cbd4ec80d8b5cec2, type: 2}
   m_IsPrefabParent: 0
