@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour {
     public int team = 0;
     [SerializeField] int pointsGain = 1;
     Collider col;
+    
     public bool isPickup = false;
     public bool real = false; // controls wether this is a real projectile or just used for replay.
 	// Use this for initialization
@@ -25,7 +26,7 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //transform.rotation = Quaternion.Lerp(transform.rotation,target.rotation, rotAmt);
-        rb.AddForce(transform.forward*moveSpd);
+        if (!isPickup) rb.AddForce(transform.forward*moveSpd);
         if (GameControl.main.gameState != "live" && real == true) real = false;
         if (GameControl.main.gameState == "pre-live" && real == false) Destroy(gameObject);
         
@@ -73,6 +74,8 @@ public class Projectile : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        StopVelocity();
+        print("hit");
         if (collision.transform.tag == "Player")
         {
             print("player collision");
