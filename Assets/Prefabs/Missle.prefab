@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114510232296523438}
   - component: {fileID: 65643093755218942}
   - component: {fileID: 65827394556424174}
+  - component: {fileID: 114747763828938140}
   m_Layer: 0
   m_Name: Missle
   m_TagString: Projectile
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048610330558400}
   m_LocalRotation: {x: -0.50006235, y: 0.49993756, z: -0.49993762, w: 0.5000625}
-  m_LocalPosition: {x: 4.611399, y: 0.24360444, z: 3.3768704}
+  m_LocalPosition: {x: -10.677778, y: -0.641, z: 0.28794676}
   m_LocalScale: {x: 14.814796, y: 14.814804, z: 14.814804}
   m_Children: []
   m_Father: {fileID: 0}
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048610330558400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e49e54b3fa90caf47af6947d96c14537, type: 3}
   m_Name: 
@@ -143,3 +144,23 @@ MonoBehaviour:
   pointsGain: 1
   isPickup: 0
   real: 0
+--- !u!114 &114747763828938140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048610330558400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68240502cc05fd47ae003dcb9fa230e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpd: 500
+  startSpd: 4000
+  target: {fileID: 0}
+  team: 0
+  pointsGain: 1
+  isPickup: 0
+  real: 0
+  boxCol: {fileID: 65827394556424174}
+  trigCol: {fileID: 65643093755218942}
