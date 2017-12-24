@@ -428,6 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4059662365265610}
   - component: {fileID: 137517171117309824}
+  - component: {fileID: 114173893383130048}
   m_Layer: 0
   m_Name: Shoes
   m_TagString: Untagged
@@ -724,6 +725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868213856923634}
   - component: {fileID: 137263654461710086}
+  - component: {fileID: 114191478078746600}
   m_Layer: 0
   m_Name: Tops
   m_TagString: Untagged
@@ -983,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4530416196058888}
   - component: {fileID: 137354772251311010}
-  - component: {fileID: 114432779941056710}
+  - component: {fileID: 114685397360446996}
   m_Layer: 0
   m_Name: Bottoms
   m_TagString: Untagged
@@ -1487,6 +1489,7 @@ GameObject:
   - component: {fileID: 33727843756657482}
   - component: {fileID: 65862944154512288}
   - component: {fileID: 23288158707835798}
+  - component: {fileID: 114480082522267320}
   m_Layer: 0
   m_Name: BlockShield
   m_TagString: BlockProjectiles
@@ -5593,18 +5596,51 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 52bb03411f881514a960ff3d6556350d, type: 3}
   - {fileID: 21300000, guid: b0e858824e842e44196bc754ccd6c689, type: 3}
   - {fileID: 21300000, guid: f4f566e71972582458634d8ba800f489, type: 3}
---- !u!114 &114432779941056710
+--- !u!114 &114173893383130048
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429420528226578}
+  m_GameObject: {fileID: 1242108533032078}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ffd32ec1f235f74991ef8d176911d2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 39fd323eb27a24883a098a9d5e40e3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 0}
+  Color: {r: 0.733, g: 0.447, b: 0.224, a: 1}
+  Glow: {r: 1, g: 0.847, b: 0.733, a: 1}
+  MinGlow: 4.6
+  GlowDifference: 2
+--- !u!114 &114191478078746600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1336027927314626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fd323eb27a24883a098a9d5e40e3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.733, g: 0.447, b: 0.224, a: 1}
+  Glow: {r: 1, g: 0.847, b: 0.733, a: 1}
+  MinGlow: 4.6
+  GlowDifference: 2
+--- !u!114 &114480082522267320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611870212053048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fd323eb27a24883a098a9d5e40e3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0.733, g: 0.447, b: 0.224, a: 1}
+  Glow: {r: 1, g: 0.847, b: 0.733, a: 1}
+  MinGlow: 4.6
+  GlowDifference: 2
 --- !u!114 &114520883967336726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5635,6 +5671,21 @@ MonoBehaviour:
   gameCtrl: {fileID: 0}
   animator: {fileID: 0}
   muzzlePrefab: {fileID: 1058004797675372}
+--- !u!114 &114685397360446996
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1429420528226578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fd323eb27a24883a098a9d5e40e3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Color: {r: 0, g: 1, b: 0.95862055, a: 1}
+  Glow: {r: 0.8695854, g: 1, b: 0, a: 1}
+  MinGlow: 4.6
+  GlowDifference: 2
 --- !u!114 &114754472878073480
 MonoBehaviour:
   m_ObjectHideFlags: 1

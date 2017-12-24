@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class GameControl : MonoBehaviour {
     // singleton
     public static GameControl main;
+    public static Color redTeamColor = Color.red;
+    public static Color blueTeamColor = Color.blue;
 
     #region Important Rewind Variables
     public int step = 0;
