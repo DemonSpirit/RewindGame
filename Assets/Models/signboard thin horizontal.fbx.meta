@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 4688e8548f44d734682c9f99c84c9d58
+timeCreated: 1514192449
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: pCube8
+    100002: polySurface56
+    100004: polySurface56 1
+    100006: polySurface57
+    100008: polySurface58
+    100010: polySurface59
+    100012: polySurface60
+    100014: polySurface61
+    100016: polySurface62
+    100018: polySurface63
+    100020: polySurface64
+    100022: polySurface65
+    100024: polySurface66
+    100026: polySurface67
+    100028: polySurface68
+    100030: polySurface69
+    100032: polySurface70
+    100034: //RootNode
+    100036: transform60
+    100038: transform61
+    100040: transform62
+    100042: transform63
+    100044: transform64
+    100046: transform65
+    100048: transform66
+    100050: transform67
+    100052: transform68
+    100054: transform69
+    100056: transform70
+    100058: transform71
+    100060: transform72
+    100062: transform73
+    100064: transform74
+    400000: pCube8
+    400002: polySurface56
+    400004: polySurface56 1
+    400006: polySurface57
+    400008: polySurface58
+    400010: polySurface59
+    400012: polySurface60
+    400014: polySurface61
+    400016: polySurface62
+    400018: polySurface63
+    400020: polySurface64
+    400022: polySurface65
+    400024: polySurface66
+    400026: polySurface67
+    400028: polySurface68
+    400030: polySurface69
+    400032: polySurface70
+    400034: //RootNode
+    400036: transform60
+    400038: transform61
+    400040: transform62
+    400042: transform63
+    400044: transform64
+    400046: transform65
+    400048: transform66
+    400050: transform67
+    400052: transform68
+    400054: transform69
+    400056: transform70
+    400058: transform71
+    400060: transform72
+    400062: transform73
+    400064: transform74
+    2300000: polySurface56
+    3300000: polySurface56
+    4300000: polySurface56
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: nail_signboard
+    second: {fileID: 2100000, guid: d81461137a79fe441bf13efbacabd79d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: signboard_poster_1
+    second: {fileID: 2100000, guid: 175cfcd808363a64b8b8a06104cb323b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: signboard_poster_2
+    second: {fileID: 2100000, guid: 6c86af685d3e5e2429cd8b56a23c2c57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: signboard_thin
+    second: {fileID: 2100000, guid: 70e37a4ede793df4e8afff84daf9f05e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
