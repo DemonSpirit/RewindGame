@@ -1,0 +1,779 @@
+<!DOCTYPE html><script>var __pbpa = true;</script><script>var translated_warning_string = 'Warning: Never enter your Tumblr password unless \u201chttps://www.tumblr.com/login\u201d\x0ais the address in your web browser.\x0a\x0aYou should also see a green \u201cTumblr, Inc.\u201d identification in the address bar.\x0a\x0aSpammers and other bad guys use fake forms to steal passwords.\x0a\x0aTumblr will never ask you to log in from a user\u2019s blog.\x0a\x0aAre you absolutely sure you want to continue?';</script><script type="text/javascript" language="javascript" src="http://assets.tumblr.com/assets/scripts/pre_tumblelog.js?_v=472beb185dc3d62d59bcf893499ebf45"></script><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="if:Show Twitter widget" content="0"/><meta name="if:Use Infinite Scroll" content="0"/><meta name="if:Show Facebook link" content="0"/><meta name="text:Facebook Username" content=""/><meta name="if:Show Flickr link" content="0"/><meta name="text:Flickr Username" content=""/><meta name="color:Background" content="#000000"/><meta name="color:Content Background" content="#000000"/><meta name="color:Text" content="#252525"/><meta name="color:Link" content="#252525"/><meta name="color:Separator" content="#252525"/><title>1am, we are</title><style>figure{margin:0}.tmblr-iframe{position:absolute}.tmblr-iframe.hide{display:none}.tmblr-iframe--amp-cta-button{visibility:hidden;position:fixed;bottom:10px;left:50%;transform:translateX(-50%);z-index:100}.tmblr-iframe--amp-cta-button.tmblr-iframe--loaded{visibility:visible;animation:iframe-app-cta-transition .2s ease-out}</style><link rel="shortcut icon" href="http://78.media.tumblr.com/avatar_890d287d3c22_128.pnj"/><link rel="alternate" type="application/rss+xml" href="http://1amweare.tumblr.com/rss"/><meta name="description" content="and it hatches." /><script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script><script type="text/javascript">
+
+//jQuery for dynamic content
+
+$(document).ready(function() {
+
+$("a#aboutpage").click(function() {
+
+window.scrollTo(0,0);
+$(".post-search").removeClass('visible').hide();
+$(".post-twitter").removeClass('visible').hide();
+$("div.post-about").fadeIn(1500);
+
+return false;
+
+});
+
+$("a#searchpage").click(function() {
+
+window.scrollTo(0,0);
+$(".post-about").removeClass('visible').hide();
+$(".post-twitter").removeClass('visible').hide();
+$("div.post-search").fadeIn(1500);
+
+return false;
+
+});
+
+$("a#twitterpage").click(function() {
+
+window.scrollTo(0,0);
+$(".post-about").removeClass('visible').hide();
+$(".post-search").removeClass('visible').hide();
+$("div.post-twitter").fadeIn(1500);
+
+return false;
+
+});
+
+});
+
+</script><style type="text/css">
+
+/* Global Styles */
+
+* {
+padding: 0px;
+margin: 0px; 
+}
+
+body {
+font-family:Helvetica, Times New Roman, serif;
+color:#fffdfd;
+font-size:10px;
+background-color: #000000;
+}
+
+a {color:#f3f3f3; text-decoration:none;}
+
+a:link {text-decoration:none;}
+
+a:hover {text-decoration:underline;}
+
+a:active {text-decoration:none;}
+
+a img {border:none 0px;}        
+
+h2 {
+font-size:20px;
+}
+
+
+/* Main Layout Styles */
+
+#container {
+width:751px;
+margin-left:100px;
+margin-top:56px;
+}
+
+#sidebar {
+width:150px;
+height:auto;
+float:left;
+clear:both;
+position:fixed;
+}
+
+#rightborder {
+border-right: #000000 solid 1px;
+width:1px;
+height:218px;
+float:right;
+margin-top:40px;
+}
+
+#logo {
+width:48px;
+height:48px;
+position:absolute;  
+top:12px;
+left:0px;        
+}
+
+#logo img {
+    width:60px;
+    height:60px;
+}
+
+#overlay {
+width:64px;
+height:64px;
+position:relative;
+top:11px;
+left:-2px;
+}
+
+#overlay a{
+    display:block;
+    width:64px;
+    height:64px;
+    cursor:pointer;
+}
+
+#menu {
+margin-top:17px;
+}
+
+#menu ul {
+list-style:none;
+list-style-type:none;
+padding-left: 0px;
+margin-left: 0px;
+}
+
+#menu ul li {
+padding-bottom:4px;    
+}
+
+#sidebar-footer {
+margin-top:20px;
+}
+
+#sidebar-footer a {
+font-style:italic;
+text-decoration:none;    
+}
+
+#sidebar-footer a:hover {
+font-style:italic;
+text-decoration:underline;	
+}
+
+#sidebar-nav {
+margin-top: 18px;
+}
+
+#menu ul li {
+padding-bottom:4px;	
+}
+
+#blogroll {
+width:558px;
+margin-left:195px;
+position:absolute;
+min-height:300px;
+padding-bottom:27px;
+}
+
+#posts {
+width:500px;	
+margin-top:60px;
+}
+
+.tumblrAutoPager_page_info, .tumblrAutoPager_page_separator {
+  display:none;
+}
+
+/* Global Post Styles */
+
+.post-head {
+float:left;
+clear:both;
+}
+
+.post-meta {
+float:left;
+clear:both;
+}
+
+.meta-date{
+height:1px;
+width:11px;
+margin-bottom:8px;	
+}
+
+.cat {
+max-width:125px;
+min-height:10px;	
+}
+
+.perma {
+margin-top:4px;
+}
+
+.perma a:hover {
+text-decoration:underline;
+}
+
+.footer {
+float:left;
+clear:both;
+margin-left:120px;
+font-style:italic;
+margin-bottom:70px;
+min-height:10px;
+}
+
+.footer p {
+margin-bottom:10px;
+}
+
+.notecount {
+margin-top:30px;
+}
+
+.postnotes {
+margin-top:30px;     
+}
+
+.postnotes ol.notes {
+list-style:none inside none;
+margin-left: 0px;
+padding=left: 0px;
+
+}
+
+.postnotes ol.notes li {
+list-style:none;
+}
+
+.postnotes ol.notes li span {
+font-style:normal;
+}
+
+.postnotes ol.notes li span.action {
+margin-left: 0px;
+padding=left: 0px;
+line-height:17px;
+}
+
+.postnotes ol.notes li span a {
+font-style:italic;
+}
+
+.postnotes ol.notes li.note {
+margin-left: 0px;
+padding=left: 0px;
+}
+
+.postnotes ol.notes li a img.avatar {
+display:none;
+}
+
+a.more_notes_link {
+margin-right:260px;
+}
+
+.more_notes_link_container {
+margin-top:20px;
+}
+
+.more_notes_link_container span{
+margin-right:290px;
+}
+
+.italic {
+font-style:italic;
+}
+
+.visible {
+display:block;
+}
+
+/* About Styles */
+
+.about-title {
+margin-top:40px;
+margin-left:120px;
+margin-bottom:20px;
+}
+
+.post-about {
+min-height:200px;
+display:none;
+}
+
+#about {
+float:left;
+clear:both;
+margin-left:120px;
+min-width:500px;
+}
+
+#about p {
+margin-bottom:5px;
+line-height:17px;	
+}
+
+#about ul {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+#about ul li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+#about ol {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+#about ol li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+#about a {
+font-style:italic;
+}
+
+/* Search Styles */
+
+.post-search {
+min-height:200px;
+display:none;
+}
+
+.search-title {
+margin-top:40px;
+margin-left:120px;
+margin-bottom:20px;
+}
+
+#search {
+float:left;
+clear:both;
+margin-left:120px;
+min-width:500px;
+}
+
+#search p {
+margin-bottom:5px;	
+}
+
+/* Twitter Styles */
+
+.post-twitter {
+min-height:200px;
+display:none;
+} 
+
+.twitter-title {
+margin-top:40px;
+margin-left:120px;
+margin-bottom:20px;
+}
+
+#tweets {
+float:left;
+clear:both;
+margin-left:120px;
+min-width:500px;
+}
+
+#tweets a div {
+margin-bottom:7px;
+}
+
+
+/* Text Post Styles */
+
+.post-text {}
+
+
+.post-title {
+margin-bottom:20px;
+min-height:14px;
+}
+
+.body {
+float:left;
+clear:both;
+margin-left:120px;
+min-width:500px;
+}
+
+.body p {
+margin-bottom:5px;
+line-height:17px;	
+}
+
+.body p a {
+font-style:italic;	
+}
+
+.body ul {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.body ul li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+.body ol {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.body ol li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+.post-text img {
+margin-top:10px;
+margin-bottom:10px;
+}
+
+.caption {
+float:left;
+clear:both;
+margin-top:20px;
+margin-left:120px;
+width:500px;
+}
+
+
+/* Photo Post Styles */
+
+.post-photo {}
+
+.photo {
+float:left;
+clear:both;
+margin-left:120px;
+}
+
+.photo a img {
+border:0px none;
+min-width 600px;
+}
+
+.post-photo p {
+margin-bottom:5px;	
+}
+
+.post-photo ol {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.post-photo ol li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+.post-photo ul {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.post-photo ul li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+.caption p img {
+margin-top:12px;
+}
+
+.caption a {
+font-style:italic;
+}
+
+.caption p {
+line-height:17px;
+} 
+
+
+/* Photoset Post Styles */
+
+.photoset {
+float:left;
+clear:both;
+margin-left:60px;
+}
+
+.post-photoset p {
+margin-bottom:5px;	
+}
+
+.post-photoset ol {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.post-photoset ol li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+.post-photoset ul {
+margin-bottom:7px;
+margin-top:7px;	
+}
+
+.post-photoset ul li {
+list-style-position:inside;
+margin-left:10px;
+}
+
+
+/* Quote Post Styles */
+
+.quote {
+float:left;
+clear:both;
+margin-left:120px;
+}
+
+.quote h2 {
+line-height:30px;
+}
+
+.quote-source {
+float:left;
+clear:both;
+min-width:500px;
+margin-top:20px;
+}
+
+
+/* Link Post Styles */
+
+.link {
+margin-bottom:20px;
+}
+
+.link-caption {
+float:left;
+clear:both;
+width:500px;
+}
+
+.link-caption a {
+font-style:italic;
+}
+
+
+/* Audio Post Styles */
+
+.audio {
+float:left;
+clear:both;
+margin-left:120px;	
+}
+
+.audio-meta {
+margin-top:20px;
+}
+
+
+.audio-source {
+float:left;
+clear:both;
+margin-top:20px;
+}
+
+.audio-source p {
+line-height:16px;
+}
+
+.audio-source p a { 
+font-style:italic;
+}
+
+
+/* Video Post Styles */
+
+.video {
+float:left;
+clear:both;
+margin-left:120px;	
+}
+
+.video-source {
+float:left;
+clear:both;
+margin-top:20px;	
+}
+
+.video-source p {
+line-height:16px;
+}
+
+.video-source p a { 
+font-style:italic;
+}
+
+
+/* Ask Post Styles */
+
+.question {
+margin-bottom:20px;
+}
+
+.asker {
+margin-bottom:5px;
+}
+
+.asker a {
+font-style:italic;
+}
+
+.answer {
+float:left;
+clear:both;
+}
+
+
+/* Chat Post Styles */
+
+.chat-title {
+min-height:14px;
+margin-bottom:20px;
+font-style:normal;
+}
+
+.chat {
+margin-left:120px;
+font-style:italic;
+float:left;
+clear:both;
+margin-bottom:7px;
+}
+
+.chat ul {
+margin:0px;
+list-style:none;
+font-style:normal;
+}
+
+
+.chat ul li {
+margin-top:7px;
+list-style:none;
+font-style:normal;
+}
+
+.label {
+font-weight:bold;
+}
+
+
+
+</style><script type=”text/javascript” src=”http://static.tumblr.com/q0etgkr/mFbkoqlkr/tumblrautopager.js”></script><link rel="alternate" href="android-app://com.tumblr/tumblr/x-callback-url/blog?blogName=1amweare%26postID=19132726216" /><link rel="alternate" href="ios-app://305343404/tumblr/x-callback-url/blog?blogName=1amweare&postID=19132726216" /><link rel="alternate" type="application/json+oembed" href="https://www.tumblr.com/oembed/1.0?url=http://1amweare.tumblr.com/post/19132726216/and-it-hatches" title="and it hatches."/><link rel="amphtml" href=http://1amweare.tumblr.com/post/19132726216/and-it-hatches/amp /><script src="http://assets.tumblr.com/assets/scripts/tumblelog_post_message_queue.js?_v=8a635a4514a95df9615127e354b374d0"></script><meta name="keywords" content="Geometric,Bauhaus" /><!-- BEGIN TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- If you'd like to specify your own Open Graph tags, define the og:url and og:title tags in your theme's HTML. --><!-- Read more: http://ogp.me/ --><meta property="fb:app_id" content="48119224995" /><meta property="og:site_name" content="1am, we are" /><meta property="og:title" content="" /><meta property="og:url" content="http://1amweare.tumblr.com/post/19132726216/and-it-hatches" /><meta property="og:description" content="and it hatches." /><meta property="og:determiner" content="a" /><meta property="og:type" content="tumblr-feed:photo" /><meta property="og:image" content="http://78.media.tumblr.com/7809a26bbd2eb60258ba94e4665c487c/tumblr_m0qivr9csI1rrweeyo1_r1_500.jpg" /><meta property="og:image:height" content="505" /><meta property="og:image:width" content="500" /><meta property="al:ios:url" content="tumblr://x-callback-url/blog?blogName=1amweare&amp;postID=19132726216" /><meta property="al:ios:app_name" content="Tumblr" /><meta property="al:ios:app_store_id" content="305343404" /><meta property="al:android:url" content="tumblr://x-callback-url/blog?blogName=1amweare&amp;postID=19132726216" /><meta property="al:android:app_name" content="Tumblr" /><meta property="al:android:package" content="com.tumblr" /><!-- END TUMBLR FACEBOOK OPENGRAPH TAGS --><!-- TWITTER TAGS --><meta charset="utf-8"><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="1amweare" /><meta name="twitter:description" content="and it hatches." /><meta name="twitter:image" content="http://78.media.tumblr.com/7809a26bbd2eb60258ba94e4665c487c/tumblr_m0qivr9csI1rrweeyo1_r1_500.jpg" /><meta name="twitter:url" content="http://1amweare.tumblr.com/post/19132726216/and-it-hatches" /><meta name="twitter:site" content="tumblr" /><meta name="twitter:app:name:iphone" content="Tumblr" /><meta name="twitter:app:name:ipad" content="Tumblr" /><meta name="twitter:app:name:googleplay" content="Tumblr" /><meta name="twitter:app:id:iphone" content="305343404" /><meta name="twitter:app:id:ipad" content="305343404" /><meta name="twitter:app:id:googleplay" content="com.tumblr" /><meta name="twitter:app:url:iphone" content="tumblr://x-callback-url/blog?blogName=1amweare&amp;postID=19132726216&amp;referrer=twitter-cards" /><meta name="twitter:app:url:ipad" content="tumblr://x-callback-url/blog?blogName=1amweare&amp;postID=19132726216&amp;referrer=twitter-cards" /><meta name="twitter:app:url:googleplay" content="tumblr://x-callback-url/blog?blogName=1amweare&amp;postID=19132726216&amp;referrer=twitter-cards" /><!-- GOOGLE CAROUSEL --><script type="application/ld+json">
+	{"@type":"SocialMediaPosting","url":"http:\/\/1amweare.tumblr.com\/post\/19132726216\/and-it-hatches","mainEntityOfPage":true,"datePublished":"2012-03-11T19:16:00-04:00","author":"1amweare","image":"http:\/\/78.media.tumblr.com\/7809a26bbd2eb60258ba94e4665c487c\/tumblr_m0qivr9csI1rrweeyo1_r1_500.jpg","articleBody":"and it hatches.","@context":"http:\/\/schema.org"}</script><link rel="canonical" href="http://1amweare.tumblr.com/post/19132726216/and-it-hatches" /></head><body><div id="container"><div id="sidebar"><div id="rightborder"></div><div id="letter"></div><div id="logo"><img src="http://78.media.tumblr.com/avatar_890d287d3c22_96.pnj"/></div>        		    <div id="overlay"><a href="http://1amweare.tumblr.com/"></a></div><div id="menu"><ul><li><a id="Closeabout" href="/">Journal</a></li><li><a id="aboutpage" href="#">About</a></li><li><a href="https://soundcloud.com/1amweare" target="_blank">SoundCloud</a></li><li><a href="http://www.behance.net/iamweare"target = "_blank">Behance</a></li><li><a href="https://www.facebook.com/1amweare" target="_blank">Facebook</a></li><li><a href="http://instagram.com/1amweare" target="_blank">Instagram</a></li></ul></div><div id="sidebar-nav"></div><div id="sidebar-footer"></div></div><div id="blogroll"><div id="posts">  
+<div class="post-about"><div class="post-head"><div class="post-meta"><div style="height:1px;width:11px;background-color:#000;margin-bottom:8px;"></div></div><div class="about-title"><h3>About</h3></div></div>      
+                    
+                   <div id="about">
+                   The didactic mentality and the idiosyncrasy of a transient way of life...  ⨕ <br />
+ميغيل نجم الكون
+                    </div>      
+</div><div class="post-search"><div class="post-head"><div class="post-meta"><div style="height:1px;width:11px;background-color:#000;margin-bottom:8px;"></div></div><div class="search-title"><h3>Search for content</h3></div></div>      
+                    
+                   <div id="search"><form action="/search" method="get"><input type="text" name="q" value=""/><br/><br/><input type="submit" value="Search"/></form></div>      
+</div><div class=“autopagerize_page_element”><div id="blogcon"><div class="post-photo"><div class="post-head">   
+                        <div class="post-meta"><p style="height:1px;width:11px;background-color:#000;margin-bottom:8px;"></p><div class="date">
+                            	March 11, 2012
+                            </div><div class="perma"><a href="http://1amweare.tumblr.com/post/19132726216/and-it-hatches">Permalink &#187;</a></div> 
+                        </div></div>      
+                    
+                   <div class="photo"><a href="http://1amweare.tumblr.com/post/19132726216/and-it-hatches"><img src="http://78.media.tumblr.com/7809a26bbd2eb60258ba94e4665c487c/tumblr_m0qivr9csI1rrweeyo1_r1_500.jpg" alt="and it hatches."/></a></div><div class="caption"><p>and it hatches.</p></div><div class="footer"><div class="postnotes"><p>Notes:</p><ol class="notes"><!-- START NOTES --><li class="note like tumblelog_carmelo-fan without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://carmelo-fan.tumblr.com/" title="Sin t&iacute;tulosaludos desde venezuela " rel="nofollow"><img src="http://78.media.tumblr.com/avatar_81afc0ab8c4b_16.pnj" class="avatar " alt="" /></a><span class="action"><a rel="nofollow" href="http://carmelo-fan.tumblr.com/" title="Sin t&iacute;tulosaludos desde venezuela" rel="nofollow">carmelo-fan</a> liked this                                    </span><div class="clear"></div></li><li class="note reblog tumblelog_hayirbesiktasliyim without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://hayirbesiktasliyim.tumblr.com/" title=""><img src="http://78.media.tumblr.com/avatar_8bf312f26b34_16.pnj" class="avatar " alt="" /></a><span class="action" data-post-url="http://hayirbesiktasliyim.tumblr.com/post/93533487134"><a rel="nofollow" href="http://hayirbesiktasliyim.tumblr.com/" class="tumblelog" title="">hayirbesiktasliyim</a> reblogged this from <a rel="nofollow" href="http://1amweare.tumblr.com/" class="source_tumblelog" title="1am, we are">1amweare</a>                                                                                                                                                                                    </span><div class="clear"></div></li><li class="note like tumblelog_chatosmedia without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="https://chatosmedia.tumblr.com/" title="Tatoo, Girls, Movies And Design " rel="nofollow"><img src="http://78.media.tumblr.com/avatar_e9f613e679d5_16.pnj" class="avatar " alt="" /></a><span class="action"><a rel="nofollow" href="https://chatosmedia.tumblr.com/" title="Tatoo, Girls, Movies And Design" rel="nofollow">chatosmedia</a> liked this                                    </span><div class="clear"></div></li><li class="note like tumblelog_themeander without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://themeander.tumblr.com/" title="the Meander " rel="nofollow"><img src="http://78.media.tumblr.com/avatar_dfac8e940f35_16.pnj" class="avatar " alt="" /></a><span class="action"><a rel="nofollow" href="http://themeander.tumblr.com/" title="the Meander" rel="nofollow">themeander</a> liked this                                    </span><div class="clear"></div></li><li class="note reblog tumblelog_1amweare original_post without_commentary"><a rel="nofollow" class="avatar_frame" target="_blank" href="http://1amweare.tumblr.com/" title="1am, we are"><img src="http://78.media.tumblr.com/avatar_890d287d3c22_16.pnj" class="avatar " alt="" /></a><span class="action" data-post-url="http://1amweare.tumblr.com/post/19132726216"><a rel="nofollow" href="http://1amweare.tumblr.com/" class="tumblelog" title="1am, we are">1amweare</a> posted this                                                                        </span><div class="clear"></div></li><!-- END NOTES --></ol></div></div></div></div>      
+        </div></div></div>             
+
+     </div><iframe scrolling="no" width="1" height="1" frameborder="0" style="background-color:transparent; overflow:hidden; position:absolute; top:0; left:0; z-index:9999;" id="ga_target"></iframe><script type="text/javascript">
+    (function(){
+        var analytics_frame = document.getElementById('ga_target');
+        var analytics_iframe_loaded;
+        var user_logged_in;
+        var blog_is_nsfw = 'No';
+        var addthis_enabled = false;
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        eventer(messageEvent,function(e) {
+            var message = (e.data && e.data.split) ? e.data.split(';') : '';
+            switch (message[0]) {
+                case 'analytics_iframe_loaded':
+                    analytics_iframe_loaded = true;
+                    postCSMessage();
+                    postGAMessage();
+                    postATMessage();
+                    postRapidMessage();
+                    break;
+                case 'user_logged_in':
+                    user_logged_in = message[1];
+                    postGAMessage();
+                    postATMessage();
+                    break;
+            }
+        }, false);
+
+        analytics_frame.src = "https://assets.tumblr.com/analytics.html?a76144f6ac3f4c5ec0b80b2f2a5b4fd0#" +
+                              "http://1amweare.tumblr.com";
+        function postGAMessage() {
+            if (analytics_iframe_loaded && user_logged_in) {
+                var is_ajax = false;
+                analytics_frame.contentWindow.postMessage(['tick_google_analytics', is_ajax, user_logged_in, blog_is_nsfw, '/post/19132726216/and-it-hatches?route=%2Fpost%2F%3Aid%2F%3Asummary'].join(';'), analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postCSMessage() {
+            COMSCORE = true;
+            analytics_frame.contentWindow.postMessage('enable_comscore;' + window.location, analytics_frame.src.split('/analytics.html')[0]);
+        }
+        function postATMessage() {
+            if (addthis_enabled && analytics_iframe_loaded) {
+                analytics_frame.contentWindow.postMessage('enable_addthis', analytics_frame.src.split('/analytics.html')[0]);
+            }
+        }
+        function postRapidMessage() {
+                            if (analytics_iframe_loaded) {
+                    var is_ajax = '';
+                    var route = '/post/:id/:summary';
+                    var tumblelog_id = '47745873';
+                    var yahoo_space_id = '1197719230';
+                    var rapid_client_only = '1';
+                    var apv = '1';
+                    var rapid_ex = '';
+
+                    analytics_frame.contentWindow.postMessage(
+                        [
+                            'tick_rapid', is_ajax, route, user_logged_in, tumblelog_id,
+                            yahoo_space_id, rapid_client_only, apv, rapid_ex
+                        ].join(';'),
+                        analytics_frame.src.split('/analytics.html')[0]
+                    );
+                }
+                    }
+    })();
+</script><script type="text/javascript">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1514209813&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvMWFtd2VhcmUudHVtYmxyLmNvbVwvcG9zdFwvMTkxMzI3MjYyMTZcL2FuZC1pdC1oYXRjaGVzIiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkifQ==&U=FDOMFAMOMI&K=b5f8004b1b5cf49bce211dfc7fd3099815e1e9953374e2aa9de178cfdbe749af&R=https%3A%2F%2Ftr.pinterest.com%2F'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1514209813&J=eyJ0eXBlIjoidXJsIiwidXJsIjoiaHR0cDpcL1wvMWFtd2VhcmUudHVtYmxyLmNvbVwvcG9zdFwvMTkxMzI3MjYyMTZcL2FuZC1pdC1oYXRjaGVzIiwicmVxdHlwZSI6MCwicm91dGUiOiJcL3Bvc3RcLzppZFwvOnN1bW1hcnkiLCJub3NjcmlwdCI6MX0=&U=FDOMFAMOMI&K=0369ebe2f4ff6af2e39fc57a429dec77c20d4382925d9a02eb1b93b751a9e0e9&R=https%3A%2F%2Ftr.pinterest.com%2F"></noscript><script >
+        (function (w,d) {
+            'use strict';
+            var l = function(el, type, listener, useCapture) {
+                el.addEventListener ?
+                el.addEventListener(type, listener, !!useCapture) :
+                el.attachEvent && el.attachEvent('on' + type, listener, !!useCapture);
+            };
+            var a = function () {
+                                if (d.getElementById('tumblr-cdx')) {
+                    return;
+                }
+                var s = d.createElement('script');
+                var el = d.getElementsByTagName('script')[0];
+                s.async = true;
+                s.src = 'http://assets.tumblr.com/assets/scripts/vendor/cedexis/1-13960-radar10.min.js?_v=1c33ba57efaa7c45a6d00094f876fe73';
+                s.type = 'text/javascript';
+                s.id = 'tumblr-cdx';
+                d.body.appendChild(s);
+            };
+            l(w,'load',a);
+        }(window, document));
+</script><script type="text/javascript">!function(s){s.src='https://px.srvcs.tumblr.com/impixu?T=1514209813&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cLzFhbXdlYXJlLnR1bWJsci5jb21cL3Bvc3RcLzE5MTMyNzI2MjE2XC9hbmQtaXQtaGF0Y2hlcyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC9wb3N0XC86aWRcLzpzdW1tYXJ5IiwicG9zdHMiOlt7InBvc3RpZCI6IjE5MTMyNzI2MjE2IiwiYmxvZ2lkIjoiNDc3NDU4NzMiLCJzb3VyY2UiOjMzfV19&U=PCKKNAFGED&K=e712252707b412897d7e8d395eaf997655ec4f174e7effdcf8a44505a6c99f29&R=https%3A%2F%2Ftr.pinterest.com%2F'.replace(/&R=[^&$]*/,'').concat('&R='+escape(document.referrer)).slice(0,2000).replace(/%.?.?$/,'');}(new Image());</script><noscript><img style="position:absolute;z-index:-3334;top:0px;left:0px;visibility:hidden;" src="https://px.srvcs.tumblr.com/impixu?T=1514209813&J=eyJ0eXBlIjoicG9zdCIsInVybCI6Imh0dHA6XC9cLzFhbXdlYXJlLnR1bWJsci5jb21cL3Bvc3RcLzE5MTMyNzI2MjE2XC9hbmQtaXQtaGF0Y2hlcyIsInJlcXR5cGUiOjAsInJvdXRlIjoiXC9wb3N0XC86aWRcLzpzdW1tYXJ5IiwicG9zdHMiOlt7InBvc3RpZCI6IjE5MTMyNzI2MjE2IiwiYmxvZ2lkIjoiNDc3NDU4NzMiLCJzb3VyY2UiOjMzfV0sIm5vc2NyaXB0IjoxfQ==&U=PCKKNAFGED&K=f4177aac71ed491336bec219e715dc70af4671117ee55e96d190ff4b563729f9&R=https%3A%2F%2Ftr.pinterest.com%2F"></noscript><noscript id="bootloader" data-bootstrap="{&quot;Components&quot;:{&quot;PostActivity&quot;:[],&quot;NotificationPoller&quot;:{&quot;messaging_keys&quot;:[],&quot;token&quot;:&quot;c86f8a500596474a7ef5034081f694bd&quot;,&quot;inbox_unread&quot;:0},&quot;TumblelogIframe&quot;:{&quot;unified&quot;:true,&quot;variant&quot;:null,&quot;isCompact&quot;:true,&quot;tumblelogBundleSrc&quot;:&quot;http:\/\/assets.tumblr.com\/client\/prod\/standalone\/tumblelog\/index.build.js?_v=167b261b517eeac6aa72cc5a3d78f436&quot;,&quot;tumblelogName&quot;:&quot;1amweare&quot;,&quot;isLoggedIn&quot;:false,&quot;isFriend&quot;:false,&quot;formKey&quot;:&quot;&quot;,&quot;canSubscribe&quot;:false,&quot;isSubscribed&quot;:false,&quot;tumblelogTitle&quot;:&quot;1am, we are&quot;,&quot;tumblelogAvatar&quot;:&quot;http:\/\/78.media.tumblr.com\/avatar_890d287d3c22_40.pnj&quot;,&quot;tumblelogHost&quot;:&quot;http:\/\/1amweare.tumblr.com&quot;,&quot;isOptica&quot;:false,&quot;isCustomTheme&quot;:true,&quot;themeHeaderImage&quot;:&quot;https:\/\/static.tumblr.com\/e8cc4adc1f5940238bcd2fd05c219bf1\/tes4xsx\/sqRn6ff7i\/tumblr_static_tumblr_static_4a4xo51b1c2sww8k44owckk80_focused_v3.jpg&quot;,&quot;themeBackgroundColor&quot;:&quot;#000000&quot;,&quot;themeTitleColor&quot;:&quot;#444444&quot;,&quot;themeAccentColor&quot;:&quot;#000000&quot;,&quot;brag&quot;:false,&quot;adsEnabled&quot;:true,&quot;canShowAd&quot;:true,&quot;isPremium&quot;:false,&quot;showLrecAds&quot;:false,&quot;showStickyLrecBackfill&quot;:false,&quot;showGeminiAds&quot;:false,&quot;geminiSectionCodeDesktop&quot;:&quot;a10bca9c-0c5d-4a02-ab13-14ab8513d81d&quot;,&quot;geminiSectionCodeMobile&quot;:&quot;ced63809-b609-4aca-96a0-abc099acba6b&quot;,&quot;currentPageType&quot;:&quot;single_post&quot;,&quot;currentPage&quot;:&quot;1&quot;,&quot;searchQuery&quot;:&quot;&quot;,&quot;tag&quot;:&quot;&quot;,&quot;query&quot;:&quot;&quot;,&quot;chrono&quot;:false,&quot;postId&quot;:&quot;19132726216&quot;,&quot;src&quot;:&quot;http:\/\/1amweare.tumblr.com\/post\/19132726216\/and-it-hatches&quot;,&quot;postUrl&quot;:&quot;&quot;,&quot;isBlocked&quot;:null,&quot;isAdmin&quot;:false,&quot;lookupButtonUrl&quot;:&quot;&quot;,&quot;showSpamButton&quot;:false,&quot;showRootPostButton&quot;:false,&quot;rootPostUrl&quot;:&quot;&quot;,&quot;showRadarPostButton&quot;:false,&quot;radarKeys&quot;:&quot;&quot;,&quot;isUniblocked&quot;:false,&quot;isNsfw&quot;:false,&quot;isAdult&quot;:false,&quot;isSpam&quot;:false,&quot;isPrimaryBlog&quot;:false,&quot;canEdit&quot;:false,&quot;canReblogSelf&quot;:false,&quot;showLikeButton&quot;:false,&quot;showReblogButton&quot;:false,&quot;reblogUrl&quot;:&quot;&quot;,&quot;showFanMailButton&quot;:false,&quot;showMessagingButton&quot;:false,&quot;loginCheckIframeSrc&quot;:&quot;http:\/\/assets.tumblr.com\/assets\/html\/iframe\/login_check.html?_v=a7930a424784262b51489b3cbe0e96ab&quot;,&quot;appInstallUrls&quot;:{&quot;android&quot;:&quot;https:\/\/play.google.com\/store\/apps\/details?id=com.tumblr\u0026referrer=utm_source%3Dtumblr%26utm_medium%3Diframe%26utm_campaign%3Dblog_network_floating_cta&quot;,&quot;ios&quot;:&quot;https:\/\/itunes.apple.com\/app\/apple-store\/id305343404?pt=9029\u0026ct=blog_network_floating_cta\u0026mt=8&quot;},&quot;appOpenReferrer&quot;:&quot;tumblr_new_iframe&quot;,&quot;isShowSearch&quot;:true,&quot;supplyLogging&quot;:[],&quot;secondsSinceLastActivity&quot;:-1}},&quot;Flags&quot;:{&quot;doods&quot;:&quot;eyJmaWx0ZXJfbnNmdyI6dHJ1ZSwic2FmZV9tb2RlIjp0cnVlLCJzYWZlX21vZGVfZW5hYmxlZCI6dHJ1ZSwia2V5Y29tbWFuZF9hdXRvX3BhZ2luYXRlIjp0cnVlLCJsb2dnZWRfb3V0X3NlYXJjaCI6dHJ1ZSwia3Jha2VuX3dlYl9sb2dnaW5nX2xpYnJhcnkiOnRydWUsInNlY3VyZV9mb3JtX2tleSI6dHJ1ZSwic2VjdXJlX2Zvcm1fa2V5X2Z1bGx5X29uIjp0cnVlLCJ0dW1ibGVsb2dfcG9wb3ZlciI6dHJ1ZSwiY2Fub25pY2FsX3VybF93cml0ZXMiOnRydWUsImVuYWJsZV9jYXB0dXJlX2pzIjp0cnVlLCJwcmltYV9wb3N0X2Zvcm1zIjp0cnVlLCJsb2NrZWRfcmVibG9nX3VpIjp0cnVlLCJ0YWJsZXRfYmFubmVyX2FjdGl2ZSI6dHJ1ZSwibW9iaWxlX2Jhbm5lcl9hY3RpdmUiOnRydWUsImxvZ19zZWFyY2hfYm94Ijp0cnVlLCJ1c2VyX21lbnRpb25zIjp0cnVlLCJodG1sNV9hdWRpb19wbGF5ZXIiOnRydWUsInBvcG92ZXJfcmVjb21tZW5kYXRpb25zIjp0cnVlLCJpbmRhc2hfcmVjb21tZW5kYXRpb25zIjp0cnVlLCJwb3B0aWNhX3R1bWJsZWxvZ19wb3BvdmVycyI6dHJ1ZSwidHVtYmxyX3R2Ijp0cnVlLCJkZXByZWNhdGVfZmVhdHVyZWRfdGFncyI6dHJ1ZSwicmVibG9nX3VpX3JlZnJlc2giOnRydWUsInRhYl9zd2l0Y2hlciI6dHJ1ZSwiZmFzdF9jb21wb3NlIjp0cnVlLCJkYXNoYm9hcmRfcmVmcmVzaCI6dHJ1ZSwibW9iaWxlX3dlYl9waG90b3NldHMiOnRydWUsIm1vYmlsZV93ZWJfZ2F0ZSI6dHJ1ZSwibW9iaWxlX3dlYl9wYWdlX3RpdGxlcyI6dHJ1ZSwibW9iaWxlX3dlYl9hYnVzZV9mb3JtIjp0cnVlLCJkb250X2Nhc3RfanNfZm9sbG93cyI6dHJ1ZSwiYWRzX25ld192ZW5kb3JfYnV0dG9ucyI6dHJ1ZSwicmVhY3RpdmF0aW9uX2Zsb3ciOnRydWUsImd1bHBqc19hZG1pbiI6dHJ1ZSwiZW5hYmxlX2pzX2VwaGVtZXJhbF9sb2ciOnRydWUsImxvZ19sYWR5Ijp0cnVlLCJjc2xvZ2dlcl9qcyI6dHJ1ZSwiZGlzY292ZXJ5X2h1Yl9hY2Nlc3MiOnRydWUsImhlYWRlcl9hY2NvdW50X21lbnUiOnRydWUsImVuYWJsZV9zaGFyZV9lbWJlZF9jb2RlIjp0cnVlLCJyZWRkaXRfc2hhcmluZyI6dHJ1ZSwicG9zdF9pdF9mb3J3YXJkIjp0cnVlLCJwZWVwcl9zZWFyY2hfYW5kX2ZpbHRlciI6dHJ1ZSwiaW50ZXJuc19wYWdlIjp0cnVlLCJmb2xsb3dlZF9zZWFyY2hlc19iaWdfd2ViIjp0cnVlLCJsaXZlcGhvdG9zX3dlYiI6dHJ1ZSwic2FmZV9tb2RlX293bl9wb3N0Ijp0cnVlLCJoaWRlX2RlZmF1bHRfaGVhZGVyc19ibG9nX2NhcmRzIjp0cnVlLCJrcmFrZW5fd2ViX2JibG9nX2FjdGl2ZSI6dHJ1ZSwiYXJjaGl2ZS1wbHVzIjp0cnVlLCJkYXJsYV9hZF9mZWVkYmFjayI6dHJ1ZSwic3RhdHVzX2luZGljYXRvcnNfdWkiOnRydWUsImRpc2FibGVfeWFob29fYl9jb29raWUiOnRydWUsImxpdmVwaG90b3MiOnRydWV9&quot;},&quot;Context&quot;:{&quot;name&quot;:&quot;default&quot;,&quot;time&quot;:1514209813000,&quot;userinfo&quot;:{&quot;primary&quot;:&quot;&quot;,&quot;name&quot;:&quot;&quot;,&quot;channels&quot;:[]},&quot;hosts&quot;:{&quot;assets_host&quot;:&quot;http:\/\/assets.tumblr.com&quot;,&quot;secure_assets_host&quot;:&quot;https:\/\/assets.tumblr.com&quot;,&quot;www_host&quot;:&quot;http:\/\/www.tumblr.com&quot;,&quot;secure_www_host&quot;:&quot;https:\/\/www.tumblr.com&quot;,&quot;embed_host&quot;:&quot;https:\/\/embed.tumblr.com&quot;,&quot;safe_host&quot;:&quot;http:\/\/safe.txmblr.com&quot;,&quot;platform_host&quot;:&quot;http:\/\/platform.tumblr.com&quot;},&quot;language&quot;:&quot;tr_TR&quot;,&quot;language_simple&quot;:&quot;tr&quot;,&quot;assets&quot;:&quot;http:\/\/assets.tumblr.com\/client\/prod\/&quot;},&quot;Translations&quot;:{&quot;OK&quot;:&quot;TAMAM&quot;,&quot;Cancel&quot;:&quot;\u0130ptal et&quot;,&quot;Nevermind&quot;:&quot;Vazge\u00e7&quot;,&quot;Ignore&quot;:&quot;Engelle&quot;,&quot;Unfollow&quot;:&quot;Takibi b\u0131rak&quot;,&quot;Are you sure you want to unfollow %1$s?&quot;:&quot;%1$s kullan\u0131c\u0131s\u0131n\u0131 takip etmeyi b\u0131rakmak istedi\u011fine emin misin?&quot;,&quot;Sorry, we seem to be having technical trouble.  Please try again later.&quot;:&quot;\u00d6z\u00fcr dileriz, teknik bir s\u0131k\u0131nt\u0131yla kar\u015f\u0131 kar\u015f\u0131yay\u0131z. L\u00fctfen daha sonra tekrar dene.&quot;,&quot;Follow&quot;:&quot;Takip et&quot;,&quot;Follow %1$s&quot;:&quot;%1$s kullan\u0131c\u0131s\u0131n\u0131 takip et&quot;,&quot;Put it back&quot;:&quot;Geri b\u0131rak&quot;,&quot;See all&quot;:&quot;T\u00fcm\u00fcn\u00fc g\u00f6r&quot;,&quot;Block&quot;:&quot;Engelle&quot;,&quot;%1$sAre you sure you want to block %2$s from %3$s?%4$sThey won&#039;t be able to follow %3$s, send %3$s messages, see %3$s in search results, or interact with any of %3$s&#039;s posts.%5$s&quot;:&quot;%1$s%2$s blogu %3$s blogundan engellensin mi?%4$sBir daha %3$s blogunu takip edemeyecek, %3$s ile ileti\u015fim kuramayacak, %3$s i\u00e7eren arama sonu\u00e7lar\u0131na ula\u015famayacak ya da %3$s g\u00f6nderileriyle etkile\u015fime ge\u00e7emeyecek.%5$s&quot;,&quot;%1$sBlock messages from this sender?%2$sAny further messages sent from their IP address will be blocked from your inbox. This can&#039;t be undone, by the way.%3$s&quot;:&quot;%1$sBu ki\u015fiden gelen mesajlar engellensin mi?%2$sBu IP adresinden gelen t\u00fcm mesajlar bundan b\u00f6yle engellenecek. Bu arada, bu i\u015flemi geri alman m\u00fcmk\u00fcn de\u011fil.%3$s&quot;,&quot;Okay! We&#039;ll review the status of this and email you when we&#039;re done.&quot;:&quot;Tamam! Durumu g\u00f6zden ge\u00e7irece\u011fiz ve sonuca vard\u0131\u011f\u0131m\u0131zda sana e-posta arac\u0131l\u0131\u011f\u0131yla bildirece\u011fiz.&quot;,&quot;This is marked as sensitive content. If that seems like a mistake, you can request a review.&quot;:&quot;Bu, hassas i\u00e7erik olarak i\u015faretlenmi\u015f. E\u011fer hata oldu\u011funu d\u00fc\u015f\u00fcn\u00fcyorsan,  tekrar g\u00f6z ge\u00e7irme talebinde bulunabilirsin.&quot;,&quot;Request Review&quot;:&quot;G\u00f6zden Ge\u00e7irme Talebi&quot;,&quot;This post is still marked as sensitive, but is currently being reviewed.&quot;:&quot;Bu g\u00f6nderi hassas i\u00e7erikli olarak i\u015faretlenmi\u015f, ama \u015fu an g\u00f6zden ge\u00e7iriliyor.&quot;,&quot;After review, it was determined that this post contains sensitive content.&quot;:&quot;G\u00f6zden ge\u00e7irildikten sonra, bu g\u00f6nderinin hassas i\u00e7erik bar\u0131nd\u0131rd\u0131\u011f\u0131na karar verildi.&quot;,&quot;This is marked as %1$ssensitive%2$s&quot;:&quot;%1$shassas%2$s olarak i\u015faretlendi&quot;,&quot;This Tumblr may contain sensitive media.&quot;:&quot;Bu Tumblr hassas ortam bar\u0131nd\u0131r\u0131yor olabilir.&quot;,&quot;Sensitive posts are hidden. If you want to change that, disable Safe Mode in your settings.&quot;:&quot;Hassas i\u00e7erik gizlendi. Bunu de\u011fi\u015ftirmek istersen ayarlar\u0131na gidip G\u00fcvenli Modu&#039;nu kapaman gerekli.&quot;,&quot;This post contains filtered tags&quot;:&quot;Bu g\u00f6nderi etiket i\u00e7eriyor&quot;,&quot;Are you sure you want to log out?&quot;:&quot;\u00c7\u0131k\u0131\u015f yapmak istedi\u011finden emin misin?&quot;,&quot;Likes&quot;:&quot;Be\u011fendiklerim&quot;,&quot;Following&quot;:&quot;Takip ettiklerim&quot;,&quot;Blogs&quot;:&quot;Bloglar&quot;,&quot;New&quot;:&quot;Yeni&quot;,&quot;Account&quot;:&quot;Hesap&quot;,&quot;Settings&quot;:&quot;Ayarlar&quot;,&quot;Help&quot;:&quot;Yard\u0131m&quot;,&quot;Log out&quot;:&quot;\u00c7\u0131k\u0131\u015f&quot;,&quot;Posts&quot;:&quot;G\u00f6nderiler&quot;,&quot;Reach&quot;:&quot;Ula\u015f&quot;,&quot;Followers&quot;:&quot;Takip\u00e7iler&quot;,&quot;Activity&quot;:&quot;Etkinlik&quot;,&quot;Members&quot;:&quot;\u00dcyeler&quot;,&quot;Drafts&quot;:&quot;Taslaklar&quot;,&quot;Queue&quot;:&quot;S\u0131rada&quot;,&quot;Processing&quot;:&quot;\u0130\u015flem yap\u0131l\u0131yor&quot;,&quot;Analytics&quot;:&quot;Analitik&quot;,&quot;Sponsored&quot;:&quot;Sponsorlu&quot;,&quot;About Tumblr Ads&quot;:&quot;Tumblr Reklamlar\u0131 hakk\u0131nda&quot;,&quot;Edit appearance&quot;:&quot;G\u00f6r\u00fcn\u00fcm\u00fc d\u00fczenle&quot;,&quot;Your blog info, account info, and recent activity are in these menus.&quot;:&quot;Blog ve hesap bilgilerin yan\u0131 s\u0131ra son etkinlikler bu men\u00fcde yer al\u0131yor.&quot;,&quot;Wait, why?&quot;:&quot;Neden ki?&quot;,&quot;Okay, phew&quot;:&quot;Tamam o zaman&quot;,&quot;Why?&quot;:&quot;Neden?&quot;,&quot;It&#039;s so you never have to scroll to the top of the dashboard to access this stuff.&quot;:&quot;Bunlara eri\u015fmek i\u00e7in her seferinde tekrar panonun en tepesine geri \u00e7\u0131kma diye.&quot;,&quot;Ohhh&quot;:&quot;Aha&quot;,&quot;Loading\u2026&quot;:&quot;Y\u00fckleniyor...&quot;,&quot;%1$s notes&quot;:&quot;%1$s not&quot;,&quot;%1$s note&quot;:&quot;%1$s not&quot;,&quot;%1$s views&quot;:&quot;%1$s g\u00f6r\u00fcnt\u00fcleme&quot;,&quot;%1$s view&quot;:&quot;%1$s g\u00f6r\u00fcnt\u00fcleme&quot;,&quot;%1$s added this GIF to a post&quot;:&quot;%1$s bu GIF&#039;i bir g\u00f6nderiye ekledi&quot;,&quot;%1$s posted this&quot;:&quot;Bunu %1$s g\u00f6nderdi&quot;,&quot;%1$s%2$s likes%3$s&quot;:&quot;%1$s%2$s be\u011feni%3$s&quot;,&quot;%1$s%2$s like%3$s&quot;:&quot;%1$s%2$s be\u011feni%3$s&quot;,&quot;%1$s%2$s reblogs%3$s&quot;:&quot;%1$s%2$s yeniden bloglama%3$s&quot;,&quot;%1$s%2$s reblog%3$s&quot;:&quot;%1$s%2$s yeniden bloglama%3$s&quot;,&quot;%1$s%2$s likes%3$s and %4$s%5$s reblogs%3$s&quot;:&quot;%1$s%2$s be\u011feni%3$s ve %4$s%5$s yeniden bloglama%3$s&quot;,&quot;%1$s%2$s likes%3$s and %4$s%5$s reblog%3$s&quot;:&quot;%1$s%2$s be\u011feni%3$s ve %4$s%5$s yeniden bloglama%3$s&quot;,&quot;%1$s%2$s like%3$s and %4$s%5$s reblogs%3$s&quot;:&quot;%1$s%2$s be\u011feni%3$s ve %4$s%5$s yeniden bloglama%3$s&quot;,&quot;Reply&quot;:&quot;Yan\u0131tla&quot;,&quot;Add to the discussion&quot;:&quot;Tart\u0131\u015fmaya ekle&quot;,&quot;Unleash a compliment&quot;:&quot;Bir iltifat g\u00f6nder&quot;,&quot;Have something to say?&quot;:&quot;S\u00f6ylemek istediklerin mi var?&quot;,&quot;Reply your heart out&quot;:&quot;Kalbini s\u00f6zc\u00fcklere d\u00f6k&quot;,&quot;Add something wonderful&quot;:&quot;Ho\u015f bir \u015feyler yaz&quot;,&quot;Send something nice&quot;:&quot;Ho\u015f bir \u015feyler s\u00f6yle&quot;,&quot;Your words here&quot;:&quot;Hissiyat\u0131n\u0131 buraya d\u00f6k&quot;,&quot;Say your thing&quot;:&quot;Anlat bakal\u0131m&quot;,&quot;Block %1$s&quot;:&quot;%1$s engellensin&quot;,&quot;Report&quot;:&quot;Rapor et&quot;,&quot;%1$sReport %2$s&#039;s post?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$s%2$s blogunun yeniden bloglamas\u0131 rapor edilsin mi?%3$sTopluluk Kurallar\u0131n\u0131 ihlal ediyorsa, kald\u0131r\u0131lacakt\u0131r.%4$s&quot;,&quot;%1$sReport %2$s&#039;s reply?%3$sIf it violates our community guidelines, we&#039;ll remove it.%4$s&quot;:&quot;%1$s%2$s blogunun yeniden bloglamas\u0131 rapor edilsin mi?%3$sTopluluk Kurallar\u0131n\u0131 ihlal ediyorsa, kald\u0131r\u0131lacakt\u0131r.%4$s&quot;,&quot;Hide note&quot;:&quot;Notu gizle&quot;,&quot;Delete reply&quot;:&quot;Yan\u0131t\u0131 sil&quot;,&quot;%1$sYou definitely want to hide this note?%2$s&quot;:&quot;%1$sBu notu gizlemek istedi\u011finden emin misin?%2$s&quot;,&quot;%1$sYou definitely want to delete this reply?%2$s&quot;:&quot;%1$sBu yan\u0131t\u0131 silmek istedi\u011finden emin misin?%2$s&quot;,&quot;Hide it&quot;:&quot;Gizle&quot;,&quot;Delete it&quot;:&quot;Sil&quot;}}"></noscript><script src="http://assets.tumblr.com/client/prod/standalone/tumblelog/index.build.js?_v=167b261b517eeac6aa72cc5a3d78f436"></script></body></html> 
