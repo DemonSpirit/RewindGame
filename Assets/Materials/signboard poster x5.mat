@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: signboard poster 7 mat
+  m_Name: signboard poster x5
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -35,11 +35,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: e35913f393b264842ba9922b2cc80dc4, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6d9310afcf19b346a4b20630f8cbfa9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7c97dfd1ee229fa4fa2d33ef7f03fd0c, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6d9310afcf19b346a4b20630f8cbfa9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
