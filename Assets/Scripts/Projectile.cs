@@ -76,6 +76,9 @@ public class Projectile : MonoBehaviour {
     {
         StopVelocity();
         print("hit");
+        isPickup = true;
+
+
         if (collision.transform.tag == "Player")
         {
             print("player collision");
@@ -85,8 +88,18 @@ public class Projectile : MonoBehaviour {
                 colPlayer.health = 0;
                 StopVelocity();
                 FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.painHitSFX,transform.position);
+            } else
+            {   if (isPickup)
+                {
+                    
+                    if (colPlayer.ammo < colPlayer.maxAmmo) colPlayer.ammo++;
+                    Destroy(gameObject);
+                    print("ammo picked up");
+                }
+
             }
         }
+        
     }
 
     void StopVelocity()
