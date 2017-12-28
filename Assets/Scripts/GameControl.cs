@@ -130,12 +130,14 @@ public class GameControl : MonoBehaviour {
                         if (teamToSpawnFor > amountOfTeams) teamToSpawnFor = 1;
                         if (teamToSpawnFor == 1)
                         {
-                            headerTxt.text = "Blue Player, press enter to start.";
-                        } else
-                        {
-                            headerTxt.text = "Red Player, press enter to start.";
+                            headerTxt.text = "Blue Player's turn: press enter to start.";
                         }
-                        
+                        else
+                        {
+                            headerTxt.text = "Red Player's turn: press enter to start.";
+                        }
+                        headerTxt.alignment = TextAnchor.MiddleCenter;
+                        headerTxt.text = "1: Take turns shooting at your opponent's portal to score. \n 2: When your turn is over, time resets. \n 3: Defend your portal by blocking projectiles and shooting enemies.";
                         gameState = "pick";
                         break;
                     case "pick":
@@ -243,6 +245,7 @@ public class GameControl : MonoBehaviour {
                     case "start":
 						countdownTime = countdownTimeLimit;
                         pickUI.SetActive(false);
+                        headerTxt.alignment = TextAnchor.MiddleCenter;
 
                         //Set the current team variables
                         SetCurrentTeam(teamToSpawnFor);
@@ -259,7 +262,7 @@ public class GameControl : MonoBehaviour {
                         var instController = activeInst.GetComponent<PlayerController>();
                         instController.active = true;
                         instController.team = teamToSpawnFor;
-                        headerTxt.text = "Score points by shooting into your opponent's goal.";
+                        headerTxt.text = "";
                         // reset game variables
                         NewLayer();
                         // Go to next gameState

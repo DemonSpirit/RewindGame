@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
     // CharacterModel Obj
     GameObject charModel;
+    GameObject wepObj;
+    
     
     public Transform camObj;
     float h, v;
@@ -73,8 +75,10 @@ public class PlayerController : MonoBehaviour
 
 		characterCtrlr = GetComponent<CharacterController> ();
         camObj = transform.GetChild(0);
+        wepObj = camObj.GetChild(2).gameObject;
         camOffset = cam.transform.position - transform.position;
 
+        //wepModel = camObj.transform.GetChild(3).gameObject;
         charModel = transform.GetChild(2).gameObject;
         blockShield = transform.GetChild(3).gameObject;
         
@@ -92,7 +96,6 @@ public class PlayerController : MonoBehaviour
         {
             aliveColor = team1Color;
             //record this character's time limit to use for later.
-            
         }
 
         if (team == 2) 
@@ -142,15 +145,27 @@ public class PlayerController : MonoBehaviour
             case "live":
                 // check health state
                 HealthCheck();
-                if (alive == true)
+                if (active)
                 {
-                    rend.material.color = aliveColor;
-                    coll.enabled = true;
+                    charModel.SetActive(false);
+                    //wepObj.SetActive(false);
                 }
-                else
+                
+                if (!active && alive == true)
                 {
-                    rend.material.color = deadColor;
+                    //rend.material.color = aliveColor;
+                    charModel.SetActive(true);
+                    wepObj.SetActive(true);
+                    coll.enabled = true;
+                    
+                }
+                else if (!active && alive == false)
+                {
+                    //rend.material.color = deadColor;
+                    charModel.SetActive(false);
+                    wepObj.SetActive(false);
                     coll.enabled = false;
+                    
                 }
 
                 if (active == true)
@@ -161,12 +176,6 @@ public class PlayerController : MonoBehaviour
 
                     //Set Cam Dist
                     SetCameraOffset();
-
-                    //turn my mesh off
-                    if (showMesh && charModel.activeInHierarchy == true)
-                    {
-                        charModel.SetActive(false);
-                    }
                     
 
 
