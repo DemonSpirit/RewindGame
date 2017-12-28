@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour {
     public static GameControl main;
     public static Color redTeamColor = Color.red;
     public static Color blueTeamColor = Color.blue;
+    public Image openScreen;
 
     #region Important Rewind Variables
     public int step = 0;
@@ -115,6 +116,9 @@ public class GameControl : MonoBehaviour {
                 switch (gameState)
                 {
                     case "pre-pick":
+
+                        openScreen.enabled = true;
+
                         /*
                         // enable the pick screen ui
                         pickUI.SetActive(true);        
@@ -137,7 +141,7 @@ public class GameControl : MonoBehaviour {
                             headerTxt.text = "Red Player's turn: press enter to start.";
                         }
                         headerTxt.alignment = TextAnchor.MiddleCenter;
-                        headerTxt.text = "1: Take turns shooting at your opponent's portal to score. \n 2: When your turn is over, time resets. \n 3: Defend your portal by blocking projectiles and shooting enemies.";
+                        headerTxt.text = "";
                         gameState = "pick";
                         break;
                     case "pick":
@@ -243,7 +247,8 @@ public class GameControl : MonoBehaviour {
 
                         break;
                     case "start":
-						countdownTime = countdownTimeLimit;
+                        openScreen.enabled = false;
+                        countdownTime = countdownTimeLimit;
                         pickUI.SetActive(false);
                         headerTxt.alignment = TextAnchor.MiddleCenter;
 
@@ -285,6 +290,7 @@ public class GameControl : MonoBehaviour {
                         }
 	                    break;
                     case "pre-live":
+                        
                         endStep = Mathf.FloorToInt(stepsPerSecond*currentLayerTimeLimit);
                         headerTxt.text = "";
                         gameState = "live";
