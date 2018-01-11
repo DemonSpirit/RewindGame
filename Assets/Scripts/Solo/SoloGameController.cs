@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SoloGameController : MonoBehaviour {
 
-
+    public static SoloGameController main;
     public string gameState = "live";
     public float playbackSpeed = 1f;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    private void Awake()
+    {
+        main = this;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

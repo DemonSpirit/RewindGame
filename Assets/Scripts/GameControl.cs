@@ -27,7 +27,7 @@ public class GameControl : MonoBehaviour {
 	[SerializeField] float timeLimit;
     public float currentLayerTimeLimit;
     [SerializeField] float furthestLayerTimeLimit = 1f;
-    public float timeLimitTeam1 = 4f;
+    public float timeLimitTeam1 = 8f;
     public float timeLimitTeam2 = 8f;
 
     // Game Mode and State
@@ -78,6 +78,7 @@ public class GameControl : MonoBehaviour {
     public GameObject playerHitPFX;
     public GameObject woodHitPFX;
     public GameObject explosionPFX;
+    public GameObject bitPrefab;
     #endregion
 
     public Text headerTxt;
@@ -219,8 +220,8 @@ public class GameControl : MonoBehaviour {
                             // play sound
                             FMODUnity.RuntimeManager.PlayOneShot(confirmSelectionSFX);
                         }
-
-    */
+*/
+   
                         
                         // ready up
                         if (Input.GetKeyDown(KeyCode.Return))
@@ -395,8 +396,8 @@ public class GameControl : MonoBehaviour {
         
         team1points = 0;
         team2points = 0;
-        timeLimitTeam1 += 2f;
-        timeLimitTeam2 += 2f;
+        //timeLimitTeam1 += 2f;
+        //timeLimitTeam2 += 2f;
         step = 0;
         layer++;
     }

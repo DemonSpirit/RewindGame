@@ -8,8 +8,12 @@ using Abilities;
 public class SoloPlayerController : MonoBehaviour {
 
 	public CharacterController characterCtrlr;
-    
+    public static SoloPlayerController main;
+    public string state = "normal";
 
+    [SerializeField] GameObject recentEchoLoop;
+    [SerializeField] int activeTimeLoops = 0;
+    public int maxTimeLoops = 1;
 	public float moveSpd;
 	public Vector3 moveDirection = Vector3.zero;
 	public float jumpSpd = 16f;
@@ -28,6 +32,8 @@ public class SoloPlayerController : MonoBehaviour {
     public Transform camObj;
     public float h, v;
 
+    
+
     int rewindSteps = 0;
     int rewindLimit = 180;
     int maxAmountOfSteps = 300;
@@ -35,9 +41,14 @@ public class SoloPlayerController : MonoBehaviour {
     object[,] recordArray = new object[1000,6];
     object[,] sendArray = new object[1000, 6];
     object[] tempArray = new object[6];
+    public List<GameObject> echoList = new List<GameObject>();
 
     SoloAiming horzAim, vertAim;
 
+    private void Awake()
+    {
+        main = this;
+    }
     // Use this for initialization
     void Start () {
 
@@ -83,8 +94,6 @@ public class SoloPlayerController : MonoBehaviour {
                 
                 break;
             case "live":
-
-                
 
                 if (active == true)
                 {
@@ -178,6 +187,7 @@ public class SoloPlayerController : MonoBehaviour {
 
     void PlaybackCharacterActions()
     {
+        state = "rewinding";
         // Get events for recordArray and set them.
         transform.position = (Vector3)recordArray[0, 0];
         transform.rotation = (Quaternion)recordArray[0, 1];
@@ -233,7 +243,8 @@ public class SoloPlayerController : MonoBehaviour {
         sendStep++;
 
         if (Input.GetButtonUp("Fire2"))
-        {   
+        {
+            state = "normal";
             CreateTimeLoop();
             sendStep = 0;
         }
@@ -241,22 +252,62 @@ public class SoloPlayerController : MonoBehaviour {
     }
     void CreateTimeLoop()
     {
-        GameObject inst = Instantiate(echoPrefab, transform.position, transform.rotation);
-        EchoController echoCtrl = inst.GetComponent<EchoController>();
+     
+        
 
-        for (int i = 0; i < sendStep; i++)
+        if (activeTimeLoops < maxTimeLoops)
         {
-            echoCtrl.recordArray[i, 0] = (Vector3)sendArray[i, 0];
-            echoCtrl.recordArray[i, 1] = (Quaternion)sendArray[i, 1];
-            echoCtrl.recordArray[i, 2] = (Quaternion)sendArray[i, 2];
-            echoCtrl.recordArray[i, 3] = (bool)sendArray[i, 3];
-            echoCtrl.recordArray[i, 4] = (float)sendArray[i, 4];
-            echoCtrl.recordArray[i, 5] = (float)sendArray[i, 5];
+            activeTimeLoops++;
+            GameObject inst = Instantiate(echoPrefab, transform.position, transform.rotation);
+            recentEchoLoop = inst;
+            EchoController echoCtrl = inst.GetComponent<EchoController>();
+            
+            echoList.Insert(0, inst);
+
+            for (int i = 0; i < sendStep; i++)
+            {
+                echoCtrl.recordArray[i, 0] = (Vector3)sendArray[i, 0];
+                echoCtrl.recordArray[i, 1] = (Quaternion)sendArray[i, 1];
+                echoCtrl.recordArray[i, 2] = (Quaternion)sendArray[i, 2];
+                echoCtrl.recordArray[i, 3] = (bool)sendArray[i, 3];
+                echoCtrl.recordArray[i, 4] = (float)sendArray[i, 4];
+                echoCtrl.recordArray[i, 5] = (float)sendArray[i, 5];
+
+                echoCtrl.endStep = sendStep;
+            }
+        } else if (activeTimeLoops >= maxTimeLoops)
+        {
+            
+            //destroy oldest echo gameobject
+            Destroy(echoList[maxTimeLoops-1]);
+            //remove oldest echo
+            echoList.RemoveAt(maxTimeLoops-1);
+
+            // create new echo
+            GameObject inst = Instantiate(echoPrefab, transform.position, transform.rotation);
+            recentEchoLoop = inst;
+            EchoController echoCtrl = inst.GetComponent<EchoController>();
+            //add new echo to list.
+            echoList.Insert(0, inst);
+            
+
+            for (int i = 0; i < sendStep; i++)
+            {
+                echoCtrl.recordArray[i, 0] = (Vector3)sendArray[i, 0];
+                echoCtrl.recordArray[i, 1] = (Quaternion)sendArray[i, 1];
+                echoCtrl.recordArray[i, 2] = (Quaternion)sendArray[i, 2];
+                echoCtrl.recordArray[i, 3] = (bool)sendArray[i, 3];
+                echoCtrl.recordArray[i, 4] = (float)sendArray[i, 4];
+                echoCtrl.recordArray[i, 5] = (float)sendArray[i, 5];
+
+                echoCtrl.endStep = sendStep;
+            }
         }
 
-        echoCtrl.endStep = sendStep;
+        
 
-        print(active);
+        
+
     }
 	void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;
