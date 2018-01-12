@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Rotating : MonoBehaviour {
     public float rotateSpd = 5f;
-	// Use this for initialization
-	void Start () {
-		
-	}
+    [SerializeField] Vector3 axis = Vector3.up;
+	
 	
 	// Update is called once per frame
-	void Update () {
-        transform.Rotate(Vector3.up * Time.deltaTime * rotateSpd);
-        transform.Rotate(Vector3.right * Time.deltaTime * rotateSpd);
-        ;	}
+	void Update ()
+    {
+        transform.Rotate(axis * Time.deltaTime * rotateSpd);
+      
+     }
 }

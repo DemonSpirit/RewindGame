@@ -35,7 +35,8 @@ public class SoloPlayerController : MonoBehaviour {
     [SerializeField] Animator animCtrl;
 
     int rewindSteps = 0;
-    int rewindLimit = 180;
+    public int rewindCounter = 0;
+    public int rewindLimit = 180;
     int maxAmountOfSteps = 300;
     int sendStep = 0;
     object[,] recordArray = new object[1000,6];
@@ -173,13 +174,13 @@ public class SoloPlayerController : MonoBehaviour {
                     PlaybackCharacterActions();
                 }
 
-                if (Input.GetButton("Fire2"))
+                if (Input.GetButtonDown("Fire1"))
                 {
                     active = false;
                 }
                 else
                 {
-                    active = true;
+                    //active = true;
                 }
 
                 
@@ -197,6 +198,9 @@ public class SoloPlayerController : MonoBehaviour {
     void PlaybackCharacterActions()
     {
         state = "rewinding";
+        // increment rewindcounter
+        rewindCounter++;
+
         // Get events for recordArray and set them.
         transform.position = (Vector3)recordArray[0, 0];
         transform.rotation = (Quaternion)recordArray[0, 1];
@@ -251,17 +255,18 @@ public class SoloPlayerController : MonoBehaviour {
 
         sendStep++;
 
-        if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Fire1") || rewindCounter >= rewindLimit)
         {
             state = "normal";
             CreateTimeLoop();
             sendStep = 0;
+            rewindCounter = 0;
         }
 
     }
     void CreateTimeLoop()
     {
-
+        active = true;
         if (activeTimeLoops < maxTimeLoops)
         {
             activeTimeLoops++;

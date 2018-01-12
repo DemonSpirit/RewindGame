@@ -14,6 +14,7 @@ public class PressurePlateControl : ActivatableObject
 
     // Update is called once per frame
     void Update() {
+        print(on);
         if (on)
         {
             transform.position = startPos - new Vector3(0, +0.2f, 0);
@@ -22,7 +23,6 @@ public class PressurePlateControl : ActivatableObject
             transform.position = startPos;
         }
 
-        on = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -34,6 +34,11 @@ public class PressurePlateControl : ActivatableObject
         }
             
     }
-    
+
+    private void LateUpdate()
+    {
+        on = false;
+    }
+
 
 }
