@@ -27,9 +27,9 @@ public class PressurePlateControl : ActivatableObject
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "echo")
         {
-            print("staiyng" + other.name);
+            
             on = true;
         }
             

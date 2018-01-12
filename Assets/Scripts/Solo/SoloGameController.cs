@@ -16,7 +16,7 @@ public class SoloGameController : MonoBehaviour {
         main = this;
 
     }
-
+    
     // Update is called once per frame
     void LateUpdate () {
         switch (gameState)

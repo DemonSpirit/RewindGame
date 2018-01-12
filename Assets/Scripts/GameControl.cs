@@ -403,7 +403,7 @@ public class GameControl : MonoBehaviour {
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(10, 50, 50, 50), "projectiles: "+GameObject.FindGameObjectsWithTag("Projectile").Length.ToString());
+        //GUI.Label(new Rect(10, 50, 50, 50), "projectiles: "+GameObject.FindGameObjectsWithTag("Projectile").Length.ToString());
         
     }
 }
