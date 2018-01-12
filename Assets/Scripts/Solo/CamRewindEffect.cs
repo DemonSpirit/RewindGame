@@ -7,6 +7,8 @@ public class CamRewindEffect : MonoBehaviour
 {
     PostProcessingProfile prof;
     [SerializeField] float maxChromIntensity = 1f;
+    [SerializeField] GameObject rewindLoop;
+    
 
     
     void OnEnable()
@@ -28,20 +30,25 @@ public class CamRewindEffect : MonoBehaviour
     {
         if (SoloPlayerController.main.state == "rewinding")
         {
-            print("woaahhhhmaan");
+            rewindLoop.SetActive(true);
+            
+
             var chrom = prof.chromaticAberration.settings;
+            
             if (chrom.intensity <= maxChromIntensity)
             {
-                chrom.intensity += 0.1f;
+                chrom.intensity += 0.15f;
             }
             
             prof.chromaticAberration.settings = chrom;
         }  else
         {
+            rewindLoop.SetActive(false);
+
             var chrom = prof.chromaticAberration.settings;
             if (chrom.intensity > 0)
             {
-                chrom.intensity -= 0.2f;
+                chrom.intensity -= 0.4f;
             } else
             {
                 chrom.intensity = 0;

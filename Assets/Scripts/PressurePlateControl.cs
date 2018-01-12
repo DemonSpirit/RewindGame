@@ -16,7 +16,7 @@ public class PressurePlateControl : ActivatableObject
     void Update() {
         if (on)
         {
-            transform.position = startPos - new Vector3(0, +0.5f, 0);
+            transform.position = startPos - new Vector3(0, +0.2f, 0);
         } else
         {
             transform.position = startPos;

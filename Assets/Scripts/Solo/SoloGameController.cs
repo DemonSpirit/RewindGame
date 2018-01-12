@@ -14,7 +14,13 @@ public class SoloGameController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void LateUpdate () {
+        switch (gameState)
+        {
+            case "level-complete":
+                
+                break;
+            
+        }
+    }
 }

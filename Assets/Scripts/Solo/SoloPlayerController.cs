@@ -32,7 +32,7 @@ public class SoloPlayerController : MonoBehaviour {
     public Transform camObj;
     public float h, v;
 
-    
+    [SerializeField] Animator animCtrl;
 
     int rewindSteps = 0;
     int rewindLimit = 180;
@@ -44,6 +44,7 @@ public class SoloPlayerController : MonoBehaviour {
     public List<GameObject> echoList = new List<GameObject>();
 
     SoloAiming horzAim, vertAim;
+    
 
     private void Awake()
     {
@@ -140,6 +141,14 @@ public class SoloPlayerController : MonoBehaviour {
                     }
 
                     //  Apply movement
+                    if (moveDirection.x != 0f || moveDirection.z != 0f)
+                    {
+                        animCtrl.SetInteger("animState", 1);
+                    } else
+                    {
+                        animCtrl.SetInteger("animState", 0);
+                    }
+
                     moveDirection.x *= moveSpd;
                     moveDirection.z *= moveSpd;
                     moveDirection = transform.TransformDirection(moveDirection);
@@ -252,8 +261,6 @@ public class SoloPlayerController : MonoBehaviour {
     }
     void CreateTimeLoop()
     {
-     
-        
 
         if (activeTimeLoops < maxTimeLoops)
         {
