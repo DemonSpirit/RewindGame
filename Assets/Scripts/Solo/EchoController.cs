@@ -44,6 +44,10 @@ public class EchoController : MonoBehaviour
         //vertAim.RotY = (float)recordArray[0, 5];
 
         step--;
-        
+
+        if (SoloGameController.main.gameState == "reset")
+        {
+            Destroy(gameObject);
+        }
     }
 }

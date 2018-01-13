@@ -1412,8 +1412,14 @@ MonoBehaviour:
   on: 1
   timeout: 0
   timeoutTime: 1
+  startCondition: 0
   startDist: 15
   distance: 5
+  ii: 0
+  trigger:
+  - {fileID: 0}
+  triggerCtrl:
+  - {fileID: 0}
 --- !u!1001 &227951485
 Prefab:
   m_ObjectHideFlags: 0
@@ -4586,6 +4592,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 46
       objectReference: {fileID: 0}
+    - target: {fileID: 114127227498336590, guid: 7c722b1248f30f64b995ada268de10d8,
+        type: 2}
+      propertyPath: rewindLimit
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c722b1248f30f64b995ada268de10d8, type: 2}
   m_IsPrefabParent: 0
@@ -7438,7 +7449,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629687038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 237.5, y: 313.5, z: 0}
+  m_LocalPosition: {x: 562, y: 236, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 743702747}

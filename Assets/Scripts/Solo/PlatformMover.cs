@@ -31,7 +31,7 @@ public class PlatformMover : MonoBehaviour
             targetPos = startPos;
         }
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, moveSpd);
+        transform.position = Vector3.Slerp(transform.position, targetPos, moveSpd);
         counter += Time.deltaTime;
 
         if (Vector3.Distance(transform.position, targetPos) <= 1f)

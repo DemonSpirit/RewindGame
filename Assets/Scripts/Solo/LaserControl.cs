@@ -5,17 +5,50 @@ public class LaserControl : ActivatableObject
 {
     public float startDist = 15f;
     public float distance = 15f;
+    public bool canKill = false;
     LineRenderer lineRend;
+    [SerializeField] int ii = 0;
+
+    public GameObject[] trigger = new GameObject[1];
+    public ActivatableObject[] triggerCtrl = new ActivatableObject[1];
+    
+
     // Use this for initialization
     void Start()
     {
         lineRend = GetComponent<LineRenderer>();
+        startCondition = on;
+
+        for (int i = 0; i < trigger.Length; i++)
+        {
+            triggerCtrl[i] = trigger[i].GetComponent<ActivatableObject>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        ii = 0;
+        for (int i = 0; i < triggerCtrl.Length; i++)
+        {
+            if (triggerCtrl[i].on == true)
+            {
+                ii++;
+            }
+        }
+        print(!startCondition);
+        if (ii >= triggerCtrl.Length)
+        {
+            on = !startCondition;
+
+        }
+        else
+        {
+
+            on = startCondition;
+
+        }
 
         if (on)
         {
@@ -28,6 +61,11 @@ public class LaserControl : ActivatableObject
                 {
                     distance = Vector3.Distance(transform.position, hit.transform.position);
                     lineRend.SetPosition(1, Vector3.forward * distance);
+                    if (canKill)
+                    {
+                        SoloPlayerController.main.Die();
+                    }
+                    SoloPlayerController.main.Die();
                 }
                 if (hit.collider.tag == "lasercatcher")
                 {
@@ -37,6 +75,13 @@ public class LaserControl : ActivatableObject
                     distance = Vector3.Distance(transform.position, hit.transform.position);
                     lineRend.SetPosition(1, Vector3.forward * distance);
                 }
+                /*
+                if (hit.collider.tag == "lasersource")
+                {
+                    ActivatableObject laserCtrl = hit.collider.GetComponent<ActivatableObject>();
+                    laserCtrl.on = !laserCtrl.startCondition;
+                }
+                */
             }
             else
             {

@@ -35,14 +35,16 @@ public class SoloPlayerController : MonoBehaviour {
     [SerializeField] Animator animCtrl;
 
     int rewindSteps = 0;
-    public int rewindCounter = 0;
-    public int rewindLimit = 180;
+    public float rewindCounter = 0;
+    public int rewindLimit = 6;
     int maxAmountOfSteps = 300;
     int sendStep = 0;
     object[,] recordArray = new object[1000,6];
     object[,] sendArray = new object[1000, 6];
     object[] tempArray = new object[6];
     public List<GameObject> echoList = new List<GameObject>();
+    public CheckpointControl checkpoint;
+
 
     SoloAiming horzAim, vertAim;
     
@@ -67,25 +69,8 @@ public class SoloPlayerController : MonoBehaviour {
         horzAim = GetComponent<SoloAiming>();
         vertAim = GetComponentInChildren<SoloAiming>();
 
-        ///// CHEWCK ME
-        //initialise array values.
-        for (int i = 0; i < maxAmountOfSteps; i++)
-        {
-            recordArray[i, 0] = Vector3.zero;
-            recordArray[i, 1] = Quaternion.identity;
-            recordArray[i, 2] = Quaternion.identity;
-            recordArray[i, 3] = false;
-            recordArray[i, 4] = 0f;
-            recordArray[i, 5] = 0f;
-
-        }
-       
-        tempArray[0] = Vector3.zero;
-        tempArray[1] = Quaternion.identity;
-        tempArray[2] = Quaternion.identity;
-        tempArray[3] = false;
-        tempArray[4] = 0f;
-        tempArray[5] = 0f;
+        ResetArrays();
+        
     }
 	// Update is called once per frame
 	void Update () {
@@ -103,7 +88,12 @@ public class SoloPlayerController : MonoBehaviour {
                     h = Input.GetAxis("Horizontal");
                     v = Input.GetAxis("Vertical");
 
-                    
+                    //reset game button
+                    if (Input.GetKeyDown(KeyCode.R))
+                    {
+                        Die();
+                        
+                    }
 
                     // Record pos and rotation
                     recordArray[0, 0] = transform.position;
@@ -199,7 +189,7 @@ public class SoloPlayerController : MonoBehaviour {
     {
         state = "rewinding";
         // increment rewindcounter
-        rewindCounter++;
+        rewindCounter += Time.deltaTime;
 
         // Get events for recordArray and set them.
         transform.position = (Vector3)recordArray[0, 0];
@@ -260,9 +250,18 @@ public class SoloPlayerController : MonoBehaviour {
             state = "normal";
             CreateTimeLoop();
             sendStep = 0;
-            rewindCounter = 0;
+            rewindCounter = 0f;
         }
 
+    }
+    public void Die()
+    {
+        transform.position = checkpoint.gameObject.transform.position;
+        transform.rotation = checkpoint.gameObject.transform.rotation;
+        echoList.Clear();
+        activeTimeLoops = 0;
+        ResetArrays();
+        SoloGameController.main.gameState = "reset";
     }
     void CreateTimeLoop()
     {
@@ -324,6 +323,28 @@ public class SoloPlayerController : MonoBehaviour {
 	void SetCameraOffset()
 	{	cam.transform.position = transform.position + camOffset;
 	}
+    void ResetArrays()
+    {
+        ///// CHEWCK ME
+        //initialise array values.
+        for (int i = 0; i < maxAmountOfSteps; i++)
+        {
+            recordArray[i, 0] = Vector3.zero;
+            recordArray[i, 1] = Quaternion.identity;
+            recordArray[i, 2] = Quaternion.identity;
+            recordArray[i, 3] = false;
+            recordArray[i, 4] = 0f;
+            recordArray[i, 5] = 0f;
+
+        }
+
+        tempArray[0] = Vector3.zero;
+        tempArray[1] = Quaternion.identity;
+        tempArray[2] = Quaternion.identity;
+        tempArray[3] = false;
+        tempArray[4] = 0f;
+        tempArray[5] = 0f;
+    }
 
     public void DestroyComponentsAtLayerEnd()
     {   // are we even using this for solo mode?

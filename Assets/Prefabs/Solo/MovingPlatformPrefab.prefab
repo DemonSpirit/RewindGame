@@ -38,6 +38,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4733258939409200}
+  - component: {fileID: 114607928436836344}
+  - component: {fileID: 65500743525887962}
   m_Layer: 0
   m_Name: MovingPlatformPrefab
   m_TagString: Untagged
@@ -52,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1573455073627300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.55}
+  m_LocalScale: {x: 1, y: 0.18403697, z: 1}
   m_Children: []
   m_Father: {fileID: 4733258939409200}
   m_RootOrder: 0
@@ -64,8 +66,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980061522508510}
-  m_LocalRotation: {x: -0, y: 0.7071066, z: -0, w: 0.70710707}
-  m_LocalPosition: {x: -0.5660004, y: 0.000012240425, z: 6.975099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12.066, y: 0.42018193, z: 9.064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4442270735133554}
@@ -125,6 +127,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65500743525887962
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980061522508510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.29016018, z: 0.8778429}
+  m_Center: {x: 0, y: 0.1149652, z: 0.56076}
+--- !u!114 &114607928436836344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1980061522508510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da25c90d05783884197b1bb7f164f78d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114933756358097628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +164,6 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   moveDir: {x: 1, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
-  moveAmount: 15
-  moveSpd: 0.025
+  moveAmount: 4
+  moveSpd: 0.01
   directionChangeTime: 3

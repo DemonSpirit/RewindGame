@@ -37,6 +37,14 @@ public class DoorControl : ActivatableObject
 
         if (ii >= triggerCtrl.Length)
         {
+            on = !startCondition;
+        } else
+        {
+            on = startCondition;
+        }
+
+        if (on)
+        {
             transform.position = startPos - (transform.right * openAmount);
             
         } else
