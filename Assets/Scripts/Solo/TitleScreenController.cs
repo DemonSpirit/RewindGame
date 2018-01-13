@@ -9,6 +9,10 @@ public class TitleScreenController : MonoBehaviour
     {
         SceneManager.LoadScene("Level1", LoadSceneMode.Single);
     }
+    public void GoToVersus()
+    {
+        SceneManager.LoadScene("doruk edt 1", LoadSceneMode.Single);
+    }
     public void ExitGame()
     {
         Application.Quit();
