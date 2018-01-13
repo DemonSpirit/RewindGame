@@ -65,7 +65,7 @@ public class LaserControl : ActivatableObject
                     {
                         SoloPlayerController.main.Die();
                     }
-                    SoloPlayerController.main.Die();
+                    
                 }
                 if (hit.collider.tag == "lasercatcher")
                 {
