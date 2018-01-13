@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 5bcd42e58b6bd024b8eee739d0fec9af
+timeCreated: 1515865300
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface1206
+    100004: polySurface1265
+    100006: polySurface1266
+    100008: polySurface1267
+    100010: polySurface1268
+    100012: polySurface1269
+    100014: polySurface1414
+    100016: polySurface239
+    100018: pSphere69
+    100020: pSphere70
+    100022: pSphere71
+    100024: pSphere72
+    100026: pSphere73
+    100028: pSphere74
+    100030: pSphere75
+    100032: pSphere77
+    100034: pTorus1
+    100036: pTorus2
+    100038: transform1169
+    100040: transform1170
+    100042: transform1171
+    100044: transform1172
+    100046: transform1173
+    100048: transform1174
+    100050: transform1175
+    100052: transform1176
+    100054: transform1177
+    100056: transform1178
+    100058: transform1179
+    100060: transform1180
+    100062: transform1181
+    100064: transform1182
+    100066: transform1183
+    100068: transform1184
+    400000: //RootNode
+    400002: polySurface1206
+    400004: polySurface1265
+    400006: polySurface1266
+    400008: polySurface1267
+    400010: polySurface1268
+    400012: polySurface1269
+    400014: polySurface1414
+    400016: polySurface239
+    400018: pSphere69
+    400020: pSphere70
+    400022: pSphere71
+    400024: pSphere72
+    400026: pSphere73
+    400028: pSphere74
+    400030: pSphere75
+    400032: pSphere77
+    400034: pTorus1
+    400036: pTorus2
+    400038: transform1169
+    400040: transform1170
+    400042: transform1171
+    400044: transform1172
+    400046: transform1173
+    400048: transform1174
+    400050: transform1175
+    400052: transform1176
+    400054: transform1177
+    400056: transform1178
+    400058: transform1179
+    400060: transform1180
+    400062: transform1181
+    400064: transform1182
+    400066: transform1183
+    400068: transform1184
+    2300000: pSphere77
+    3300000: pSphere77
+    4300000: pSphere77
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body2
+    second: {fileID: 2100000, guid: 39fc977f43e80fc4a818c46f46247a03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: halka_ve_linelar2
+    second: {fileID: 2100000, guid: 7017581af95cd12429ab7118607e41e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: halkastone2
+    second: {fileID: 2100000, guid: 45c602f4c42a32644a36aee8d4484cef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert4
+    second: {fileID: 2100000, guid: a25081cfbec6f0d4db88166cf5652d10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plakalar2
+    second: {fileID: 2100000, guid: c33e78c34238db24fafd1ccba6b6df11, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
