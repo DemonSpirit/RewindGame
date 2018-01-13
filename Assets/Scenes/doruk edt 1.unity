@@ -12297,14 +12297,14 @@ MonoBehaviour:
   endStep: 0
   layer: 0
   maxLayer: 8
-  rewindSpd: 2
-  countdownTimeLimit: 3
+  rewindSpd: 4
+  countdownTimeLimit: 1
   time: 0
   timeLimit: 12
   currentLayerTimeLimit: 0
   furthestLayerTimeLimit: 1
-  timeLimitTeam1: 4
-  timeLimitTeam2: 8
+  timeLimitTeam1: 20
+  timeLimitTeam2: 20
   gameMode: versus
   gameState: start
   spawnPos: {fileID: 0}
@@ -12331,6 +12331,7 @@ MonoBehaviour:
   woodHitPFX: {fileID: 1000011190285628, guid: beb3acff7ab73944fb8f470f24d74ed3, type: 2}
   explosionPFX: {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1,
     type: 2}
+  bitPrefab: {fileID: 0}
   headerTxt: {fileID: 0}
 --- !u!4 &376333481
 Transform:
@@ -66268,22 +66269,22 @@ Prefab:
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -197.59998
+      value: -534.1
       objectReference: {fileID: 0}
     - target: {fileID: 224590483257982538, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -38
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: -197.59998
+      value: -534.1
       objectReference: {fileID: 0}
     - target: {fileID: 224246614465585062, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -38
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114872817674715548, guid: 8d4768abb0d92eb49adc87077cac0dcb,
         type: 2}
@@ -79918,7 +79919,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2064289009
 RectTransform:
   m_ObjectHideFlags: 0

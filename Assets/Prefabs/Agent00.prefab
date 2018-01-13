@@ -5607,8 +5607,8 @@ MonoBehaviour:
   alive: 1
   team: 0
   bounty: 100
-  maxAmmo: 5
-  ammo: 5
+  maxAmmo: 15
+  ammo: 15
   abilityIDs: 01000000000000000000000000000000
   abilityDMG: 0a000000000000000000000000000000
   moveSpd: 7
@@ -5630,7 +5630,7 @@ MonoBehaviour:
   animShooting: 0
   footstepRate: 0.04
   camObj: {fileID: 0}
-  fireRate: 0.1
+  fireRate: 0.6
   ability1CD: 0
 --- !u!114 &114071827550442442
 MonoBehaviour:
