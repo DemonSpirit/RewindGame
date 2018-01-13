@@ -22,7 +22,7 @@ public class RewindBarController : MonoBehaviour
         fillPerc = ((playCtrl.rewindLimit - playCtrl.rewindCounter) / (float)playCtrl.rewindLimit) * 100f;
         
         fillPerc = (fillPerc / 100f) / 2f;
-        print(fillPerc);
+        
         rewindFill.fillAmount = fillPerc;
     }
 }

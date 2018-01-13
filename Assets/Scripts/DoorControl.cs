@@ -20,7 +20,7 @@ public class DoorControl : ActivatableObject
         {
             triggerCtrl[i] = trigger[i].GetComponent<ActivatableObject>();
         }
-        print("triggerctrl length" + triggerCtrl.Length.ToString());
+        
     }
 
     // Update is called once per frame

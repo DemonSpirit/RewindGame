@@ -15,6 +15,10 @@ public class SoloPlayerController : MonoBehaviour {
     [SerializeField] int activeTimeLoops = 0;
     public int maxTimeLoops = 1;
 	public float moveSpd;
+    public float grabDist;
+    public bool holding = false;
+    public float holdDist = 2.5f;
+    Transform pickupObj;
 	public Vector3 moveDirection = Vector3.zero;
 	public float jumpSpd = 16f;
 	public float gravity = 20f;
@@ -88,6 +92,42 @@ public class SoloPlayerController : MonoBehaviour {
                     h = Input.GetAxis("Horizontal");
                     v = Input.GetAxis("Vertical");
 
+                    //raycast pickup
+                    RaycastHit hit;
+                    if (holding == false)
+                    {
+                        if (Input.GetButtonDown("Fire2"))
+                        {
+                            print("goll");
+                            Debug.DrawRay(cam.transform.position, cam.transform.forward * 100f,Color.red);
+                            if (Physics.Raycast(cam.transform.position + (cam.transform.forward * 2f), cam.transform.forward, out hit, grabDist))
+                            {
+                                print("Raycasted!");
+                                if (hit.transform.tag == "pickup")
+                                {
+                                    pickupObj = hit.transform;
+                                    pickupObj.GetComponent<Collider>().enabled = false;
+                                    holding = true;
+
+                                }
+                            }
+                        }
+                    } else
+                    {
+                        if (pickupObj != null)
+                        {
+                            if (Input.GetButtonDown("Fire2"))
+                            {
+                                holding = false;
+                                pickupObj.GetComponent<Collider>().enabled = true;
+                                pickupObj = null;
+                                
+                            }
+                            pickupObj.position = (cam.transform.position + cam.transform.forward) * holdDist;
+
+                        }
+                    }
+
                     //reset game button
                     if (Input.GetKeyDown(KeyCode.R))
                     {
@@ -134,10 +174,10 @@ public class SoloPlayerController : MonoBehaviour {
                     //  Apply movement
                     if (moveDirection.x != 0f || moveDirection.z != 0f)
                     {
-                        animCtrl.SetInteger("animState", 1);
+                        //animCtrl.SetInteger("animState", 1);
                     } else
                     {
-                        animCtrl.SetInteger("animState", 0);
+                        //animCtrl.SetInteger("animState", 0);
                     }
 
                     moveDirection.x *= moveSpd;

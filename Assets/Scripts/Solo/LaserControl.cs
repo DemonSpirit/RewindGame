@@ -37,7 +37,7 @@ public class LaserControl : ActivatableObject
                 ii++;
             }
         }
-        print(!startCondition);
+        
         if (ii >= triggerCtrl.Length)
         {
             on = !startCondition;

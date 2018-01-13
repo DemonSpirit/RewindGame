@@ -32,6 +32,6 @@ public class CheckpointControl : MonoBehaviour {
     void SetCheckpoint()
     {
         playCtrl.checkpoint = this;
-        print("new checkpoint reached!");
+        
     }
 }

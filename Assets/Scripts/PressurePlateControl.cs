@@ -14,7 +14,7 @@ public class PressurePlateControl : ActivatableObject
 
     // Update is called once per frame
     void Update() {
-        print(on);
+        
         if (on)
         {
             transform.position = startPos - new Vector3(0, +0.2f, 0);
