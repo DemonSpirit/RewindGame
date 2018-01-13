@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DialogueTextAnimator : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DialogueTextAnimator : MonoBehaviour
     [SerializeField] float riseTime = 1f;
     [SerializeField] float riseSpd = 0.1f;
     Color startCol,col;
+    public List<string> strList = new List<string>();
     Text text;
     float alpha = 0f;
     [SerializeField] float alphaFadeSpd = 0.05f;
@@ -37,6 +39,14 @@ public class DialogueTextAnimator : MonoBehaviour
         {
             switch (animStage)
             {
+                case 0:
+                    rTransform.anchoredPosition3D = startPos;
+                    text.color = startCol;
+                    alpha = 0f;
+                    text.text = strList[0];
+                    strList.RemoveAt(0);
+                    animStage = 1;
+                    break;
                 case 1:
 
                     alpha += alphaFadeSpd;
@@ -64,17 +74,18 @@ public class DialogueTextAnimator : MonoBehaviour
                     text.color = new Color(startCol.r, startCol.g, startCol.b, alpha);
                     if (alpha <= 0f)
                     {
-                        animStage = -1;
+                        if (strList.Count > 0)
+                        {
+                            animStage = 0;
+                        } else
+                        {
+                            animStage = -1;
+                        }
+                        
                         if (curTrigger.resetable == true) curTrigger.triggered = false;
                     }
                     break;
-                case 0:
-                    rTransform.anchoredPosition3D = startPos;
-                    text.color = startCol;
-                    alpha = 0f;
-                    animStage = 1;
-                    
-                    break;
+                
             }
         }
     }
