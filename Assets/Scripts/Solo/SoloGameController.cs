@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoloGameController : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class SoloGameController : MonoBehaviour {
     public string gameState = "live";
     public float playbackSpeed = 1f;
     public Text textBox;
+    [SerializeField] string[] level = new string[3];
     
     // Use this for initialization
     private void Awake()
@@ -22,7 +24,7 @@ public class SoloGameController : MonoBehaviour {
         switch (gameState)
         {
             case "level-complete":
-                
+                SceneManager.LoadScene(level[1],LoadSceneMode.Single);
                 break;
             
         }
