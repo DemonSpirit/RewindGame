@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ExitPointControl : MonoBehaviour
 {
-
+    [SerializeField] string goesTo = "";
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            SoloGameController.main.gameState = "level-complete";
+            SceneManager.LoadScene(goesTo, LoadSceneMode.Single);
         }
     }
 }
