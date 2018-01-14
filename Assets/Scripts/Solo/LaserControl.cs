@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LaserControl : ActivatableObject
 {
-    public float startDist = 15f;
+    float startDist = 15f;
     public float distance = 15f;
     public bool canKill = false;
     LineRenderer lineRend;
@@ -18,6 +18,7 @@ public class LaserControl : ActivatableObject
     {
         lineRend = GetComponent<LineRenderer>();
         startCondition = on;
+        startDist = distance;
 
         for (int i = 0; i < trigger.Length; i++)
         {
@@ -57,11 +58,11 @@ public class LaserControl : ActivatableObject
 
             if (Physics.Raycast(transform.position, transform.forward, out hit, distance))
             {
-                if (hit.collider.tag == "Player")
+                if (hit.collider.tag == "Player" || hit.collider.tag == "echo") ;
                 {
                     distance = Vector3.Distance(transform.position, hit.transform.position);
                     lineRend.SetPosition(1, Vector3.forward * distance);
-                    if (canKill)
+                    if (canKill && hit.collider.tag == "Player")
                     {
                         SoloPlayerController.main.Die();
                     }
