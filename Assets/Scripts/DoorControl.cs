@@ -8,6 +8,8 @@ public class DoorControl : ActivatableObject
     Vector3 startPos;
     public GameObject[] trigger = new GameObject[1];
     public ActivatableObject[] triggerCtrl = new ActivatableObject[1];
+    Vector3 openPos;
+    [SerializeField] float openSpd = 0.5f;
 
     //used for counting triggers
     [SerializeField] int ii = 0;
@@ -16,6 +18,7 @@ public class DoorControl : ActivatableObject
     void Start()
     {
         startPos = transform.position;
+        openPos = startPos - (-transform.up * openAmount);
         for (int i = 0; i < trigger.Length; i++)
         {
             triggerCtrl[i] = trigger[i].GetComponent<ActivatableObject>();
@@ -45,12 +48,13 @@ public class DoorControl : ActivatableObject
 
         if (on)
         {
-            transform.position = startPos - (transform.right * openAmount);
+            transform.position = Vector3.Slerp(transform.position, openPos, openSpd);
+            
             
         } else
         {
             
-            transform.position = startPos;
+            transform.position = Vector3.Slerp(transform.position, startPos, openSpd);
         }
         
     }
