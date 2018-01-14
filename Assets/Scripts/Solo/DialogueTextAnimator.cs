@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class DialogueTextAnimator : MonoBehaviour
 {
     bool animate = true;
-    [SerializeField] public int animStage = -1;
+    public int animStage = -1;
     [SerializeField] Vector3 startPos;
     [SerializeField] float moveAmount = 100f;
     [SerializeField] Vector3 targetPos;
