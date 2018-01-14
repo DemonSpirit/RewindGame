@@ -1413,8 +1413,8 @@ MonoBehaviour:
   timeout: 0
   timeoutTime: 1
   startCondition: 0
-  startDist: 15
   distance: 5
+  canKill: 0
   ii: 0
   trigger:
   - {fileID: 0}
@@ -4174,6 +4174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed508ad4cfe2a4049a9bd46f563f7dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goesTo: 
 --- !u!23 &954217537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7576,6 +7577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: live
+  keys: 0
   playbackSpeed: 1
   textBox: {fileID: 1505286410}
   level:
