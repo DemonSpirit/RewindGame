@@ -14,6 +14,7 @@ public class SoloGameController : MonoBehaviour {
     public Text textBox;
     int counter = 0;
     [SerializeField] string[] level = new string[3];
+    public float narrativeStage = 0f;
     
     // Use this for initialization
     private void Awake()
