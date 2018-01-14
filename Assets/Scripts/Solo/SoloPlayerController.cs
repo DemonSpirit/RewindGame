@@ -22,6 +22,7 @@ public class SoloPlayerController : MonoBehaviour {
 	public Vector3 moveDirection = Vector3.zero;
 	public float jumpSpd = 16f;
 	public float gravity = 20f;
+    
 	public Vector3 camOffset = Vector3.zero;
 	public Camera cam;
     public bool active = true;
@@ -402,5 +403,13 @@ public class SoloPlayerController : MonoBehaviour {
         print("Use Weapon Called");
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "key")
+        {
+            Destroy(other.gameObject);
+            SoloGameController.main.keys += 1;
+        }
+    }
+
 }
