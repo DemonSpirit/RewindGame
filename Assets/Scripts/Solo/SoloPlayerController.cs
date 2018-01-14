@@ -41,7 +41,7 @@ public class SoloPlayerController : MonoBehaviour {
 
     int rewindSteps = 0;
     public float rewindCounter = 0;
-    public int rewindLimit = 6;
+    public int rewindLimit = 7;
     int maxAmountOfSteps = 300;
     int sendStep = 0;
     object[,] recordArray = new object[1000,6];
