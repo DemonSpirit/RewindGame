@@ -6849,7 +6849,7 @@ GameObject:
   - component: {fileID: 1701559385}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: GameController
+  m_TagString: master-solo-game-controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6865,7 +6865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d7aa6d1591fdb0459763e57b02f97e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  priority: 1
   gameState: live
   keys: 0
   playbackSpeed: 1

@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class SoloGameController : MonoBehaviour {
 
     public static SoloGameController main;
+    
     public string gameState = "live";
+    public int keys = 0;
     public float playbackSpeed = 1f;
     public Text textBox;
     int counter = 0;
@@ -16,10 +18,30 @@ public class SoloGameController : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        main = this;
+        if (!GameObject.FindGameObjectWithTag("master-solo-game-controller"))
+        {
+            print("secondary game control detected");
+            main = this;
+        }
 
+        if (gameObject.tag == "master-solo-game-controller")
+        {   print("primary gamemaster detected");
+            DontDestroyOnLoad(transform.gameObject);
+            main = this;
+        }
     }
-    
+
+    private void Start()
+    {
+        if (GameObject.FindGameObjectWithTag("master-solo-game-controller"))
+        {
+            if (gameObject.tag == "GameController")
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     // Update is called once per frame
     void LateUpdate () {
         
