@@ -11,6 +11,7 @@ public class AudioControl : MonoBehaviour
     [FMODUnity.EventRef] public string painHitSFX;
     [FMODUnity.EventRef] public string footstepSFX;
     [FMODUnity.EventRef] public string blockSFX;
+    [FMODUnity.EventRef] public string rewindLoop;
 
 
     void Awake()

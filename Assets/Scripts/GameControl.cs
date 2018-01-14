@@ -319,7 +319,7 @@ public class GameControl : MonoBehaviour {
                     case "rewind":
                         // Rewind the game events to convey to the player that we are going back in time.
                         // rewind steps
-                        
+                        FMODUnity.RuntimeManager.PlayOneShot(AudioControl.instance.rewindLoop);
                         step -= rewindSpd;
 						time += rewindSpd * Time.deltaTime;
                         // - Check if back to the start
