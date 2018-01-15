@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1374,8 +1374,14 @@ MonoBehaviour:
   on: 1
   timeout: 0
   timeoutTime: 1
-  startDist: 15
+  startCondition: 0
   distance: 5
+  canKill: 0
+  ii: 0
+  trigger:
+  - {fileID: 0}
+  triggerCtrl:
+  - {fileID: 0}
 --- !u!1001 &230622698
 Prefab:
   m_ObjectHideFlags: 0
@@ -1479,7 +1485,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -4525,6 +4531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed508ad4cfe2a4049a9bd46f563f7dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goesTo: 
 --- !u!23 &954217537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5983,6 +5990,9 @@ MonoBehaviour:
   activeTimeLoops: 0
   maxTimeLoops: 1
   moveSpd: 4.2
+  grabDist: 0
+  holding: 0
+  holdDist: 2.5
   moveDirection: {x: 0, y: 0, z: 0}
   jumpSpd: 10
   gravity: 30
@@ -5999,6 +6009,8 @@ MonoBehaviour:
   rewindCounter: 0
   rewindLimit: 180
   echoList: []
+  checkpoint: {fileID: 0}
+  GameControllerPrefab: {fileID: 0}
 --- !u!114 &1194309963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,6 +6673,11 @@ Prefab:
       propertyPath: m_Name
       value: LightThing (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 108587961719222066, guid: ea310c20575e4d147af650054a4b6f37,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea310c20575e4d147af650054a4b6f37, type: 2}
   m_IsPrefabParent: 0
@@ -7028,6 +7045,11 @@ Prefab:
       propertyPath: powerSources.Array.data[1]
       value: 
       objectReference: {fileID: 792982055}
+    - target: {fileID: 108587961719222066, guid: ea310c20575e4d147af650054a4b6f37,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea310c20575e4d147af650054a4b6f37, type: 2}
   m_IsPrefabParent: 0
@@ -7750,7 +7772,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1629687038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 562, y: 236, z: 0}
+  m_LocalPosition: {x: 685.5, y: 319, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 743702747}
@@ -8051,8 +8073,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: live
+  keys: 0
   playbackSpeed: 1
   textBox: {fileID: 1505286410}
+  level:
+  - 
+  - 
+  - 
+  narrativeStage: 0
 --- !u!4 &1701559384
 Transform:
   m_ObjectHideFlags: 0
@@ -9901,6 +9929,11 @@ Prefab:
       propertyPath: powerSources.Array.data[1]
       value: 
       objectReference: {fileID: 1279926603}
+    - target: {fileID: 108587961719222066, guid: ea310c20575e4d147af650054a4b6f37,
+        type: 2}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea310c20575e4d147af650054a4b6f37, type: 2}
   m_IsPrefabParent: 0
