@@ -7,7 +7,7 @@ public class TitleScreenController : MonoBehaviour
 
     public void GoToGame()
     {
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Hub", LoadSceneMode.Single);
     }
     public void GoToVersus()
     {
@@ -20,7 +20,6 @@ public class TitleScreenController : MonoBehaviour
     }
     public void GoToStadium()
     {
-        
         SceneManager.LoadScene("Arena", LoadSceneMode.Single);
     }
     public void GoToDistrict()

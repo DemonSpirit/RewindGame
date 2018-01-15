@@ -19,17 +19,8 @@ public class SoloGameController : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        if (!GameObject.FindGameObjectWithTag("master-solo-game-controller"))
-        {
-            print("secondary game control detected");
-            main = this;
-        }
-
-        if (gameObject.tag == "master-solo-game-controller")
-        {   print("primary gamemaster detected");
-            DontDestroyOnLoad(transform.gameObject);
-            main = this;
-        }
+        main = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -41,6 +32,8 @@ public class SoloGameController : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
+
+        textBox = GameObject.Find("DialogueText").GetComponent<Text>();
     }
 
     // Update is called once per frame

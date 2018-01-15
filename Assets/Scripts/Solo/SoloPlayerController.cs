@@ -50,13 +50,17 @@ public class SoloPlayerController : MonoBehaviour {
     public List<GameObject> echoList = new List<GameObject>();
     public CheckpointControl checkpoint;
 
-
+    [SerializeField] GameObject GameControllerPrefab;
     SoloAiming horzAim, vertAim;
     
 
     private void Awake()
     {
         main = this;
+        if (GameObject.Find("GameController") == null)
+        {
+            Instantiate(GameControllerPrefab);
+        }
     }
     // Use this for initialization
     void Start () {
@@ -66,7 +70,9 @@ public class SoloPlayerController : MonoBehaviour {
         camObj = transform.GetChild(0);
         camOffset = cam.transform.position - transform.position;
 
-        gameCtrl = GameObject.Find("GameController").GetComponent<SoloGameController>();
+        
+
+        gameCtrl = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoloGameController>();
 
         // Get collider component
         coll = GetComponent<CapsuleCollider>();

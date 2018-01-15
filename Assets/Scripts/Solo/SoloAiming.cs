@@ -31,15 +31,15 @@ public class SoloAiming : MonoBehaviour {
 	void Start()
 	{	Cursor.lockState = CursorLockMode.Locked;
 
-       
-        gameCtrl = GameObject.Find("GameController").GetComponent<SoloGameController>();
+        
+        gameCtrl = GameObject.FindGameObjectWithTag("GameController").GetComponent<SoloGameController>();
         playerCtrl = GameObject.Find("Player").GetComponent<SoloPlayerController>();
         
         
 	}
     // Update is called once per frame
     void Update()
-    {
+    {   
         if (gameCtrl.gameState == "live" && playerCtrl.active == true )
         {
             x = Input.GetAxis("Mouse X");

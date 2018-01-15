@@ -17,8 +17,8 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Start()
     {
-        text = SoloGameController.main.textBox;
-        
+        text = GameObject.Find("DialogueText").GetComponent<Text>();
+
     }
 
     private void Update()
